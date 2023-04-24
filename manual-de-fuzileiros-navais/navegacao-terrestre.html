@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Navegação Terrestre</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Navegação Terrestre</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Navegação Terrestre</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é o meio mais comum de orientação em país estrangeiro em tempos de guerra? (id:27001)",
+              respostas: ["Fotografias","A ajuda da população local","Bússola","Carta"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que são as convenções cartográficas? (id:27002)",
+              respostas: ["Padrões pré-estabelecidos para a fabricação de cartas","Símbolos utilizados para representar acidentes do terreno nas cartas","Tipos diferentes de cartas de acordo com a finalidade","A precisão da reprodução dos acidentes do terreno nas cartas"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a finalidade das cartas náuticas? (id:27003)",
+              respostas: ["Detalhar os acidentes naturais e artificiais de terra","Detalhar as rodovias e vias secundárias","Detalhar os acidentes que interessam a navegação","Representar os acidentes do terreno de forma precisa"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Por que as cartas devem ser tratadas com cuidado em campanha? (id:27004)",
+              respostas: ["Para que possam ser reproduzidas com mais precisão","Para que possam ser trocadas por cartas mais novas","Porque são difíceis de encontrar em país estrangeiro","Porque é difícil reposição em campanha"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é o material recomendado para cobrir as cartas em campanha? (id:27005)",
+              respostas: ["Papel jornal","Papel alumínio","Papel (contact) transparente e impermeável","Plástico transparente"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a convenção cartográfica para representar a hidrografia? (id:27006)",
+              respostas: ["Preto","Azul ","Vermelho","Castanho"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual a convenção cartográfica para representar as rodovias de revestimento sólido? (id:27007)",
+              respostas: ["Preto","Azul","Vermelho ","Castanho"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a convenção cartográfica para representar as curvas de nível? (id:27008)",
+              respostas: ["Preto","Azul","Vermelho","Castanho "],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual a convenção cartográfica para representar a vegetação? (id:27009)",
+              respostas: ["Preto","Azul","Vermelho","Verde "],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual o processo mais utilizado para representação do relevo? (id:27010)",
+              respostas: ["Representação numérica","Representação gráfica","Curvas de nível"," Planos paralelos"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o objetivo da escala numérica em cartografia? (id:27011)",
+              respostas: ["Representar as coordenadas geográficas dos pontos na carta","Representar as distâncias reais entre os pontos na carta"," Representar a grade construída sobre a carta.","Representar a escala gráfica na carta."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Na escala da carta 1:25.000, quanto vale 1 cm na carta em relação ao terreno? (id:27012)",
+              respostas: ["1 m","10 m"," 100 m","250 m"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que é a escala gráfica em cartografia? (id:27013)",
+              respostas: ["A representação gráfica das coordenadas geográficas dos pontos na carta","A representação gráfica da escala numérica na carta","A representação gráfica da grade construída sobre a carta","A representação gráfica da escala de cores utilizada na carta"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Como são designados os pontos na carta por meio das coordenadas retangulares ou de grade? (id:27014)",
+              respostas: ["Pelo cruzamento do paralelo com o meridiano que por ele passa","Pela indicação da latitude e longitude em relação ao paralelo de Oo e ao meridiano base de Grenwich.","Pela indicação do afastamento vertical e horizontal em relação à grade construída sobre a carta.","Pela indicação da distância real entre os pontos na carta"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a direção que passa pelo polo norte da Terra? (id:27015)",
+              respostas: ["Norte Verdadeiro ou Geográfico (NV ou NG)","Norte Magnético (NM)","Norte da Quadrícula (NQ)"," Sul Magnético (SM)"],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que é azimute? (id:27016)",
+              respostas: ["A distância entre dois pontos na carta","O ponto para o qual são atraídas todas as agulhas imantadas.","A direção que se vai seguir no terreno","O ângulo formado entre uma direção base fixa e a direção a ser seguida."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é a direção base utilizada como referência inicial para a determinação dos azimutes nas cartas utilizadas em operações militares? (id:27017)",
+              respostas: [" Norte Verdadeiro ou Geográfico (NV ou NG)"," Norte Magnético (NM)","Norte da Quadrícula (NQ)","Sul Magnético (SM)"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "O que é declinação magnética? (id:27018)",
+              respostas: ["O ângulo formado entre as retas verticais da grade da carta","A distância entre o NM e o NG.","O ângulo formado entre as direções do NV e do NM","A direção que passa pelo polo magnético da Terra"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como é registrada a declinação magnética em uma carta? (id:27019)",
+              respostas: ["Com a distância entre os pontos.","Com a variação anual.","Com as características próprias do ângulo formado.","Com a direção base utilizada como referência inicial"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é a convergência de meridianos? (id:27020)",
+              respostas: ["Um ângulo horizontal medido a partir do NM até a direção desejada","Um ângulo horizontal medido a partir do NG/NV até a direção desejada","O ângulo formado entre as direções do NV e NQ, contado a partir do NV","Nenhuma das opções acima."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como o ângulo QM é calculado? (id:27021)",
+              respostas: ["Somando o AzM e o AzV.","Subtraindo o AzM e o AzV.","Somando a dm e a convergência de meridianos","Subtraindo a dm e a convergência de meridianos."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "O que é AzM? (id:27022)",
+              respostas: ["O ângulo horizontal medido a partir do NM até a direção desejada."," O ângulo horizontal medido a partir do NG/NV até a direção desejada.","O ângulo horizontal medido a partir do NQ até a direção desejada."," Nenhuma das opções acima."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que é AzV? (id:27023)",
+              respostas: ["O ângulo horizontal medido a partir do NM até a direção desejada","O ângulo horizontal medido a partir do NG/NV até a direção desejada.","O ângulo horizontal medido a partir do NQ até a direção desejada.","Nenhuma das opções acima"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é contra-azimute? (id:27024)",
+              respostas: ["Uma direção voltada para uma determinada direção.","O prolongamento no mesmo sentido da reta que determina o azimute.","O azimute da direção oposta.","Uma medida de ângulos horizontais."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a utilidade do contra-azimute? (id:27025)",
+              respostas: ["Determinar o azimute de uma direção.","Medir ângulos horizontais.","Indicar a direção de retorno ao ponto de partida","Medir a variação da bússola."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como se encontra o contra-azimute de uma direção? (id:27026)",
+              respostas: ["Somando 180º ao azimute"," Subtraindo 180º do azimute.","Somando 90º ao azimute.","Subtraindo 90º do azimute"],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que é uma bússola declinada? (id:27027)",
+              respostas: ["Uma bússola afetada pela presença de ferro, magnetos e aparelhos elétricos","Uma bússola que indica ângulos medidos em relação ao NQ","Uma bússola composta de cinco partes","Uma bússola imprecisa quando colocada próxima a depósitos de minério"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do limbo em uma bússola? (id:27028)",
+              respostas: ["Medir ângulos horizontais","Determinar a presença de ferro, magnetos e aparelhos elétricos"," Indicar a direção aproximadamente constante que é o NM","Ler os azimutes."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é a primeira condição a ser verificada para que uma bússola possa ser utilizada apropriadamente? (id:27029)",
+              respostas: ["Sensibilidade","Equilíbrio","Centragem ou centralização","Inclinação"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como se comprova a sensibilidade de uma bússola? (id:27030)",
+              respostas: ["Afastando-a de um objeto imantado"," Aproximando-a de um objeto imantado","Sacudindo-a rapidamente","Expondo-a ao sol"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é necessário fazer caso uma das pontas da agulha da bússola fique mais baixa, não permitindo sua livre rotação? (id:27031)",
+              respostas: ["Trocar a agulha","Não utilizar a bússola","Pôr um contrapeso"," Inclinar a bússola"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a recomendação quanto às visadas com a bússola para que as leituras dos azimutes não sejam distorcidas? (id:27032)",
+              respostas: ["Deve ser feita na posição vertical"," Deve ser feita na posição inclinada"," Deve ser feita na posição horizontal","Deve ser feita de olhos fechados"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Como se determina o contra-azimute usando a bússola? (id:27033)",
+              respostas: ["Lendo o valor do ângulo na extremidade oposta à linha de visada no limbo","Verificando a sensibilidade da agulha da bússola"," Fazendo com que a imagem do ponto central fique sobre a linha de centro do espelho","Girando a caixa até que a seta da direção N-S fique sobre a agulha"],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "O que é necessário fazer para alcançar um lugar afastado 1 km com o azimute de 60º? (id:27034)",
+              respostas: ["Inserir o azimute no limbo graduado da bússola, girar o corpo e seguir diretamente para o ponto de destino","Girar a agulha da bússola até que coincida com a seta da direção N-S, seguir diretamente para o ponto de destino.","Inserir o azimute no limbo graduado da bússola, girar o corpo até que a agulha coincida com a seta da direção N-S, observar um ponto notável para tê-lo como referência do lugar que se deseja alcançar e seguir a direção desse ponto notável.","Observar um ponto notável para tê-lo como referência do lugar que se deseja alcançar, seguir a direção desse ponto notável, e inserir o azimute no limbo graduado da bússola."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Como é feita a aferição da passada individual para utilizar como meio de controle do deslocamento ao marchar segundo um azimute? (id:27035)",
+              respostas: ["Por meio da verificação do número médio de passos que cada individuo executa ao percorrer, em terreno variado, uma distância pré-estabelecida, normalmente, 1 km.","Por meio da verificação do número médio de passos que cada individuo executa ao percorrer, em terreno variado, uma distância pré-estabelecida, normalmente, 10 km.","Por meio da verificação do número médio de passos que cada individuo executa ao percorrer, em terreno variado, uma distância pré-estabelecida, normalmente, 100 m.","Por meio da verificação do número médio de passos que cada individuo executa ao percorrer, em terreno variado, uma distância pré-estabelecida, normalmente, 1.000 m."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Como é possível fazer a visada à noite durante a marcha segundo um azimute? (id:27036)",
+              respostas: ["Olhando diretamente para o ponto de destino","Utilizando o entalhe da mira da bússola.","Observando o número de passos dados.","Voltando a bússola para a direção a seguir, de modo que fiquem num mesmo alinhamento o operador, as marcas luminosas existentes na bússola e o ponto de destino."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Como é possível determinar o azimute de uma direção sobre a carta? (id:27037)",
+              respostas: ["Utilizando a régua da bússola para medir a distância entre os elementos.","Traçando uma reta na carta que ligue os elementos, orientando a carta e utilizando a bússola para determinar o AzM.","Medindo a distância entre os elementos com a escala da carta e utilizando a bússola para determinar o AzM.","Traçando uma reta que ligue os elementos na bússola e utilizando a escala da carta para determinar o AzM"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Como deve ser colocada a bússola sobre a carta para determinar o AzM de uma direção? (id:27038)",
+              respostas: ["Com a tampa voltada para o Norte"," Com a tampa voltada para a direção a ser medida","Com a borda graduada sobre a linha traçada na carta e a tampa voltada para a direção a ser medida.","Com a lateral da caixa tangenciando a referida ponte."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é a sequência de passos para determinar o AzM de uma direção sobre a carta com a bússola? (id:27039)",
+              respostas: ["Orientar a carta, traçar uma reta na bússola que ligue os elementos, colocar a bússola sobre a carta e girar o anel serrilhado até que a seta indicadora do Norte coincida com a agulha","Traçar uma reta na carta que ligue os elementos, orientar a carta, colocar a bússola aberta sobre a carta e girar o anel serrilhado até que a seta indicadora do Norte coincida com a agulha.","Orientar a bússola, traçar uma reta na carta que ligue os elementos, colocar a bússola sobre a carta e girar o anel serrilhado até que a seta indicadora do Norte coincida com a agulha","Traçar uma reta que ligue os elementos na bússola, colocar a bússola sobre a carta orientada e girar o anel serrilhado até que a seta indicadora do Norte coincida com a agulha."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Em que situação seria necessário utilizar a carta e a bússola para localizar um ponto na mesma carta? (id:27040)",
+              respostas: ["Quando se deseja medir a distância entre dois elementos.","Quando se deseja medir a inclinação de uma elevação."," Quando se deseja localizar um ponto do qual se sabe estar situado no topo de uma elevação.","Quando se deseja localizar um ponto do qual se sabe estar situado no sopé de uma elevação, junto a uma trilha, no AzM de outro elemento."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é o processo para determinar a posição exata do observador na carta? (id:27041)",
+              respostas: ["Comparar pontos notáveis identificados na carta","Utilizar o hodômetro da viatura para medir as distâncias rodadas entre pontos"," Fazer a interseção a ré de dois acidentes do terreno à frente"," Fazer a interseção a ré de dois acidentes do terreno à frente"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é a importância da orientação da carta quando se está em movimento em uma viatura? (id:27042)",
+              respostas: ["Auxiliar a orientação e a evitar erros no itinerário","Identificar acidentes do terreno desde o ponto estação até a linha do horizonte","Comparar pontos notáveis identificados na carta","Medir a distância entre o ponto de partida e o de destino"],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "Como pode ser feita a verificação constante da posição quando se está em movimento em uma viatura? (id:27043)",
+              respostas: ["Comparando pontos notáveis identificados na carta"," Utilizando o hodômetro da viatura para medir as distâncias rodadas entre pontos","Fazendo a interseção a ré de dois acidentes do terreno à frente","Realizando o giro do horizonte"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é o giro do horizonte? (id:27044)",
+              respostas: ["A medida na carta da distância entre o ponto de partida e o de destino","A identificação, com o auxílio da carta, dos diversos acidentes do terreno, desde o ponto estação até a linha do horizonte","A comparação da carta com o terreno para que possa mostrar corretamente as minúcias das estradas por onde se transita"," A interseção a ré de dois acidentes do terreno à frente"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é a interseção a ré? (id:27045)",
+              respostas: ["A identificação, com o auxílio da carta, dos diversos acidentes do terreno, desde o ponto estação até a linha do horizonte","A medida na carta da distância entre o ponto de partida e o de destino","A comparação da carta com o terreno para que possa mostrar corretamente as minúcias das estradas por onde se transita","O processo para determinar exatamente a posição do observador na carta, a partir da orientação da carta pela bússola e da interseção de dois acidentes do terreno à frente"],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: " Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o castanho representa que acidente? (id:27046)",
+              respostas: [" Rodovias de revestimento sólido.","Vegetação","Hidrografia"," Curvas de nível e respectivas altitudes."],
+              correta: "resp3"
+            },
+                                                           
+            {
+              pergunta: "Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o vermelho representa que acidente? (id:27047)",
+              respostas: [" Rodovias de revestimento sólido","Vegetação","Hidrografia"," Curvas de nível e respectivas altitudes."],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: " Com relação aos tipos de escalas, assinale a alternativa INCORRETA (id:27048)",
+              respostas: ["A escala numérica é representada por uma fração (1/25.000 ou 1:25.000, por exemplo).","O talão é sempre uma graduação da escala dividida em dez partes iguais, numeradas da direita para a esquerda","A escala gráfica é um segmento da reta dividido em duas partes distintas, separadas pelo índice zero. A parte da direita é chamada escala e a da esquerda talão","A escala gráfica nada mais é que a representação gráfica da escala numérica. É um segmento de reta graduado, de modo a indicar indiretamente os valores medidos na própria carta. "],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Utilizando uma carta de escala 1:22000, transforme a distância gráfica 1,5mm em distância real (id:27049)",
+              respostas: ["3300m","330m","33m","3,3m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Uma medida de 1,6cm na carta de escala 1:150000 corresponde a quantos km no terreno? (id:27050)",
+              respostas: ["0,024Km","0,24Km","2,4Km","24Km"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Qual a distância no terreno entre dois pontos, sabendo que na carta de escala 1:1100, essa distância é igual a 12,3cm? (id:27051)",
+              respostas: ["13530m","1353m","135,3m","13,53m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: " Como se denomina a identificação, com o auxílio da carta, dos diversos acidentes do terreno, desde o ponto estação até a linha do horizonte? (id:27052)",
+              respostas: ["Orientação da carta pela comparação com o terreno."," Determinação do azimute dos elementos representados na carta"," Giro do Horizonte"," Iluminação da carta. "],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: " Com relação ao giro do horizonte, assinale a opção INCORRETA (id:27053)",
+              respostas: [" Para executá-lo, deve-se ocupar uma posição que tenha dominância de vistas sobre a região a ser identificada."," Inicialmente, determina-se o ponto estação e orienta-se a carta.","Realiza-se uma verificação sumária dos acidentes circunvizinhos mais notáveis, identificando-os com a carta para se ter a certeza de que a orientação da carta está correta."," O trecho a ser identificado deve ser dividido em setores e dentro deles inicia-se a identificação do mais afastado para o mais próximo e da esquerda para direita. "],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Qual o contra-azimute de 182°? (id:27054)",
+              respostas: ["360º","358º","4º","2º"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "O ângulo formado entre as direções do Norte Verdadeiro (NV) e Norte Magnético (NM), medido a partir do NV, é chamado de: (id:27055)",
+              respostas: ["Convergência de Meridianos.","Azimute Verdadeiro.","Ângulo QM.","Declinação Magnética"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Como é denominada a direção que passa pelo polo norte da terra? (id:27056)",
+              respostas: ["Norte Magnético","Norte da Quadrícula","Norte Geográfico","Sul"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Transforme o Azimute Magnético 301° em Lançamento, utilizando um Diagrama de Orientação com Convergência de Meridianos 4° E e Ângulo QM 32° W. (id:27057)",
+              respostas: ["269°","333°","329°","273°"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Assinale a opção correta quanto aos conceitos da navegação terrestre. (id:27058)",
+              respostas: ["As linhas que são usadas para representar o relevo em uma carta, que ligam pontos de diferentes alturas e que representam os pontos de interseções da superfície do terreno com planos paralelos e equidistantes, recebem o nome de Curvas de Níve","Lançamento é o ângulo horizontal medido a partir do Norte Verdadeiro até a direção desejada."," As coordenadas geográficas de um ponto são indicadas pelo afastamento vertical e horizontal em relação à grade construída sobre a carta","O ângulo formado entre as direções do Norte Verdadeiro e o Norte da Quadrícula, contando a partir do Norte Verdadeiro, é chamado de Convergência de Meridianos."],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Assinale a opção que completa corretamente a proposição abaixo: “Para se medir um AzM com a bússola SILVA, segura-se a bússola com o espelho aberto e inclinado cerca de ______ em relação a caixa (id:27059)",
+              respostas: [" 30º","45º"," 50º","90º"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Com relação à bússola, marque a opção correta (id:27060)",
+              respostas: ["Bússola é um instrumento destinado à medida de ângulos verticais e à orientação no terreno.","A bússola é um goniômetro no qual a origem de suas medidas é determinada por uma agulha imantada que indica uma direção aproximadamente constante que é o Norte Verdadeiro.","Uma bússola está declinada quando as leituras nela realizadas representam lançamentos, ou seja, ângulos medidos em relação ao Norte da Quadrícula, ao invés de Azimute Magnético","Além da variação causada pelo ângulo QM, uma bússola é afetada pela presença de ferro, magnetos, fios condutores de eletricidade e aparelhos elétricos."],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Uma distância de 9mm na carta e Escala 1:150000, corresponde a quantos hectômetros no terreno? (id:27061)",
+              respostas: [" 0,135","1,35","13,5","135"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "É um desenho que não tem por finalidade reproduzir de forma fiel os acidentes naturais e artificiais da porção do terreno que representa (id:27062)",
+              respostas: ["Fotografia","Croqui","Esboço","Carta"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "São símbolos empregados nas cartas para representar os acidentes naturais e artificiais existentes no terreno. (id:27063)",
+              respostas: [" Diagrama de orientação. ","Escala","Croqui"," Convenções cartográficas"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Utilizando um diagrama de orientação com DM=27°W e Convergência de Meridianos = 6°W e sabendo que o Azimute da Quadrícula para uma posição de Artilharia mede 145°, transforme esse Lançamento em Azimute Verdadeiro e Azimute Magnético,respectivamente, assinalando a seguir a alternativa correta. (id:27064)",
+              respostas: ["139° e 172°"," 139° e 166°"," 172° e 139° "," 172° e 151°"],
+              correta: "resp1"
+            },
+                                                                    
+            {
+              pergunta: "Com relação à representação do relevo, assinale a opção que completa corretamente a proposição abaixo: <br> “Para se poder ter uma ideia do relevo e identificar a altitude de qualquer ponto numa carta, foram criados vários processos de representação do relevo. O mais utilizado é o das ________________, que são linhas que ligam pontos de igual altura e representam as interseções da superfície _______________ com planos paralelos e equidistantes”. (id:27065)",
+              respostas: [" cotas / do terreno.","cotas / da carta.","curvas de nível / da carta","curvas de nível /do terreno."],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Utilizando uma carta de escala 1:22000, transforme a distância gráfica 15mm em distância real. (id:27066)",
+              respostas: ["3300m","330m"," 33m","3,3m."],
+              correta: "resp1"
+            },
+                                                                    
+            {
+              pergunta: " Uma medida de 1,6cm na carta de escala 1:1500 corresponde a quantos km no terreno? (id:27067)",
+              respostas: [" 0,024Km","0,24Km","2,4Km","24Km"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: " Para se poder ter uma ideia do relevo e identificar a altitude de qualquer ponto numa carta, foram criados vários processos de representação do relevo. Qual é o mais utilizado? (id:27068)",
+              respostas: ["Hachuras"," Curvas de nível","Giro do Horizonte","Interseção a ré.",],
+              correta: "resp1"
+            },
+                                                                    
+            {
+              pergunta: "Determine a distância entre dois pontos no terreno em metros, sabendo que esta distância na carta de Escala 1:4200 corresponde a 7cm (id:27069)",
+              respostas: ["29400m","2940m","294m","29,4m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Um ponto na carta é designado por suas coordenadas, ou seja, pelo cruzamento do paralelo (ordenada) com o meridiano (abcissa) que por ele passa. Existem várias formas de indicar as coordenadas de um ponto. Qual é a forma que indica a latitude e a longitude do ponto considerado em relação ao paralelo de 0° (Equador) e ao meridiano base de Greenwich, respectivamente? (id:27070)",
+              respostas: [" Coordenadas de grade."," Coordenadas quilométricas."," Coordenadas métricas."," Coordenadas Geográficas"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Transforme o AzQ 35º em AzV, sabendo que o diagrama de orientação apresenta uma DM=12ºW e um QM= 4ºW. (id:27071)",
+              respostas: ["27º","51º","31º","23º"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Qual é a distância no terreno entre dois pontos, onde essa mesma distância numa carta de Escala 1:9000 corresponde a 22cm? (id:27072)",
+              respostas: ["198000m"," 19800m","1980m","198m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Uma distância de 12cm na carta de Escala 1:230000, corresponde a quantos Km no terreno? (id:27073)",
+              respostas: ["0,276","2,76","276","27,6"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Qual é o Azimute Magnético para uma direção, sabendo que o Lançamento para essa mesma direção mede 122º e o Diagrama de Orientação apresenta um ângulo QM de 17º E? (id:27074)",
+              respostas: ["115°","139°"," 105°","127°"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: " Como é denominado o ângulo formado entre as direções do Norte Verdadeiro (NV)e Norte Magnético (NM), partindo do NV (id:27075)",
+              respostas: ["Azimute Verdadeiro.","Azimute Magnético"," Convergência de Meridianos.","Declinação Magnética"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Quantos metros no terreno um pelotão deverá percorrer até uma posição, sabendo que na carta de Escala 1:250 essa distância é igual a 113cm? (id:27076)",
+              respostas: ["282500m.","28250m"," 2825m.","282,5m."],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Como se denomina o ângulo formado entre as direções do Norte da Quadrícula e o Norte Magnético, partindo do Norte da Quadrícula? (id:27077)",
+              respostas: [" Declinação Magnética"," Convergência de Meridianos"," Ângulo QM","Lançamento.",],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Uma distância de 46mm na carta de Escala 1:125000, equivale a quantos metros no terreno? (id:27078)",
+              respostas: ["575000m","57500m","5750m","575m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: " Determine a Declinação Magnética do ano de 2010 de um Diagrama de Orientação de 2003, que apresenta uma Convergência de Meridianos de 40° W, um ângulo QM 23° 20'E, sabendo que o crescimento anual da Declinação Magnética é de 20' (id:27079)",
+              respostas: [" 17°W"," 17°E","19°E","19°W"],
+              correta: "resp3"
+            },
+                                                                                
+            {
+              pergunta: "Com relação a Escala da carta, marque a opção INCORRETA. (id:27080)",
+              respostas: ["As cartas devem ser confeccionadas de modo a guardar proporcionalidade entre as dimensões representadas nas mesmas e seus correspondentes valores reais no terreno"," As cartas devem conter a informação de quantas vezes ela é maior que o terreno representado"," A escala pode ser indicada, tanto na forma numérica, quanto na forma gráfica. ","A escala gráfica é um segmento de reta graduado, de modo a indicar diretamente os valores medidos na própria carta"],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação à designação de pontos na carta, marque a opção correta (id:27081)",
+              respostas: [" Um ponto na carta é designado por suas coordenadas, ou seja pelo ângulo formado entre o paralelo (ordenada) e o meridiano (abcissa) que por ele passa","Nas coordenadas geográficas, são indicadas as longitude e latitude do ponto considerado em relação ao paralelo de O° (Equador) e ao meridiano base de Grenwich, respectivamente. "," Nas coordenadas retangulares ou de grade, são indicados o afastamento vertical e horizontal em relação à grade construída sobre a carta.","As cartas utilizadas nas operações militares, em geral, possuem uma série de linhas retas que se cruzam a intervalos regulares (grade), formando quadrados chamados de Diagrama de Orientação"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Como são chamadas as linhas que ligam pontos de igual altura e representam as interseções da superfície do terreno com planos paralelos e equidistantes? (id:27082)",
+              respostas: ["Diagrama de orientação.","Encosta","Declividade","Curvas de nível."],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Determine a distância entre dois pontos no terreno, sabendo que essa mesma distância numa carta de Escala 1:27000, corresponde a 2,8cm (id:27083)",
+              respostas: ["0,00756Km.","0,0756Km.","0,756Km"," 7,56Km"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Atualize a Declinação Magnética 22º 17' E, de um Diagrama de Orientação de 1989, para o ano de 2012, sabendo que o seu crescimento é de 11' ao ano. (id:27084)",
+              respostas: ["4º13'E","26º20'E"," 25º30'E","26º30'E"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Transforme o Lançamento 210º em AzM e AzV, respectivamente, utilizando um diagrama de orientação com DM=21ºW e QM=12ºE. (id:27085)",
+              respostas: ["231º e 222º","198º e 222º","231º e 101º","198º e 177º"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Como é denominado o ângulo formado entre as direções do Norte Verdadeiro (NV)e Norte da Quadrícula (NQ), partindo do NV. (id:27086)",
+              respostas: ["Azimute Verdadeiro. ","Azimute Magnético."," Convergência de Meridianos. ","Declinação Magnética. "],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Qual é a Declinação Magnética do ano de 2000, sabendo que no ano de 1985 era de 23º 56' 30”W e seu crescimento é de 24' ao ano? (id:27087)",
+              respostas: ["29ºW","26º56'30”W"," 29º56'30”W"," 29º56'W."],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Determine a distância no terreno entre dois pontos, sabendo que essa distância numa carta de Escala 1:5000 é igual a 7dm. (id:27088)",
+              respostas: ["3,5m","35m","350m","3500m"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "É o ângulo horizontal medido, no sentido horário, a partir do Norte Magnético até a direção desejada (id:27089)",
+              respostas: ["Ângulo QM","Declinação Magnética.","Azimute Verdadeiro","Azimute Magnético"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Determine a distância entre dois pontos no terreno, sabendo que estes mesmos pontos numa carta de Escala 1:450 distam 1,8cm. (id:27090)",
+              respostas: ["8,1m","81m","810m","8100m"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: " Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o castanho representa que acidente? (id:27091)",
+              respostas: [" Rodovias de revestimento sólido.","Vegetação","Hidrografia","Curvas de nível e respectivas altitudes. "],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o vermelho representa que acidente? (id:27092)",
+              respostas: ["Rodovias de revestimento sólido","Vegetação","Hidrografia","Curvas de nível e respectivas altitudes"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: " Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o preto representa que acidente? (id:27093)",
+              respostas: ["Vegetação","Hidrografia","Curvas de nível e respectivas altitudes. ","Planimetria em geral."],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o verde representa que acidente? (id:27094)",
+              respostas: ["Rodovias de revestimento sólido. ","Vegetação","Hidrografia","Curvas de nível e respectivas altitudes. "],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Em certos tipos de carta, as cores são empregadas para auxiliar na identificação dos elementos do terreno, normalmente o azul representa que acidente? (id:27095)",
+              respostas: ["Rodovias de revestimento sólido."," Vegetação","Hidrografia","  Curvas de nível e respectivas altitudes."],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação aos tipos de escalas, assinale a alternativa INCORRETA. (id:27096)",
+              respostas: ["A escala numérica é representada por uma fração (1/25.000 ou 1:25.000, por exemplo).","A escala gráfica nada mais é que a representação gráfica da escala numérica. É um segmento de reta graduado, de modo a indicar indiretamente os valores medidos na própria carta.","A escala gráfica é um segmento da reta dividido em duas partes distintas, separadas pelo índice zero. A parte da direita é chamada escala e a da esquerda talão.","O talão é sempre uma graduação da escala dividida em dez partes iguais, numeradas da direita para a esquerda. "],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "É o ângulo horizontal medido, no sentido horário, a partir do Norte Verdadeiro (NV)até a direção desejada. (id:27097)",
+              respostas: ["Lançamento","Declinação Magnética. "," Azimute Verdadeiro. "," Azimute Magnético. "],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Qual a distância no terreno entre dois pontos, sabendo que na carta de escala 1:1100, essa distância é igual a 2,3cm? (id:27098)",
+              respostas: ["25300m","2530m","253m","25,3m"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: " É de grande importância saber a localização do Ponto Estação. Um bom processo para a determinação exata dessa posição na carta é o conhecido por interseção a ré. Qual a primeira ação a ser tomada neste processo? (id:27099)",
+              respostas: ["Orientar a carta pela bússola","Procurar dois acidentes do terreno, à frente, que estejam representados na carta com exatidão.","Realizar o giro do horizonte.","Determinar os azimutes de dois acidentes do terreno, à frente, que estejam representados na carta com exatidão."],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Qual a distância entre dois pontos no terreno, sabendo que a distância entre esses mesmos numa carta de escala 1:15000 corresponde a 8 cm? (id:27100)",
+              respostas: ["0,012Km","0,12Km","1,2Km","12Km"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Qual o contra azimute de 130º? (id:27101)",
+              respostas: ["220º","200º","230º","310º"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação aos processos expeditos de orientação, podemos afirmar que: (id:27102)",
+              respostas: ["O sol, ao nascer, define aproximadamente a direção oeste e ao se por a direção leste. ","Durante o dia, entre às 09:00 e 15:00 horas, a posição do sol define, em relação ao observador, os planos que contém, respectivamente, as direções Noroeste e Nordeste."," O minuano, vento muito conhecido no Sul do Brasil, sopra de Este-Nordeste para Oeste-Sudoeste.","Os caules das arvores, as superfícies das pedras, os moirões das cercas e as paredes das casas são mais úmidos na parte voltada para o Sul, porque só recebem luz e calor do sol na face voltada para o Norte"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação ao Diagrama de Orientação podemos afirmar que, EXCETO. (id:27103)",
+              respostas: ["A Declinação Magnética se dá em virtude da distorção causada pela projeção da superfície terrestre, que é curva, na superfície plana do papel, quando da confecção das cartas.","O ângulo formado entre as direções do Norte Geográfico e o Norte da Quadrícula, contado a partir do Norte Geográfico, é chamado de Convergência de Meridianos","A variação anual da Declinação Magnética acarreta aumento ou diminuição do ângulo QM.","O Ângulo formado entre as direções do Norte Verdadeiro e o Norte Magnético, medido a partir do Norte Verdadeiro, é chamado de Declinação Magnética"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Determine a distância no terreno entre dois pontos, sabendo que a distância entre os mesmos numa carta de escala 1:10000 é de 30cm (id:27104)",
+              respostas: ["0,003Km","0,03Km","0,3Km","3Km"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "É o ângulo horizontal medido, no sentido horário, a partir do Norte da Quadrícula até a direção desejada (id:27105)",
+              respostas: ["Lançamento","Declinação Magnética","Azimute Verdadeiro","Azimute Magnético"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Qual a distância entre dois pontos no terreno, sabendo que esses mesmos pontos distam 4 dm numa carta de escala 1:40000? (id:27106)",
+              respostas: ["1600000m","160000m","16000m","1600m"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Qual a distância no terreno entre dois pontos, sabendo que os mesmos distam 2dm numa carta de escala 1:10000? (id:27107)",
+              respostas: ["20m","200m","2000m","20000m"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "A operação de ajustar a posição da carta ao terreno chama-se (id:27108)",
+              respostas: ["Orientação da carta","Orientação do terreno0","Medição de Azimute na carta"," Medida de Azimute no terreno."],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação a navegação terrestre, marque a opção correta (id:27109)",
+              respostas: [" Uma carta é um desenho que tem por finalidade reproduzir de forma fiel os acidentes naturais e artificiais da porção do terreno que representa, tal qual uma fotografia","As convenções cartográficas são previamente padronizadas e utilizadas de acordo com a finalidade a que se destinam as cartas.","Curvas de Nível são linhas que ligam pontos de diferente altura e representam as interseções da superfície do terreno com planos paralelos e equidistantes","As cartas devem conter a informação de quantas vezes ela é maior que o terreno representado"],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação ao cruzeiro do sul, qualquer que seja a sua posição na esfera celeste, a determinação do polo Sul se obtém prolongando-se em quatro vezes e meia a distância entre as estrelas que correspondem à altura da cruz. O pé da perpendicular baixada pelo ponto fictício que limita esse prolongamento sobre o horizonte nos indica a direção (id:27110)",
+              respostas: ["Norte","Sul","Leste","Oeste"],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Como é denominada a direção que passa pelo pólo norte da terra ? (id:27111)",
+              respostas: ["Norte Magnético"," Norte da Quadrícula.","Norte Verdadeiro","Sul"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Transforme o Azimute Magnético 301° em Lançamento, utilizando um Diagrama de Orientação com Convergência de Meridianos 4° E e Ângulo QM 32° W. (id:27112)",
+              respostas: ["269°","333°","329°","273°"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Transforme o Azimute Magnético 82º em AzV e AzQ, sabendo que o diagrama de orientação apresenta uma DM=18ºE e QM=4ºW. (id:27113)",
+              respostas: ["100º e 104","100º e 78º.","100 e 86º","64º e 78º"],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Determine a distância no terreno entre dois pontos, sabendo que a distância entre os mesmos numa carta de escala 1:20000 é de 3cm. (id:27114)",
+              respostas: ["0,6Km.","0,06Km","0,006Km","0,0006Km"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação a bussola, marque a opção INCORRETA. (id:27115)",
+              respostas: ["É um instrumento destinado à medida de ângulos horizontais e à orientação no terreno. ","A bússola é um goniômetro no qual a origem de suas medidas é determinada por uma agulha imantada que indica uma direção aproximadamente constante que é o Norte Magnético","Uma bússola está declinada quando as leituras nela realizadas representam lançamentos, ou seja, ângulos medidos em relação ao Norte da Quadrícula, ao invés de Azimutes Verdadeiros. ","Além da variação causada pela Declinação Magnética, uma bússola é afetada pela presença de ferro, magnetos, fios condutores de eletricidade e aparelhos elétricos."],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Assinale a opção correta quanto aos conceitos da navegação terrestre (id:27116)",
+              respostas: ["Giro do Horizonte é a identificação, sem o auxílio da carta, dos diversos acidentes no terreno, desde o ponto estação até a linha do horizonte. ","Azimute Magnético é o ângulo horizontal, medido a partir do Norte Magnético, até a direção desejada","Azimute Verdadeiro é o ângulo vertical, medido a partir do Norte Verdadeiro, até a direção desejada.","Norte Verdadeiro é a direção que passa pelo polo magnético da terra"],
+              correta: "resp1"
+            },
+                                                                                         
+            {
+              pergunta: "Qual escala deverá ser utilizada para desenhar, em uma folha de papel de 33cm x 22cm, um acidente topográfico com extensão de 620m, deixando uma margem de 1cm em cada uma das bordas dessa folha, de forma que esse acidente ocupe o maior espaço possível no papel? (id:27117)",
+              respostas: ["1/20","1/40","1/1500","1/2000"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Para se medir um AzM com a bússola SILVA, procede-se da seguinte maneira, EXCETO: (id:27118)",
+              respostas: ["Visa-se, a seguir, ao mesmo tempo, o objeto desejado e o espelho","A visada do objeto é feita observando-o pelo entalhe da mira.","Antes de se determinar o AzM, deve-se nivelar a bússola. Para tal, através do espelho, faz-se com que a imagem do ponto central fique sobre a linha de centro do espelho.","Movendo a mão e olhando pelo espelho, gira-se a caixa até que a seta da direção N-S (não a agulha) fique sobre a agulha, coincidindo a ponta vermelha com o N da seta"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Com base na situação abaixo, responda as questões subsequentes. <br> I. No dia 12 de Setembro de 2026, a União dos Países Zincos realizaram uma Operação Anfíbia no Continente Zemps, com a finalidade de conquistar área para o estabelecimento de base avançada. Após o desembarque o Cmt do 2ºPelFuzNav, durante as ações em terra, capturou Prisioneiros de Guerra. Após a revista nos PG, foram apresentadas as seguintes informações: <br> II. uma carta topográfica com marcações de posições inimigas, sem Escala, onde as quadrículas estavam separadas de 2 em 2Km e o espaço medido na régua entre as quadriculas era de 40mm; e <br> Esta mesma carta, confeccionada em 2020, apresentava em seu Diagrama de Orientação uma Convergência de Meridianos = 22ºW e um QM = 3ºE, com um crescimento de 10' ao ano <br> Após analisar os dados, o Cmt do 2ºPelFuzNav traçou na carta o Lançamento de sua posição para a posição mais próxima do inimigo, e obteve o resultado de 200º. <br> Qual é a Escala da carta? (id:27119)",
+              respostas: ["1:25000","1:250000"," 1:5000"," 1:50000"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Com base na situação abaixo, responda as questões subsequentes. <br> I. No dia 12 de Setembro de 2026, a União dos Países Zincos realizaram uma Operação Anfíbia no Continente Zemps, com a finalidade de conquistar área para o estabelecimento de base avançada. Após o desembarque o Cmt do 2ºPelFuzNav, durante as ações em terra, capturou Prisioneiros de Guerra. Após a revista nos PG, foram apresentadas as seguintes informações: <br> II. uma carta topográfica com marcações de posições inimigas, sem Escala, onde as quadrículas estavam separadas de 2 em 2Km e o espaço medido na régua entre as quadriculas era de 40mm; e <br> Esta mesma carta, confeccionada em 2020, apresentava em seu Diagrama de Orientação uma Convergência de Meridianos = 22ºW e um QM = 3ºE, com um crescimento de 10' ao ano <br> Após analisar os dados, o Cmt do 2ºPelFuzNav traçou na carta o Lançamento de sua posição para a posição mais próxima do inimigo, e obteve o resultado de 200º. <br>  Qual é a Declinação Magnética da carta, no ano de realização do Desembarque Anfíbio? (id:27120)",
+              respostas: ["20ºW","19ºE","19ºW","20ºE"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Com base na situação abaixo, responda as questões subsequentes. <br> I. No dia 12 de Setembro de 2026, a União dos Países Zincos realizaram uma Operação Anfíbia no Continente Zemps, com a finalidade de conquistar área para o estabelecimento de base avançada. Após o desembarque o Cmt do 2ºPelFuzNav, durante as ações em terra, capturou Prisioneiros de Guerra. Após a revista nos PG, foram apresentadas as seguintes informações: <br> II. uma carta topográfica com marcações de posições inimigas, sem Escala, onde as quadrículas estavam separadas de 2 em 2Km e o espaço medido na régua entre as quadriculas era de 40mm; e <br> Esta mesma carta, confeccionada em 2020, apresentava em seu Diagrama de Orientação uma Convergência de Meridianos = 22ºW e um QM = 3ºE, com um crescimento de 10' ao ano <br> Após analisar os dados, o Cmt do 2ºPelFuzNav traçou na carta o Lançamento de sua posição para a posição mais próxima do inimigo, e obteve o resultado de 200º. <br> Transforme o Lançamento para a posição inimiga em Azimute Magnético e Azimute Verdadeiro, respectivamente, já considerando a atualização do Diagrama de Orientação, e marque a opção correspondente (id:27121)",
+              respostas: ["198º e 178º","197º e 178º","202º e 180º","200º e 182º"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Com base nos princípios da Navegação Terrestre, assinale a opção correta. (id:27122)",
+              respostas: ["No deslocamento de uma viatura, pode-se utilizar o odômetro para medir as distâncias rodadas entre dois pontos e comparar com as suas respectivas distâncias na carta","Uma bússola está declinada se as leituras nela realizadas representam lançamentos, ou seja, ângulos medidos em relação ao Norte Magnético","Para se encontrar o contra-azimute, basta somar 180° ao azimute quando este for maior que 180° ou subtrair 180° quando o azimute for menor que 180°","A variação anual da Declinação Magnética acarreta aumento ou diminuição do ângulo QM. Se as direções do Norte Magnético e do Norte da Quadrícula se aproximam, o ângulo QM aumenta"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Coloque F (falso) ou V (verdadeiro) nas afirmativas abaixo, com relação à Navegação Terrestre, assinalando a seguir a opção correta. <br> ( ) Curvas de nível são linhas que ligam pontos de igual altura e representam as interseções da superfície do terreno com planos paralelos e equidistantes. <br> ( ) Norte Magnético é a direção que passa pelo Polo Norte da Terra <br> ( ) Azimute Verdadeiro é o ângulo horizontal medido a partir do Norte Magnético até a direção desejada. <br> ( ) Lançamento é o ângulo vertical medido a partir do Norte da Quadrícula até a direção desejada (id:27123)",
+              respostas: [" (V) (F) (F) (F)","(F) (V) (V) (F)"," (V) (V) (F) (V)","(F) (F) (F) (V)"],
+              correta: "resp0"
+            },
+                                                                                         
+            {
+              pergunta: "Ao buscar informações sobre determinado terreno, um cabo, comandante de ET, resolveu verificar, empregando a escala da carta, a distância real que sua patrulha percorreria. Pelas informações marginais, esse cabo verificou que a carta era 25 mil vezes menor que o terreno representado. Sabendo-se que o itinerário a ser percorrido pela patrulha do seu Ponto Inicial (ponto A) à Zona de Reunião (ponto B), na carta, é de 12 cm, calcule a distância real em metros que a patrulha irá percorrer e assinale a opção correta. (id:27124)",
+              respostas: ["0.048 m","2.083,3 m","3.000 m","28.333 m"],
+              correta: "resp2"
+            },
+                                                                                         
+            {
+              pergunta: "Com relação à bússola, assinale verdadeiro ou falso e marque a alternativa que apresenta a sequência correta. <br> ( ) É um instrumento destinado a medir ângulos verticais e à orientação no terreno <br>  A bússola é composta de cinco partes: caixa, limbo graduado, agulha imantada, espelho e os acessórios que variam para cada tipo de bússola. <br> Uma bússola está centrada quando colocada em posição horizontal a agulha conserva-se nessa posição, sem que uma ponta fique mais baixa do que a outra <br>  Um dos cuidados especiais em relação à bússola, é a necessidade de se realizar as visadas na posição vertical. Esse procedimento deve ser observado para que as leituras dos azimutes não sejam distorcidas. (id:27125)",
+              respostas: ["(F)(V)(V)(F)","(V)(V)(V)(V)","(V)(V)(F)(V)","(F)(F)(F)(F)"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Um Diagrama de Orientação, confeccionado em 2003, apresenta Declinação Magnética e Convergência de Meridianos de 18°15'W e 35'15”W, respectivamente. Sabendo que a Declinação Magnética sofre uma variação anual crescente de 7' por ano, qual era o valor do ângulo QM em 2018? (id:27126)",
+              respostas: ["20°35'15”W","20°35'15”E","19°24'45”E","19°24'45”W"],
+              correta: "resp3"
+            },
+                                                                                         
+            {
+              pergunta: "Considere um Diagrama de Orientação de 2000, com Declinação Magnética de 11°17'33”W e que diminui 4'45” por ano. Sabendo que esse mesmo Diagrama de Orientação apresenta uma Convergência de Meridianos de 5°55'23”W, qual o valor do ângulo QM em 2019? (id:27127)",
+              respostas: ["6°52'25”W.","3°51'55”W","6°52'25”E.","3°51'55”E."],
+              correta: "resp1"
+            },
+                                                                                                     
+            {
+              pergunta: "Com base em um Diagrama de Orientação de 2001, o qual apresenta uma Declinação Magnética de 17°32”W, com decréscimo anual de 7'11”, e uma Convergência de Meridianos de 10°58'13”W, calcule o valor do Ângulo QM para o ano de 2020 e assinale a opção correta (id:27128)",
+              respostas: ["3°45'50”W","3°45'50”E.","8°17'48”E.","8°17'48”W"],
+              correta: "resp0"
+            },
+                                                                                                         
+            {
+              pergunta: "Qual escala deverá ser utilizada para desenhar, em uma folha com espaço de 20cm x 20cm, um acidente topográfico com extensão de 620 metros, de forma que esse desenho ocupe todo o espaço disponível? (id:27129)",
+              respostas: ["1/40","1/1500","1/2000","1/3100"],
+              correta: "resp3"
+            },
+                                                                                                         
+            {
+              pergunta: "Um Diagrama de Orientação, datado de 2005, possui uma Declinação Magnética de 57°13'E. Esse mesmo Diagrama estabelece como Azimute Magnético e Lançamento para determinada direção dada, respectivamente, os valores de 133° e 131°. Sabendo que ocorre um acréscimo anual na Declinação Magnética de 23”, qual o valor do ângulo QM em 2019? (id:27130)",
+              respostas: ["2°5'22”E","1°54'38”E","57°18'22”W","1°54'38”W"],
+              correta: "resp3"
+            },
+                                                                                                         
+            {
+              pergunta: " O senhor recebeu a missão de deslocar o seu Grupo de Combate (GC) em direção à Instalação Logística Sumária (ILS) da Companhia de Fuzileiros Navais (CiaFuzNav) a fim de receber suprimento de baterias para o rádio PRC-730. Foram-lhe dadas informações de atividade de patrulha inimiga no itinerário e, para evitá-las, foi-lhe dado o lançamento de marcha de 269º. Sabendo que o Diagrama de Orientação da área apresenta uma Declinação Magnética de 3°W, um Ângulo QM de 4°E e uma Convergência de Meridianos de 7°W ,qual será o azimute magnético que o senhor deverá inserir na sua bússola para retornar à posição do seu Pelotão? (id:27131)",
+              respostas: ["66°","89°"," 85°"," 86°"],
+              correta: "resp2"
+            },
+                                                                                                         
+            {
+              pergunta: " Das alternativas abaixo, assinale a que apresenta um item que não faz parte da bússola (id:27132)",
+              respostas: ["Caixa","Limbo graduado.","Acessórios."," Espelho."],
+              correta: "resp3"
+            },
+                                                                                                         
+            {
+              pergunta: "Das alternativas abaixo, assinale a que apresenta um procedimento que não faz parte dos cuidados que se deve ter com a carta topográfica. (id:27133)",
+              respostas: [" Fazer as anotações na carta utilizando lápis grafite.","Dobrar as cartas da forma sanfona."," Colocar as cartas em porta-cartas"," Revestir as cartas com papel adesivo transparente"],
+              correta: "resp0"
+            },
+                                                                                                         
+            {
+              pergunta: "Para que uma bússola possa ser utilizada apropriadamente, deverá satisfazer determinadas condições, as quais devem ser verificadas previamente. Quando a bússola é colocada em posição horizontal e a agulha conserva-se nessa posição, permitindo sua livre rotação, é porque foi verificada qual condição apropriada para o uso dessa bússola? (id:27134)",
+              respostas: ["Equilíbrio","Centralização","Sensibilidade","Aferição"],
+              correta: "resp0"
+            },
+                                                                                                         
+            {
+              pergunta: "Nas cartas utilizadas em operações militares, a direção-base tomada como referência para determinação da direção a seguir é: (id:27135)",
+              respostas: ["Norte da quadrícula.","Norte magnético."," Norte verdadeiro","Azimute magnético."],
+              correta: "resp0"
+            },
+                                                              
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

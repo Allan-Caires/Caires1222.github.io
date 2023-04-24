@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Hierarquia e Disciplina</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Hierarquia e Disciplina</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Hierarquia e Disciplina</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+            {
+              pergunta: "O que é a hierarquia militar? (id:22001)",
+              respostas: ["Uma sequência de punições aplicadas aos militares.","Uma ordem de obediência aos superiores hierárquicos.","Uma ordenação da autoridade em níveis diferentes dentro da estrutura das forças armadas.","Uma lista de tarefas a serem executadas pelos militares."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é a disciplina militar? (id:22002)",
+              respostas: ["Uma forma de punição aplicada aos militares.","A falta de liberdade de expressão dentro das forças armadas","A rigorosa observância e acatamento das leis, regulamentos, normas e disposições que fundamentam o organismo militar.","Uma forma de submissão aos superiores hierárquicos."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é cortesia militar? (id:22003)",
+              respostas: ["A obrigação dos militares em serem simpáticos e educados","A falta de respeito com os superiores hierárquicos.","As atitudes e gestos precisos e rigorosamente observados pelos militares em relação aos superiores.","A ausência de punições disciplinares."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a importância da disciplina em situações de combate? (id:22004)",
+              respostas: ["Garantir que a unidade lute corretamente e conquiste seus objetivos","Evitar que os militares sintam medo em situações perigosas.","Facilitar a execução das ordens dadas pelos superiores.","Assegurar que os militares sejam simpáticos e educados."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Como a disciplina e a cortesia são manifestadas pelos militares? (id:22005)",
+              respostas: ["Pela falta de respeito aos superiores hierárquicos.","Pela falta de obediência às leis, regulamentos e normas.","Pelo acatamento integral das leis, regulamentos, normas e disposições que fundamentam o organismo militar, bem como pelas atitudes e gestos precisos e rigorosamente observados em relação aos superiores.","Pela falta de responsabilidade e comprometimento com o trabalho em equipe."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a importância da continência militar? (id:22006)",
+              respostas: [" É uma saudação pessoal de respeito aos superiores.","É uma forma de demonstrar a consideração e o respeito mútuo entre os membros da família militar.","É uma forma de demonstrar autoridade sobre os inferiores.","Não tem importância na hierarquia militar."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Qual é a posição que o militar isolado deve assumir ao fazer a continência individual? (id:22007)",
+              respostas: ["Sentado.","Deitado","Em pé, na posição de sentido","Em pé, na posição de descanso."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que um FN deve fazer ao encontrar um superior enquanto fuma ou carrega um embrulho na mão direita? (id:22008)",
+              respostas: ["Continua fumando ou segurando o embrulho e não faz a continência.","Passa o cigarro ou o embrulho para a mão esquerda e faz a continência regulamentar.","Deixa cair o cigarro ou o embrulho e faz a continência regulamentar.","Oferece o cigarro ou o embrulho ao superior e não faz a continência."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Como um FN deve cumprimentar um superior quando entra em um estabelecimento público?(id:22009)",
+              respostas: ["Deve se aproximar do superior e cumprimentá-lo pessoalmente."," Deve percorrer o recinto com o olhar e, se houver um superior presente, fazer a continência do lugar onde está.","Deve ignorar o superior e seguir com suas atividades.","Deve pedir autorização para cumprimentar o superior."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Qual é a ordem de desembarque dos militares em uma embarcação? (id:22010)",
+              respostas: ["Do mais antigo para o mais moderno.","Do mais novo para o mais velho."," Aleatoriamente, sem seguir uma ordem.","Do mais moderno para o mais antigo."],
+              correta: "resp3"
+            },
+            
+            {
+              pergunta: "Quando se fala em disciplina no Corpo de Fuzileiros Navais, não se quer referir aos regulamentos, às punições ou a uma condição de subserviência. O que se quer dizer é a exata execução das ordens, decorrente de uma obediência inteligente e voluntária, e não de uma disciplina baseada somente no temor. Assim sendo, qual a meta final da disciplina militar? (id:22011)",
+              respostas: ["Disciplina consciente"," Espírito de corpo ","Espírito de acatamento à sequência de autoridade","Eficiência em combate. "],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "De acordo com o Manual do Fuzileiro Naval, no capítulo que versa sobre hierarquia, disciplina e cortesia, analise as proposições abaixo e assinale a alternativa que apresenta a afirmação correta <br><br> I - A punição de militares por quebra da disciplina é às vezes necessária, mas apenas para corrigir os rumos daqueles que foram capazes de fazer parte de uma equipe <br> II - Quando um FN que está fumando ou conduzindo pequeno embrulho com a mão direita encontra um superior, passa para a mão esquerda o cigarro ou o embrulho e faz-lhe a continência regulamentar. <br> III - Todo FN deve se levantar sempre que passar uma tropa nas proximidades de onde se encontra; caso esteja andando, deverá parar, voltando a frente para essa tropa e quando encontrar um superior numa escada cede-lhe o melhor lugar e saúda-o enquanto continua andando. <br> IV - No quartel, navio ou outro estabelecimento militar, o militar, diariamente, faz alto para a continência ao Comandante na primeira oportunidade que o encontrar. Das outras vezes, gira a cabeça com vigor, encarando-o. Fora dessas dependências, cumprimenta o superior sempre que encontrá-lo. <br> V - Em embarcações ou viaturas, o embarque é feito do mais moderno para o mais antigo.Por ocasião do desembarque, os militares saem em ordem crescente de antigüidade. (id:22012)",
+              respostas: ["Todas estão corretas","Apenas a I, a II e a IV estão corretas.","Nenhuma está correta","Apenas a II está correta."],
+              correta: "resp3"
+            },
+            
+            {
+              pergunta: "Coloque F (falso) ou V (verdadeiro) nas afirmativas abaixo, em relação à Hierarquia, Disciplina e Cortesia e assinale, a seguir, a opção que apresenta a sequência correta. <br><br> ( ) A hierarquia e a disciplina são a base institucional das Forças Armadas<br>( ) A Hierarquia Militar é a ordenação da autoridade, em níveis diferentes, dentro da estrutura das Forças Armadas.<br>( ) A punição de militares por quebra de disciplina é, às vezes, necessária, mas apenas para corrigir os rumos daqueles que fazem parte de uma equipe <br> ( ) A disciplina é necessária a fim de assegurar a correta execução das ações ordenadas, as quais serão de grande importância, principalmente, nas situações de combate <br> ( ) A meta final da disciplina é a perfeita formação do militar. (id:22013)",
+              respostas: [" V-V-F-V-F","F-V-F-F-V","V-F-V-V-F","V-V-V-F-F"],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "Em relação à Hierarquia, Disciplina e Cortesia, o militar que se encontrar fumando ou com um embrulho na mão direita, por ocasião da passagem de um superior, deverá: (id:22014)",
+              respostas: ["Não prestar a continência, pois está impossibilitado de usar a mão direita","Não prestar a continência, pois, nesses casos, a continência pode ser dispensada pelo superior","Fazer apenas a posição de sentido.","Trocar o embrulho de mão e prestar a continência."],
+              correta: "resp3"
+            },
+            
+            {
+              pergunta: "De acordo com o Manual do Fuzileiro Naval, no capítulo que versa sobre hierarquia, disciplina e cortesia, são indícios seguros do grau de disciplina das corporações militares, bem como da educação e do grau de instrução profissional de seus integrantes: (id:22015)",
+              respostas: ["A espontaneidade e a correção dos sinais de respeito.","O uso total da energia em prol do serviço e a cooperação espontânea.","A obediência pronta e a correção de atitudes.","O acatamento à sequência de autoridade e o exemplo."],
+              correta: "resp0"
+            },
+         
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

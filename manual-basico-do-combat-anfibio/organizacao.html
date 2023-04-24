@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Organização</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Organização</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Organização</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="carac-de-uma-area-de-op.html">Carac. de Uma Area de Operação</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="et-gc.html">ET / GC</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="comunicacoes.html">Comunicações</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="op-sob-visibilidade-reduzida.html">OP. sob Visibilidade Reduzida</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-anfibias.html">Operações Anfíbias</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-terrestres.html">Operações Terrestres</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="organizacao.html">Organização</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="patrulhas.html">Patrulhas</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="tecnicas-individuais-de-combat.html">Tecnicas Individuais de Combate</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é a missão da Força de Fuzileiros da Esquadra? (id:12001)",
+              respostas: ["Realizar operações aéreas de caráter naval.","Desenvolver operações terrestres de caráter militar.","Desenvolver operações terrestres de caráter naval.","Realizar operações terrestres de caráter militar."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a finalidade da Divisão Anfíbia? (id:12002)",
+              respostas: ["Organizar e empregar Grupamentos Operativos de Fuzileiros Navais.","Desenvolver operações terrestres de caráter naval.","Realizar operações aéreas de caráter naval.","Realizar operações terrestres de caráter militar."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que é o Batalhão de Infantaria de Fuzileiros Navais? (id:12003)",
+              respostas: ["Uma força organizada, treinada e equipada","Uma unidade tática básica para o combate terrestre aproximado.","Uma unidade equilibrada em elementos de manobra e de apoio de fogo.","Todas as alternativas estão corretas."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Em que contexto o BtlInfFuzNav atua enquadrado em um GptOpFuzNav? (id:12004)",
+              respostas: ["Em operações aéreas de caráter naval","Em operações terrestres de caráter militar.","Em operações terrestres de caráter naval.","Em operações de resgate de reféns."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como o BtlInfFuzNav é empregado no quadro das operações anfíbias? (id:12005)",
+              respostas: ["Como núcleo de um Grupamento de Desembarque de Batalhão (GDB).","Como núcleo de um Grupamento de Desembarque de Infantaria (GDI).","Como núcleo de um Grupamento de Desembarque de Fuzileiros Navais (GDFN).","Como núcleo de um Grupamento de Desembarque de Blindados (GDB)."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do Batalhão de Artilharia de Fuzileiros Navais (BtlArtFuzNav)? (id:12006)",
+              respostas: ["Realizar a defesa antiaérea dos GptOpFuzNav.","Integrar os GptOpFuzNav com carros de combate e viaturas blindadas."," Prover o apoio às atividades de inteligência de sinais, comando e controle aos GptOpFuzNav.","Apoiar pelo fogo as manobras dos GptOpFuzNav."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é a finalidade do Batalhão de Controle Aerotático e Defesa Antiaérea (BtlCtAetatDAAe)? (id:12007)",
+              respostas: ["Realizar a defesa antiaérea dos GptOpFuzNav","Integrar os GptOpFuzNav com carros de combate e viaturas blindadas","Prover o apoio às atividades de inteligência de sinais, comando e controle aos GptOpFuzNav.","Prover os meios para o controle aéreo e para o desdobramento em terra de meios aéreos."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é a finalidade do Batalhão de Blindados de Fuzileiros Navais (BtlBldFuzNav)? (id:12008)",
+              respostas: [" Realizar a defesa antiaérea dos GptOpFuzNav."," Integrar os GptOpFuzNav com carros de combate e viaturas blindadas","Prover o apoio às atividades de inteligência de sinais, comando e controle aos GptOpFuzNav.","Apoiar pelo fogo as manobras dos GptOpFuzNav"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a finalidade do Batalhão de Comando e Controle (BtlCmdoCt)? (id:12009)",
+              respostas: ["Realizar a defesa antiaérea dos GptOpFuzNav"," Integrar os GptOpFuzNav com carros de combate e viaturas blindadas.","Prover o apoio às atividades de inteligência de sinais, comando e controle aos GptOpFuzNav","Prover os meios para o controle aéreo e para o desdobramento em terra de meios aéreos."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Em quais situações a Bateria de Morteiros 120mm (BiaMrt120mm) poderá ser ativada? (id:12010)",
+              respostas: ["Em operações anfíbias e em outras operações terrestres de caráter naval.","Em apoio aos GptOpFuzNav nucleados por tropas de escalão menor do que BtlInfFuzNav.","Nos movimentos helitransportados.","Todas as alternativas estão corretas."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade da Companhia de Apoio ao Desembarque (CiaApDbq)? (id:12011)",
+              respostas: [" Realizar operações especiais","Prover transporte de caráter logístico aos GptOpFuzNav","Contribuir no movimento navio-para-terra (MNT)"," Prover o apoio de abastecimento de todas as classes de suprimentos"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do Batalhão de Viaturas Anfíbias (BtlVtrAnf)? (id:12012)",
+              respostas: ["Prover transporte de caráter logístico aos GptOpFuzNav"," Realizar operações especiais","Apoiar a manobra em terra","Prover o apoio de abastecimento de todas as classes de suprimentos"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do Batalhão Logístico de Fuzileiros Navais (BtlLogFuzNav)? (id:12013)",
+              respostas: [" Realizar operações especiais","Contribuir no movimento navio-para-terra (MNT)","Prover o apoio de abastecimento de todas as classes de suprimentos","Prover transporte de caráter logístico aos GptOpFuzNav"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do Batalhão de Engenharia de Fuzileiros Navais (BtlEngFuzNav)? (id:12014)",
+              respostas: [" Prover transporte de caráter logístico aos GptOpFuzNav","Prover o apoio de abastecimento de todas as classes de suprimentos","Prover apoio ao combate e de apoio de serviços ao combate aos GptOpFuzNav"," Realizar operações especiais"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual a finalidade do Batalhão de Operações Especiais de Fuzileiros Navais (BtlOpEspFuzNav)? (id:12015)",
+              respostas: ["Realizar operações especiais","Prover transporte de caráter logístico aos GptOpFuzNav","Contribuir no movimento navio-para-terra (MNT)","Apoiar a manobra em terra"],
+              correta: "resp0"
+            },
+           
+            {
+              pergunta: "Qual Unidade do CFN tem como propósito prover o componente de comando (CteC) dos GptOpFuzNav até o nível Unidade Anfíbia? (id:12016)",
+              respostas: ["Comando da Divisão Anfíbia","Batalha de Infantaria","Comando da Tropa de Reforço.","Comando da Tropa de Desembarque."],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Segundo a Organização do CFN, analise as sentenças abaixo, considere-as como verdadeiras ou falsas e assinale a alternativa que apresenta a sequência correta. <br> ( ) O Batalhão de Operações Especiais está diretamente subordinado ao Comandante-Geral do CFN. <br> ( ) A Divisão Anfíbia (DivAnf) tem por finalidade organizar e empregar Grupamentos Operativos de Fuzileiros Navais (GptOpFuzNav) que não transcendam o nível do Comando da Tropa de Desembarque (CmdoTrDbq). <br> ( ) A Divisão Anfíbia (DivAnf), reforçada por elementos de apoio ao combate e de apoio de serviço ao combate constitui, na FFE, a unidade tática básica para o combate terrestre aproximado. <br> ( ) O Batalhão de Controle Aerotático e de Defesa Anti-Aérea está diretamente subordinado à Força de Fuzileiros da Esquadra (id:12017)",
+              respostas: ["(F) (F) (F) (V)","(F) (F) (F) (F)","(V) (V) (V) (V)","(V) (F) (V) (V)"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Segundo a organização do CFN, prevista no Manual do Combatente Anfíbio, associe a coluna da esquerda com a da direita e marque a alternativa que apresenta a sequência correta. <br> ( ) Tem por finalidade prover apoio ao combate e de apoio de serviços ao combate aos GptOpFuzNav, por meio do apoio cerrado. <br> ( ) Possui em sua estrutura Companhia de Manutenção e de Abastecimento, fim prover os GptOpFuzNav, respectivamente, de manutenção em segundo escalão dos meios operativos e distribuição dos itens de suprimentos. <br> ( ) É estruturado como Unidade de Combate, equilibrada em elementos de manobra e de apoio de fogo, sendo especialmente organizado, equipado e adestrado para operações terrestres de caráter naval. <br> ( ) É uma unidade de apoio ao combate (ApCmb), especialmente organizada, equipada e adestrada para emprego em operações anfíbias e em outras operações terrestres de caráter naval, cuja finalidade é apoiar pelo fogo as manobras dos GptOpFuzNav. <br> ( ) Tem a finalidade de integrar os GptOpFuzNav, conferindo-lhes maior poder de fogo, capacidade de manobra ampliada, melhores condições de desenvolver a defesa anticarro e meios para realizar ações de reconhecimento e segurança. <br> ( ) Tem a finalidade de prover o apoio às atividades de inteligência de sinais. <br> ( ) Realiza Operações de Contra-Reconhecimento e de Reconhecimento Anfíbio/Terrestre <br> ( ) É uma força organizada, treinada e equipada, cuja missão é desenvolver operações terrestres de caráter naval, a fim de contribuir para a aplicação do Poder Naval Brasileiro <br> ( ) Tem a finalidade de contribuir no movimento navio-para-terra (MNT), apoiar a manobra em terra e prover transporte de caráter logístico aos GptOpFuzNav. <br><br> (1) Batalhão de Infantaria de Fuzileiros Navais <br> (2) Batalhão de Engenharia de Fuzileiros Navais <br> (3) Batalhão de Comando e Controle <br> (4) Batalhão Logístico de Fuzileiros Navais <br> (5) Batalhão de OpEsp de Fuzileiros Navais <br> (6) Batalhão de Blindados de Fuzileiros Navais <br> (7) Força de Fuzileiros da Esquadra <br> (8) Batalhão de Viaturas Anfíbias <br> (9) Batalhão de Artilharia de Fuzileiros Navais <br> (id:12018)",
+              respostas: ["(2)(4)(1)(9)(6)(3)(5)(7)(8)","(2)(5)(9)(4)(6)(3)(8)(7)(1)","(2)(4)(1)(9)(8)(3)(5)(7)(6)","(9)(2)(4)(1)(8)(6)(3)(7)(5)"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Segundo a organização da Força de Fuzileiros da Esquadra, o (a) __________________ tem a finalidade de realizar operações terrestres de caráter naval, integrando GptOpFuzNav, e o _____________________ tem a finalidade de contribuir no movimento navio-para-terra (MNT), apoiar a manobra em terra e prover transporte de caráter logístico aos GptOpFuzNav. (id:12019)",
+              respostas: ["BtlInfFuzNav e BtlVtrAnf","BtlInfFuzNav e BtlLogFuzNav.","DivAnf e BtlInfFuzNav","DivAnf e BtlLogFuzNav."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Na estrutura da Força de Fuzileiros da Esquadra, é a Unidade que tem por tarefa prover o apoio administrativo em campanha e o transporte motorizado aos GptOpFuzNav (id:12020)",
+              respostas: ["Comando da Tropa de Desembarque.","Companhia de Polícia.","Batalhão de Comando e Controle.","Batalhão Logístico de Fuzileiros Navais."],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Na estrutura da Força de Fuzileiros da Esquadra, é a Unidade que tem por tarefa, por meio das suas subunidades, prover uma variada gama de serviços atinentes às diversas funções logísticas. (id:12021)",
+              respostas: ["Batalhão de Comando e Controle","Batalhão de Infantaria","Batalhão Logístico de Fuzileiros Navais.","Tropa de Reforço."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Na estrutura da Força de Fuzileiros da Esquadra, é a Unidade que tem por tarefa nuclear o Componente de Combate Terrestre (CCT) de uma Brigada Anfíbia (BAnf). (id:12022)",
+              respostas: ["Batalhão de Infantaria de Fuzileiros Navais.","Batalhão Logístico de Fuzileiros Navais","Tropa de Reforço.","Comando da Tropa de Desembarque."],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Segundo a Organização do CFN, analise as sentenças abaixo e assinale a alternativa correta. (id:12023)",
+              respostas: ["A Divisão Anfíbia é uma força organizada, treinada e equipada, cuja missão é desenvolver operações terrestres de caráter naval, a fim de contribuir para a aplicação do Poder Naval Brasileiro","A Força de Fuzileiros da Esquadra tem por finalidade organizar e empregar Grupamentos Operativos de Fuzileiros Navais (GptOpFuzNav) que transcendam o nível do Comando da Tropa de Desembarque (CmdoTrDbq), bem como contribuir para a formação dos GptOpFuzNav por ele empregados","O BtlInfFuzNav é estruturado como Unidade de Combate, equilibrada em elementos de manobra e de apoio de fogo, sendo especialmente organizado, equipado e adestrado para operações terrestres de caráter naval","Quando houver a necessidade de o Batalhão de Artilharia de Fuzileiros Navais ativar a Bateria de Morteiros 120mm, esta será constituída por elementos de uma das baterias de Obus 155mm."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: " Segundo a Organização do CFN, analise as sentenças abaixo, considere-as como certas ou erradas e assinale a alternativa que apresenta a afirmativa correta. <br> I - O Batalhão de Blindados de Fuzileiros Navais tem como propósito integrar os GptOpFuzNav com carros de combate e viaturas blindadas, conferindo-lhes maior poder de fogo, capacidade de manobra ampliada, proteção blindada, melhores condições de desenvolver a defesa anti-carro e meios para realizar ações de reconhecimento e segurança, estando diretamente subordinado à Tropa de Reforço <br> II - O Batalhão de Controle Aerotático e Defesa Antiaérea tem a finalidade de prover os meios para o controle aéreo e para o desdobramento em terra de meios aéreos, mas não realiza a defesa antiaérea dos GptOpFuzNav, ficando essa tarefa a cargo da Bateria Antiaérea do Batalhão de Artilharia <br> III - Para cumprir a sua finalidade, uma das tarefas do Batalhão de Operações Especiais de Fuzileiros Navais é realizar Operações Anfíbias e Operações Ribeirinhas <br> IV - O Batalhão de Engenharia de Fuzileiros Navais, realizando atividade de Apoio de Serviços ao Combate, provê limitado apoio de retaguarda que visa à melhoria do bem-estar da tropa. (id:12024)",
+              respostas: ["Apenas a I está incorreta.","Todas estão incorretas."," Apenas a IV está correta","A III e a IV estão corretas (id:12025)"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Qual a Organização Militar da estrutura da Força de Fuzileiros da Esquadra, após receber elementos de apoio ao combate e de apoio de serviços ao combate, representa a unidade tática básica para o combate terrestre aproximado. (id:12026)",
+              respostas: ["Comando da Tropa de Desembarque","Divisão Anfíbia."," Batalhão de Operações Especiais de Fuzileiros Navais.","Batalhão de Infantaria de Fuzileiros Navais"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "De acordo com a organização do Corpo de Fuzileiros Navais, quantos pelotões de apoio ao desembarque existem na estrutura da Companhia de Apoio ao Desembarque? (id:12027)",
+              respostas: ["1","2","3","4"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Das alternativas abaixo, assinale a que indica uma Unidade diretamente subordinada à Força de Fuzileiros da Esquadra. (id:12028)",
+              respostas: ["Base de Fuzileiros Navais da Ilha do Governador"," Batalhão de Controle Aerotático e Defesa Antiárea","Batalhão de Operações Especiais de Fuzileiros Navais.","Batalhão de Infantaria de Fuzileiros Navais."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual Unidade da estrutura da Força de Fuzileiros da Esquadra tem por finalidade prover apoio relacionado à inteligência de sinais? (id:12029)",
+              respostas: ["Tropa de Reforço"," Batalhão de Controle Aerotático e Defesa Antiárea."," Divisão Anfíbia.","Batalhão de Comando e Controle."," Batalhão de Blindados de Fuzileiros Navais"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: " Em algumas situações, visando também prover o apoio de fogo, como nos movimentos helitransportados, nos Grupamentos Operativos Mecanizados (GptOpMec) e em apoio aos GptOpFuzNav nucleados por tropas de escalão menor do que BtlInfFuzNav, quando em ações isoladas ou independentes, poderá ser ativada a Bateria de Morteiros 120mm (BiaMrt120mm). Nesse contexto, quais elementos guarnecerão esse armamento? (id:12030)",
+              respostas: ["Elementos do Morteiro 81mm da Companhia de Apoio de Fogo do Batalhão de Infantaria."," Elementos do Morteiro 120mm da Companhia de Apoio de Fogo do Batalhão de Infantaria","Elementos da Bateria de Obus 105mm do Batalhão de Artilharia"," Elementos da Bateria de Morteiro 81mm do Batalhão de Artilharia"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Das alternativas abaixo, assinale a que não apresenta uma tarefa do Batalhão de Operações Especiais de Fuzileiros Navais. (id:12031)",
+              respostas: ["Participar de operações anfíbias e ribeirinhas.","Realizar operações de contra-reconhecimento."," Executar ações de reconhecimento anfíbio/terrestre.","Participar de operações de proteção."],
+              correta: "resp3"
+            },
+
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

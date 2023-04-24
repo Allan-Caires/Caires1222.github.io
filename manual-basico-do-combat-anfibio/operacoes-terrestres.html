@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Operações Terrestres</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Operações Terrestres</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Operações Terrestres</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="carac-de-uma-area-de-op.html">Carac. de Uma Area de Operação</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="et-gc.html">ET / GC</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="comunicacoes.html">Comunicações</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="op-sob-visibilidade-reduzida.html">OP. sob Visibilidade Reduzida</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-anfibias.html">Operações Anfíbias</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-terrestres.html">Operações Terrestres</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="organizacao.html">Organização</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="patrulhas.html">Patrulhas</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="tecnicas-individuais-de-combat.html">Tecnicas Individuais de Combate</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é o objetivo das operações ofensivas? (id:11001)",
+              respostas: [" Defender o território.","Conquistar o território.","Manter o inimigo em posição.","Privar o inimigo de informações"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Quantas fases as operações ofensivas normalmente possuem? (id:11002)",
+              respostas: ["Duas","Três","Quatro","Cinco"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que marca o início da execução do ataque na fase de preparação? (id:11003)",
+              respostas: [" O recebimento da diretiva.","A marcha para o combate","A ocupação de uma posição de ataque.","A transposição da linha de partida."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é a fase que se inicia com o cruzamento de uma linha de partida ou linha de contato até a conquista dos objetivos? (id:11004)",
+              respostas: ["Preparação.","Execução","Continuação","Nenhuma das anteriores."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que garante a velocidade no assalto durante a execução da fase de operações ofensivas? (id:11005)",
+              respostas: ["A máxima habilidade com as armas por ele usadas.","A falta de dependência de comandos verbais ou visuais.","A união de forças.","Todas as anteriores."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é o objetivo das ações após a conquista de um objetivo? (id:11006)",
+              respostas: ["Retirada da tropa"," Descanso da tropa"," Reorganização da tropa e continuação das operações","Fim das operações"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Por que é provável que os remanescentes do inimigo procurem desengajar após um ataque? (id:11007)",
+              respostas: ["Porque estão com fome","Porque querem descansar","Porque querem reorganizar-se e estabelecer novas posições","Porque querem se render"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Quando um ataque é seguido de um agressivo aproveitamento do êxito? (id:11008)",
+              respostas: ["Sempre","Raramente","Somente quando há restrições impostas pelo comando","Quando se busca manter pressão sobre o inimigo e destruir sua capacidade de reorganizar-se"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é o objetivo da perseguição em uma operação ofensiva? (id:11009)",
+              respostas: ["Manter pressão sobre o inimigo","Destruir a capacidade do inimigo de reorganizar-se","Destruir a tropa inimiga ","Localizar e fixar o inimigo em posição"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Quantos tipos gerais de operações ofensivas ? (id:11010)",
+              respostas: ["Três","Quatro","Cinco ","Seis"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é a finalidade da marcha de aproximação? (id:11011)",
+              respostas: ["Testar o dispositivo e o valor do inimigo."," Obter informações pormenorizadas.","Aproximar-se do inimigo para realizar um combate decisivo."," Evitar a ocorrência de um combate de encontro."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Em que consiste um combate de encontro? (id:11012)",
+              respostas: ["Na ação que ocorre quando uma tropa em movimento, não desdobrada para o combate, engaja-se com uma tropa inimiga, parada ou em movimento, sobre a qual não dispõe de informações adequadas."," Na operação destinada a cercar e destruir uma tropa inimiga que está em processo de desengajamento ou que tenta fugir.","No emprego coordenado da manobra e do apoio de fogo para cerrar sobre o inimigo, destruí-lo ou neutralizá-lo","Na realização de uma marcha para o combate, desdobrando progressivamente a tropa à medida em que se prenuncia o contato com o inimigo."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual é a finalidade do reconhecimento em força? (id:11013)",
+              respostas: ["Obter informações pormenorizadas sobre o inimigo.","Aproximar-se do inimigo para realizar um combate decisivo","Testar o dispositivo e o valor do inimigo em uma determinada posição","Cercar e destruir uma tropa inimiga que está em processo de desengajamento ou que tenta fugir."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que é o ataque coordenado? (id:11014)",
+              respostas: ["A perseguição de uma tropa inimiga que está em processo de desengajamento ou que tenta fugir.","Uma operação destinada a obter informações pormenorizadas sobre o inimigo."," O emprego coordenado da manobra e do apoio de fogo para cerrar sobre o inimigo, destruí-lo ou neutralizá-lo.","A continuação agressiva de um ataque bem sucedido, destruindo a capacidade do inimigo de resistir."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é a finalidade da perseguição? (id:11015)",
+              respostas: ["Cercar e destruir uma tropa inimiga que está em processo de desengajamento ou que tenta fugir"," Obter informações pormenorizadas sobre o inimigo.","Testar o dispositivo e o valor do inimigo em uma determinada posição.","Evitar a ocorrência de um combate de encontro."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual é uma das condições necessárias para a adoção da manobra de penetração? (id:11016)",
+              respostas: ["O inimigo apresenta flancos acessíveis e vulneráveis."," O atacante tem tempo suficiente para montar outra forma de manobra.","O inimigo está desdobrado em uma posição estreita","O terreno e a observação são desfavoráveis ao atacante"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Por que o ataque frontal é a forma de manobra menos desejável? (id:11017)",
+              respostas: ["Porque o atacante terá condições de aplicar o seu máximo poder de fogo.","Porque o inimigo terá condições de aplicar o seu máximo poder de fogo"," Porque o ataque frontal não é eficaz para conquistar objetivos.","Porque o ataque frontal não permite a utilização de ataques secundários."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é o objetivo da manobra de desbordamento? (id:11018)",
+              respostas: ["Conquistar um objetivo à frente da posição defensiva inimiga."," Conquistar um objetivo à retaguarda do dispositivo inimigo.","Conquistar um objetivo em uma das laterais da posição defensiva inimiga.","Conquistar um objetivo no centro da posição defensiva inimiga."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é a forma de manobra tática que oferece melhor oportunidade para obtenção do sucesso e tende a diminuir o número de baixas entre os atacantes? (id:11019)",
+              respostas: ["Penetração","Ataque frontal.","Desbordamento","Infiltração"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Como é caracterizada a execução da manobra de desbordamento? (id:11020)",
+              respostas: ["Por ataques secundários que forçam o inimigo a combater em uma única direção.","Por um ataque principal orientado contra uma faixa estreita da posição defensiva inimiga.","Por sigilo nas ações iniciais, rapidez no deslocamento do ataque principal e proteção dos seus flancos expostos."," Por um ataque principal que incide ao longo de toda a frente da posição defensiva inimiga."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que é o duplo desbordamento? (id:11021)",
+              respostas: ["Uma variante do desbordamento em que o atacante procura contornar apenas um dos flancos da posição inimiga.","Uma variante do desbordamento em que o atacante procura atacar frontalmente a posição inimiga."," Uma variante do desbordamento em que o atacante procura desviar a atenção do inimigo para outra posição.","Uma variante do desbordamento em que o atacante procura contornar, simultaneamente, ambos os flancos da posição inimiga"],
+              correta: "resp3"
+            },
+                                 
+            {
+              pergunta: "O que é o envolvimento? (id:11022)",
+              respostas: [" Uma forma de manobra tática ofensiva em que o atacante fixa o inimigo e contorna suas posições com a intenção de atacá-las.","Uma forma de manobra tática defensiva em que o defensor utiliza uma força secundária para atacar o inimigo pela retaguarda","Uma forma de manobra tática defensiva em que o defensor utiliza uma força secundária para fixar o inimigo e evitar que ele avance.","Uma forma de manobra tática ofensiva em que o ataque principal contorna as posições defensivas do inimigo para conquistar objetivos profundos em sua retaguarda."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "O que é a infiltração? (id:11023)",
+              respostas: ["Uma forma de manobra tática defensiva em que o defensor utiliza uma força secundária para atacar o inimigo pela retaguarda.","Uma forma de manobra tática ofensiva em que o ataque principal contorna as posições defensivas do inimigo para conquistar objetivos profundos em sua retaguarda.","Uma forma de manobra tática ofensiva em que a tropa avança diretamente contra o inimigo com a intenção de conquistar sua posição defensiva.","Uma forma de manobra tática ofensiva em que uma força se desloca furtivamente através ou ao redor das posições inimigas para atacá-lo pelo flanco ou pela retaguarda."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual é o propósito principal de uma operação defensiva? (id:11024)",
+              respostas: ["Ganhar tempo até a chegada de novos meios","Criar condições mais favoráveis às operações ofensivas subseqüentes","Reduzir a capacidade do inimigo de combater, desgastando suas tropas"," Derrotar um ataque inimigo, contendo, repelindo ou destruindo suas tropas"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual é a classificação das operações defensivas quanto ao tipo? (id:11025)",
+              respostas: ["Defesa imediata e defesa preparada"," Defesa em uma ou mais posições e movimentos retrógrados"," Ação retardadora, retraimento e retirada","Concentração de poder de combate e utilização de linhas de comunicação"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "O que é a defesa em uma ou mais posições? (id:11026)",
+              respostas: ["A defesa em que a tropa procura evitar o combate decisivo sob condições desfavoráveis, seja rompendo o contato com o inimigo, seja retardando-o a fim de trocar espaço por tempo"," A defesa em que a tropa procura enfrentar o inimigo em uma área previamente organizada, em largura e profundidade, procurando dificultar ou deter sua progressão","A defesa em que a tropa passa através das linhas de uma outra, realizando um movimento retrógrado","A defesa em que a tropa se concentra em um único ponto, deixando outras áreas desprotegidas"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "O que são os movimentos retrógrados? (id:11027)",
+              respostas: ["Ações ofensivas realizadas por uma força em direção à retaguarda ou para longe do inimigo"," Ações táticas realizadas por uma força em direção à retaguarda ou para longe do inimigo","Ações de reconhecimento realizadas por uma força em direção à retaguarda ou para longe do inimigo","Ações defensivas realizadas por uma força em direção à retaguarda ou para longe do inimigo"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Qual é o propósito geral de um movimento retrógrado? (id:11028)",
+              respostas: ["Ganhar tempo até a chegada de novos meios","Preservar a integridade de uma força, de modo a que possa ser empregada, no futuro, em ações ofensivas","Reduzir a capacidade do inimigo de combater, desgastando suas tropas","Controlar pontos críticos e/ou objetivos profundos"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Qual a importância da utilização apropriada do terreno na defensiva? (id:11029)",
+              respostas: [" Permite a obtenção de surpresa","Garante a segurança da tropa","Negam ao inimigo o uso do terreno que ameace o sucesso da defesa","Fornece boas condições de observação, campos de tiro, coberta e abrigos"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Quais são as medidas de segurança que o defensor deve adotar na defensiva? (id:11030)",
+              respostas: [" Aproveitamento das cobertas e abrigos"," Uso de radares de vigilância terrestre","Emprego de forças de segurança","Todas as alternativas estão corretas"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual a importância do conhecimento do inimigo para a defensiva? (id:11031)",
+              respostas: [" Permite a obtenção de surpresa","Garante a segurança da tropa"," Negam ao inimigo o uso do terreno que ameace o sucesso da defesa","Antecipa as ações inimigas e estabelece as condições para reassumir as ações ofensivas"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "O que é a defesa em profundidade na defensiva? (id:11032)",
+              respostas: ["Engajando o mais cedo possível o inimigo com elementos aéreos","Empregando núcleos defensivos sucessivos","Utilizando obstáculos e barreiras dispostos em profundidade","Todas as alternativas estão corretas"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual a importância do apoio mútuo na defensiva? (id:11033)",
+              respostas: ["Garante a segurança da tropa"," Permite a obtenção de surpresa"," Dificulta o engajamento e destruição da tropa por partes","Garante o controle centralizado das armas de apoio"],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "Qual é a finalidade da área de segurança na organização de uma área de defesa? (id:11034)",
+              respostas: ["Realizar as ações decisivas da defensiva","Estruturar as forças de defesa avançada.","Fornecer conhecimentos e alerta oportuno sobre o inimigo, impedir sua observação terrestre sobre a ADA, iludi-lo quanto à PD e, de acordo com suas possibilidades, retardá-lo e desorganizá-lo.","Influenciar no combate e reconquistar a iniciativa."],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "Qual é a área que terá lugar as ações decisivas da defensiva? (id:11035)",
+              respostas: ["Área de segurança.","Área de defesa avançada.","Área de reserva.","Todas as alternativas anteriores estão corretas."],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Na defensiva, qual é o principal meio de que dispõe o comandante para influenciar no combate e reconquistar a iniciativa? (id:11036)",
+              respostas: [" Área de segurança.","Área de defesa avançada.","Área de reserva.","Todas as alternativas anteriores estão corretas."],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "Em quais circunstâncias é adotada a defesa de área? (id:11037)",
+              respostas: ["Quando o defensor dispõe de menor mobilidade que o inimigo","Quando há tempo suficiente para preparar a posição defensiva, inclusive o sistema de barreiras."," Quando não é esperado que o atacante utilize armamento de destruição em massa.","Todas as alternativas anteriores estão corretas."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Quais circunstâncias indicam a adoção de uma defesa móvel? (id:11038)",
+              respostas: ["Não é necessário manter uma área específica.","O defensor possui mobilidade igual ou maior que o inimigo.","O tempo para o estabelecimento da defensiva é limitado.","Todas as alternativas anteriores estão corretas"],
+              correta: "resp3"
+            },
+
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Cerimonial</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Cerimonial</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Cerimonial</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="cerimonial.html">Cerimonial</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="estatuto-dos-militares.html">Estatuto dos Militares</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="ogsa.html">OGSA</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="rdm.html">RDM</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+          
+          {
+            pergunta:
+              "Quem é responsável pelo cumprimento do cerimonial naval? (id:01001)",
+            respostas: ["O Ministro da Defesa", "Todo militar da Marinha com autoridade", "O Comandante da Marinha", "O Chefe do Estado-Maior da Armada",],
+            correta: "resp1"
+          },
+          
+          {
+            pergunta: "Em que circunstâncias o cerimonial naval pode ser modificado? (id:01002)",
+            respostas: ["Quando o Ministro da Defesa o determinar", "Quando o militar da Marinha dispensá-las em atendimento às conveniências do serviço", "Quando o Comandante de Força ou navio determinar, de acordo com os costumes locais", "Todas as alternativas acima"],
+            correta: "resp3"
+          },
+          
+          {
+            pergunta: "O que é a cadeia de comando na Marinha? (id:01003)",
+            respostas: [
+              "Uma sucessão de comandos vinculados a um comando superior",
+              "Um grupo de oficiais-generais",
+              "Uma denominação para Comandante",
+              "Nenhuma das alternativas acima"
+            ],
+            correta: "resp0"
+          },
+          
+          {
+            pergunta:
+              "O que significa a denominação Almirante na Marinha? (id:01004)",
+            respostas: ["Oficiais-generais em tempo de paz", "O cargo de Comandante", "O círculo de oficiais-generais em tempo de paz, compreendendo os postos de Almirante-de-Esquadra, Vice-Almirante e Contra-Almirante", "A menos que especificamente aplicado ao posto de Almirante"],
+            correta: "resp2"
+          },
+        
+          {
+            pergunta: "Qual é o propósito do Cerimonial da Marinha? (id:01005)",
+            respostas: ["Estabelecer os procedimentos a serem observados pela Marinha do Brasil.", "Definir as circunstâncias em que o Cerimonial pode ser modificado.", "Determinar a cadeia de comando na Marinha.", "Determinar a cadeia de comando na Marinha."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta: "Quem é privativo de conceder honras de posto acima a militares da reserva ou reformados? (id:01006)",
+            respostas: [" O Comandante da Marinha", "O Secretário de Defesa Nacional", "O Presidente da República", "O Ministro da Defesa"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é a função da Guarda de Honra? (id:01007)",
+            respostas: ["Prestar homenagem a militares da reserva ou reformados", " Prestar homenagem a autoridades militares e civis que tenham direito", "Conceder honras de posto acima a militares da reserva ou reformados", "Pedir licença para largar"],
+            correta: "resp1"
+          },
+          
+          {
+            pergunta:"Quem é o militar mais antigo a bordo de uma embarcação miúda ou viatura que pede licença para largar? (id:01008)",
+            respostas: ["O Almirante ou Titular da OM", "O militar mais hierarquicamente elevado", "O militar mais antigo independentemente do seu nível hierárquico","O patrão da embarcação"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta: "Em que circunstâncias o militar mais antigo pode determinar que mais modernos desembarquem na sua frente na embarcação miúda ou viatura? (id:01009)",
+            respostas: ["No embarque", "Na continência individual", " No desembarque", "Na faina ou serviço que não possa ser interrompido"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Quando a continência individual não é executada pelo militar? (id:01010)",
+            respostas: ["Quando ele estiver praticando esportes", " Quando ele estiver fazendo parte de tropa armada","Quando ele estiver em postos de continência ou de parada","Quando ele estiver sentado à mesa de rancho"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é a denominação dada à continência da guarda, (Boys) e toques de corneta e apito? (id:01011)",
+            respostas: ["Honras de Portaló", "Cerimonial à Bandeira", "Sinal para Bandeira", "Toques de Apito"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual é a hora de içamento do galhardete (Prep) no hasteamento da Bandeira? (id:01012)",
+            respostas: [" 07:55h", " 08:00h", "5 minutos antes do pôr do Sol", "No momento da cerimônia"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:" Qual é a posição que a tripulação deve ocupar durante a cerimônia à Bandeira? (id:01013)",
+            respostas: ["Formada ao lado do oficial de serviço", "A retaguarda do oficial de serviço", "Agrupada ou fragmentada, conforme as normas internas da OM", "Na adriça da Bandeira Nacional"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é o comando dado pelo oficial de serviço após o terceiro sinal da corneta? (id:01014)",
+            respostas: ["Arria"," Iça","Em continência","Preste a continência"],
+            correta:"resp2"
+          },
+
+          {
+            pergunta:"Qual é o momento em que o oficial de serviço solicita permissão para prosseguir com o cerimonial à Bandeira? (id:01015)",
+            respostas: ["07:55h", "08:00h", " Após o primeiro sinal da corneta", "Após o segundo sinal da corneta"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Durante o arriamento da Bandeira Nacional, quem cuida para que a Bandeira não toque o piso são: (id:01016)",
+            respostas: ["Os militares que guarnecem o galhardete (Prep)","O oficial de serviço","Os três sargentos","A autoridade que preside o cerimonial"],
+            correta:"resp2"
+          },
+
+          {
+            pergunta:"Quem dá o pronto à autoridade que preside o cerimonial após o hasteamento da Bandeira Nacional? (id:01017)",
+            respostas: [" O oficial de serviço","O praça que guarneceu o galhardete (Prep)","O Porta-bandeira","A autoridade que preside o cerimonial"],
+            correta:"resp0"
+          },
+
+          {
+            pergunta:"Os ocupantes de veículos devem desembarcar e prestar continência à Bandeira Nacional, se uniformizados, em caso de: (id:01018)",
+            respostas: ["Hasteamento ou arriamento da Bandeira Nacional","Pôr do sol e nascer do Sol","Guarda da Bandeira","Dobragem da Bandeira Nacional"],
+            correta:"resp0"
+          },
+
+          {
+            pergunta:"A Bandeira Nacional é mantida iluminada após o pôr e antes do nascer do Sol: (id:01019)",
+            respostas: ["Durante a guarda da Bandeira"," Em caso de dobragem da Bandeira Nacional", "Em caso de hasteamento ou arriamento da Bandeira Nacional","Em caso de transporte da Bandeira Nacional"],
+            correta:"resp2"
+          },
+
+          {
+            pergunta:"Como a Bandeira Nacional é dobrada no arriamento após ser desenvergada? (id:01020)",
+            respostas: ["Em três partes no seu sentido transversal","Em três partes no seu sentido longitudinal","Em quatro partes no seu sentido transversal","Em quatro partes no seu sentido longitudinal"],
+            correta:"resp0"
+          },
+
+          {
+            pergunta:"Em posição de (Ombro arma), o Porta-bandeira da Guarda da Bandeira conduz a Bandeira Nacional: (id:01021)",
+            respostas: ["Verticalmente","Inclinada, apoiada em seu ombro direito","Horizontalmente"," Deitada, na horizontal"],
+            correta:"resp1"
+          },
+
+          {
+            pergunta:"Em cerimônias conjuntas com outras Forças, quantos estandartes podem acompanhar a Guarda da Bandeira? (id:01022)",
+            respostas: ["2","1","Mais de 4","Não há número máximo definido"],
+            correta:"resp2"
+          },
+
+          {
+            pergunta:"Em posição de (Ombro arma), a Bandeira Nacional é mantida: (id:01023)",
+            respostas: ["ao lado do Porta-bandeira","no ombro esquerdo do Porta-bandeira","na altura do peito do Porta-bandeira"," acima da cabeça do Porta-bandeira"],
+            correta:"resp2"
+          },
+
+          {
+            pergunta:"Durante um desfile militar, a Bandeira Nacional é posicionada: ID:01024",
+            respostas: ["horizontalmente","no ombro esquerdo do Porta-bandeira","inclinada","verticalmente"],
+            correta:"resp3"
+          },
+
+          {
+            pergunta:"Em cerimônias conjuntas com outras Forças, o número de estandartes acompanhando a Bandeira Nacional pode ser: (id:01025)",
+            respostas: ["apenas um","três","ilimitado","mais de dois"],
+            correta:"resp3"
+          },
+          
+          {
+            pergunta:"Durante o Cerimonial à Bandeira, é permitida a entrada ou saída de pessoas e veículos: (id:01026)",
+            respostas: ["a qualquer momento","apenas quando localizada próxima à via pública","apenas no início do Cerimonial","apenas no término do Cerimonial"],
+            correta:"resp1"
+          },
+
+          {
+            pergunta:"Todos devem saudar a Bandeira Nacional: (id:01027)",
+            respostas: ["apenas ao chegar ou retirar-se pela última vez do local onde ela estiver hasteada","apenas em cerimônias militares","ao passar conduzida em desfile militar","apenas ao chegar ou retirar-se pela primeira vez do local onde ela estiver hasteada"],
+            correta:"resp2"
+          },
+
+        ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

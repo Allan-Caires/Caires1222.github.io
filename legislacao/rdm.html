@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>RDM</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">RDM</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">RDM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="cerimonial.html">Cerimonial</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="estatuto-dos-militares.html">Estatuto dos Militares</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="ogsa.html">OGSA</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="rdm.html">RDM</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [ 
+            {
+              pergunta: "Qual é o propósito do RDM? (id:04001)",
+              respostas: ["Especificar e classificar crimes militares","Estabelecer normas para a interposição de recursos contra as penas disciplinares","Especificar e classificar contravenções disciplinares e estabelecer normas relativas às penas disciplinares e ao comportamento militar","Estabelecer normas relativas à hierarquia militar e à amplitude das penas disciplinares"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Como se manifesta basicamente a disciplina militar, de acordo com o RDM? (id:04002)",
+              respostas: ["Pela correção de atitudes","Pela utilização total das energias em prol do serviço","Pela cooperação espontânea em benefício da disciplina coletiva e da eficiência da instituição","Todas as alternativas anteriores estão corretas."],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "O que é hierarquia militar, de acordo com o RDM? (id:04003)",
+              respostas: ["A ordenação da autoridade em níveis diferentes, dentro da estrutura militar","A ordem para obedecer prontamente às ordens do superior","A especificação e classificação das contravenções disciplinares","A utilização total das energias em prol do serviço"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que é contravenção disciplinar, de acordo com o RDM? (id:04004)",
+              respostas: ["Toda ação ou omissão contrária às obrigações ou aos deveres militares estatuídos nas leis, nos regulamentos, nas normas e nas disposições em vigor que fundamentam a organização militar","Toda ação ou omissão que configura um crime militar","Toda ação ou omissão contrária à hierarquia militar","Toda ação ou omissão contrária à utilização total das energias em prol do serviço."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "A quem se aplicam as prescrições do RDM? (id:04005)",
+              respostas: ["Aos militares da Marinha da ativa e aos civis que trabalham na instituição","Aos militares da reserva não remunerada e aos reformados","Aos militares da Marinha da ativa, da reserva remunerada e aos reformados","Aos militares da Marinha da ativa, da reserva remunerada, aos reformados e aos seus familiares."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Como são classificadas as contravenções disciplinares? (id:04006)",
+              respostas: ["Classificadas em leves e gravíssimas","Classificadas em leves e moderadas","Classificadas em graves e leves"," Classificadas em moderadas e gravíssimas"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "No caso de concurso de crime militar e contravenção disciplinar, qual penalidade será aplicada? (id:04007)",
+              respostas: ["Penalidade relativa à contravenção disciplinar","Penalidade relativa ao crime militar","Ambas as penalidades serão aplicadas","Nenhuma penalidade será aplicada"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Qual das seguintes circunstâncias é uma circunstância agravante das contravenções disciplinares? (id:04008)",
+              respostas: [" Tratamento em serviço ordinário com rigor não autorizado pelos regulamentos militares","Bons antecedentes militares","Prestação anterior de serviços relevantes já reconhecidos","Idade menor de 18 anos"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual das seguintes circunstâncias é uma circunstância atenuante das contravenções disciplinares? (id:04009)",
+              respostas: [" Acúmulo de contravenções simultâneas e correlatas","Maus antecedentes militares","Ter cometido a falta em presença de subordinado","Bons antecedentes militares"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Qual das seguintes circunstâncias é uma circunstância justificativa ou dirimente das contravenções disciplinares? (id:04010)",
+              respostas: ["Conluio de duas ou mais pessoas","Ter sido praticada com ofensa à honra e ao pundonor militar","Legítima defesa, própria ou de outrem","Reincidência"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Quem tem competência para impor penas disciplinares aos militares da Marinha? (id:04011)",
+              respostas: ["O Presidente da República e o Comandante da Marinha","Os Diretores dos Órgãos do Setor de Apoio","O Comandante de Apoio do CFN","Os Chefes de Gabinete"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que não é considerado como pena disciplinar? (id:04012)",
+              respostas: ["A admoestação do superior ao subalterno","O recolhimento em compartimento fechado","A aplicação de camisa de força","A aplicação de algemas"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Quantos dias de prisão rigorosa podem ser aplicados como pena disciplinar? (id:04013)",
+              respostas: ["Até 5 dias","Até 7 dias"," Até 10 dias","Até 15 dias"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "É possível aplicar mais de uma punição disciplinar por uma única contravenção? (id:04014)",
+              respostas: [" Sim","Não","Somente em casos especiais","Sempre que o mais antigo determinar"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "O que acontece com as praças da reserva ou reformadas em relação às penas disciplinares? (id:04015)",
+              respostas: ["Não estão sujeitas a nenhuma pena disciplinar","Estão sujeitas apenas às penas mais leves, como o serviço extra","Estão sujeitas às mesmas penas estabelecidas para a ativa, de acordo com a respectiva graduação","Estão sujeitas apenas às penas de repreensão e afastamento das funções de atividades"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é a repreensão? (id:04016)",
+              respostas: ["Uma punição de impedimento de sair da OM","Uma punição de serviço extraordinário.","Uma declaração formal de punição por contravenção cometida.","Uma punição de prisão rigorosa."],
+              correta: "resp2"
+            },
+            
+            {
+              pergunta: "Uma punição de prisão rigorosa. (id:04017)",
+              respostas: ["Na presença única do superior que a impõe.","Em documento do qual é dado conhecimento aos círculos acima indicados.","Na presença do contraventor e de oficiais do mesmo posto ou superiores","Em formatura da guarnição, ou parte dela, a que pertence o contraventor."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Como é aplicada a repreensão pública, por escrito? (id:04018)",
+              respostas: ["Em documento do qual é dado conhecimento aos círculos acima indicados.","Na presença única do contraventor.","Na presença do contraventor e de oficiais do mesmo posto ou superiores.","Em formatura da guarnição, ou parte dela, a que pertence o contraventor."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual é a pena disciplinar que obriga o contraventor a permanecer na OM? (id:04019)",
+              respostas: ["Repreensão pública.","Serviço extraordinário.","Prisão simples.","Impedimento."],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Como é cumprida a pena de prisão rigorosa para as praças? (id:04020)",
+              respostas: [" Na prisão fechada.","Na sua coberta na OM ou outro local determinado, sem prejuízo dos serviços internos que lhe couberem."," Como determina o art. 22 (impedimento), computando-se 2 dias de impedimento para cada dia de prisão simples e 3 dias de impedimento para cada dia de prisão rigorosa.","A critério da autoridade que a impôs, podendo ser cumprida como prisão simples."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "qual é a definição de (serviço extra)? (id:04021)",
+              respostas: [" Serviços realizados por Oficiais, Suboficiais ou Sargentos em locais fora da OM."," Serviços realizados por Demais Praças em locais fora da OM.","Serviços realizados por qualquer militar em dias e horários em que não lhe competir esse serviço."," Serviços realizados por qualquer militar que não esteja disponível para realizar outras atividades."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a pena que pode ser imposta a um Oficial, Suboficial ou Sargento que comete uma contravenção disciplinar na OM? (id:04022)",
+              respostas: ["Prisão simples na OM sem prejuízo do serviço interno que lhe couber.","Prisão rigorosa nos recintos que na OM forem destinados ao uso do seu círculo.","Prisão fechada para Demais Praças.","Detenção para averiguação de contravenções disciplinares."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Qual é o prazo máximo para a imposição de uma pena disciplinar, contadas a partir do momento em que a contravenção chegou ao conhecimento da autoridade que tiver que impô-la? (id:04023)",
+              respostas: ["24 horas.","48 horas.","72 horas.","96 horas."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Quando houver necessidade de maiores esclarecimentos sobre a contravenção, a autoridade mandará proceder a: (id:04024)",
+              respostas: ["Julgamento.","Prisão.","Sindicância ou inquérito.","Comunicação imediata à família ou pessoa por ele indicada."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Como deve ser comunicada a prisão ou detenção de qualquer militar e o local onde se encontra? (id:04025)",
+              respostas: ["Ao superior imediato.","À autoridade que tiver que impor a pena.","À família ou pessoa por ele indicada."," Ao juiz militar responsável pelo julgamento."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a proporção do tempo de impedimento que será levado em conta para cumprimento de penas de prisão simples? (id:04026)",
+              respostas: ["integralmente"," 1/2","1/3","não é levado em conta"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "O que não será computado para cumprimento de pena disciplinar? (id:04027)",
+              respostas: [" O tempo passado em prisão simples","O tempo passado em prisão rigorosa","O tempo passado em hospitais (doentes hospitalizados)","Todas as alternativas estão incorretas"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é o nome do documento onde serão feitas as transcrições das penas impostas para Sargentos e demais Praças? (id:04028)",
+              respostas: ["Caderneta Registro"," Ordem de Serviço"," DPMM","CGCFN"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Até quantos dias após a imposição de uma pena é possível ocorrer a revisão de julgamento por parte da autoridade superior na Cadeia de Comando? (id:04029)",
+              respostas: ["30 dias","60 dias","90 dias","120 dias"],
+              correta: "resp3"
+            },
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

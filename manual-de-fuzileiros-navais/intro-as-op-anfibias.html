@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Introdução as Operações Anfíbias</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Introdução as Operações Anfíbias</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Introdução as Operações Anfíbias</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+            
+            {
+              pergunta: "Quando embarcados em navios em operações de guerra, os Fuzileiros Navais devem: (id:24001)",
+              respostas: ["Utilizar telefones celulares sem restrições.","Restringir suas necessidades, como a utilização de telefones celulares, mesmo com o conhecimento do Comandante do Navio.","Ter um perfeito entendimento das normas de navegação, sem se preocupar com as restrições.","Não observar atentamente as rotinas de bordo."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é elaborado para a tropa que prevê instruções como vida a bordo e fainas de emergência, treinamento físico militar, exercícios de transbordo, manutenção e testes de equipamentos e armamentos, e exercícios de postos de combate, postos de abandono, homem ao mar, operações aéreas e transferências de carga e combustível? (id:24002)",
+              respostas: ["Programa de treinamento.","Programa de alimentação.","Programa de entretenimento.","Programa de leitura."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual o procedimento que deve ser adotado por todos os componentes da Tropa em caso de emergência? (id:24003)",
+              respostas: ["Deverão procurar um local seguro e aguardar instruções.","Deverão se reunir na área de lazer do navio para aguardar instruções.","Deverão guarnecer o colete salva-vidas e se dirigir para os locais previamente designados, onde receberão ordens especiais","Deverão se concentrar em seus alojamentos e esperar a resolução do problema."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Em caso de incêndio ou alagamento no navio, qual a ação que deve ser tomada pelos elementos da tropa? (id:24004)",
+              respostas: ["Deverão tentar apagar o fogo ou conter a água, sem a necessidade de acionar os comandos do navio.","Deverão guarnecer os coletes salva-vidas e abandonar o navio imediatamente.","Deverão comunicar imediatamente o fato ao Oficial de quarto e se concentrar nos locais previamente designados, aguardando as ordens.","Deverão aguardar instruções em seus alojamentos."],
+              correta: "resp2"
+            },
+                                  
+            {
+              pergunta: "Com base no Manual do Fuzileiro Naval, no que diz respeito às Operações Anfíbias, analise as proposições abaixo, considere-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> <br> Os Navios deslocam-se em sigilo quando em operações de guerra e os Fuzileiros Navais devem ter um perfeito entendimento das normas durante a navegação, restringindo as suas necessidades. É o caso da utilização de telefones celulares, que só poderão ser usados com o conhecimento do Imediato do Navio <br> O planejamento, a execução e o controle das atividades da Tropa a bordo são regidos por documentos expedidos exclusivamente pelo Comandante das Unidades embarcadas.<br> Normalmente, os Comandantes de navios estabelecem normas de conduta para a tropa embarcada. <br> Será elaborado um programa de treinamento para a tropa que prevê, normalmente, instruções como transferências de carga e combustível e tiros de armas portáteis. <br> O adestramento para as fainas de emergência, bem como para as de homem ao mar e abandono do navio, deverá ter início, sempre que possível, assim que a tropa embarcada já estiver alojada (id:24005)",
+              respostas: ["V-V-V-V-F","V-F-F-F-V","F-F-F-V-V"," F-F-V-V-V"],
+              correta: "resp3"
+            },
+                                             
+            {
+              pergunta: "Com base no Manual do Fuzileiro Naval, no que diz respeito às Operações Anfíbias, analise as proposições abaixo, considere-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br><br> ( ) Ao soar o alarme geral seguido do aviso, pelo fonoclama, “GUARNECER POSTOS DE COMBATE”, todos os elementos da tropa deverão guarnecer o colete salva vidas e se dirigir para os locais previamente designados, onde receberão ordens especiais. <br> ( ) Ao soar o alarme geral seguido do aviso, pelo fonoclama, do local do incêndio ou do alagamento, de imediato será tocado “POSTOS DE COMBATE”. Todos os elementos da tropa deverão guarnecer os coletes salva vidas, concentrar nos locais previamente designados e aguardar as ordens. Sempre que qualquer elemento da tropa perceber fumaça, início de incêndio ou entrada de água em qualquer compartimento do navio, deverá comunicar imediatamente o fato ao Contra-mestre da hora, que se encontra no passadiço do navio. <br> ( ) Ao soar o alarme de colisão, seguido do aviso pelo fonoclama, todos os elementos da tropa deverão guarnecer os coletes salva vidas e se concentrar nos locais previamente designados, aguardando as instruções. <br> ( ) Ao ser ouvido o aviso de “HOMEM AO MAR”, seguido de vários apitos curtos do navio, todos os elementos da tropa devem se dirigir para o local de parada. O mais antigo deverá verificar a presença do pessoal, encaminhar as faltas ao passadiço e manter o Contra-mestre da horainformado sobre todos que estão a bordo <br> ( ) A tropa deverá receber instruções quanto aos procedimentos para o abandono do navio. Ao embarcar, já deverá ter conhecimento das estações de abandono, das balsas salva-vidas e saber localizá-las; inclusive com o navio às escuras. Ao ser determinado “GUARNECER POSTOS DE ABANDONO”, a tropa deverá: guarnecer o colete salva-vidas; guarnecer o cantil de água; encaminhar-se em acelerado para seu posto de abandono; concentrar-se nas estações de abandono, checar material e pessoal; efetuar a verificação de presença e encaminhar as faltas ao passadiço; e aguardar ordem para abandonar o navio. (id:24006)",
+              respostas: [" V-F-V-F-V","V-V-F-F-V","V-V-V-F-F"," F-V-V-F-F"],
+              correta: "resp0"
+            },
+                                             
+            {
+              pergunta: "É a organização por tarefas designada para auxiliar o carregamento e descarregamento do navio. Constituído por parcela dos elementos que fazem parte do Destacamento Precursor de uma tropa que embarcada. (id:24007)",
+              respostas: ["Pessoal da Divisão Bravo do Navio.","Pessoal da CiaCmdoSv do Batalhão"," Pessoal de serviço do navio no dia do embarque da Tropa.","Pelotão do Navio"],
+              correta: "resp3"
+            },
+                                             
+            {
+              pergunta: "Nas Operações Anfíbias (OpAnf), por ocasião da travessia, as fainas de emergência são sempre anunciadas pelo soar de um alarme, seguido de aviso pelo fonoclama. Geralmente os navios dispõem dos seguintes sinais de alarme: alarme geral, colisão, ataque químico e (crash) de aeronave. Todos os componentes da Tropa deverão estar familiarizados com as ações a serem tomadas nos casos de emergência e o atendimento deverá ser realizado por todo o pessoal embarcado, no menor tempo possível. Para isso, o adestramento para essas fainas deverá ser realizado: (id:24008)",
+              respostas: ["Cotidianamente, nos adestramentos a nas unidades de Fuzileiros Navais.","Imediatamente, após a tropa embarcar.","Sempre que possível, assim que a tropa embarcada já estiver alojada.","Mesmo antes de a tropa embarcar, esse adestramento já deverá ocorrer"],
+              correta: "resp3"
+            },
+                                             
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Armamento</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Armamento</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Armamento</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é a definição de munição? (id:18001)",
+              respostas: ["Equipamento pelo qual é efetuado o lançamento ou o disparo de munição","Artefato empregado para produzir determinado efeito sobre um alvo, sendo geralmente lançado por uma arma.","Conjunto formado pela arma e por sua munição.","Sulcos helicoidais abertos na parte interna do cano de uma arma"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que são raias em uma arma? (id:18002)",
+              respostas: ["Equipamento pelo qual é efetuado o lançamento ou o disparo de munição","Artefato empregado para produzir determinado efeito sobre um alvo, sendo geralmente lançado por uma arma.","Sulcos helicoidais abertos na parte interna do cano de uma arma destinados a imprimir ao projétil movimento de rotação.","Medida do diâmetro entre dois cheios e tem a finalidade de caracterizar as armas"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a definição de alcance útil em uma arma? (id:18003)",
+              respostas: ["O maior alcance que um projetil pode atingir com o emprego de uma arma","Aquele até onde a arma pode ser utilizada eficazmente sem que a trajetória sofra variações imprevistas devido à dispersão.","Variação da velocidade prática de tiro que uma arma pode apresentar","A medida do diâmetro entre dois cheios e tem a finalidade de caracterizar as armas."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é a velocidade prática de tiro de uma arma? (id:18004)",
+              respostas: ["O número de disparos que pode ser feito por uma arma em um minuto, não se levando em conta o tempo necessário para a alimentação, pontaria, resolução de incidentes, etc","O número de disparos que podem ser feitos por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, à resolução de incidentes, etc."," A variação da velocidade prática de tiro que uma arma pode apresentar, expressa pelo número de disparos que ela pode realizar em um determinado período.","O maior alcance que um projetil pode atingir com o emprego de uma arma."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a definição de arma leve? (id:18005)",
+              respostas: ["Toda arma de fogo.","Toda arma de calibre inferior a 0.60","Toda arma de calibre superior a 0.60","Toda arma portátil."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a definição de arma de porte? (id:18006)",
+              respostas: ["Arma que pode ser conduzida por um só homem","Arma que pode ser deslocada por uma viatura.","Arma destinada à proteção daquele que a conduz.","Arma que pode ser conduzida no coldre."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que é uma arma semi-automática? (id:18007)",
+              respostas: ["Uma arma que realiza automaticamente todas as fases do funcionamento enquanto houver munição e o gatilho permanecer acionado.","Uma arma que utiliza a força muscular do atirador para a execução das diferentes fases de funcionamento.","Uma arma que realiza automaticamente as fases do ciclo de funcionamento, à exceção do disparo.","Uma arma que utiliza a pressão dos gases resultantes da deflagração da carga de projeção."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o princípio de funcionamento de uma arma que utiliza a recuo do cano? (id:18008)",
+              respostas: [" Utiliza a pressão dos gases resultantes da deflagração da carga de projeção."," Utiliza a força muscular do atirador combinada com a oriunda de uma corrente elétrica sobre a estopilha."," Utiliza a ação dos gases sobre o ferrolho.","Utiliza a ação dos gases sobre o êmbolo."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que é retrocarga em uma arma? (id:18009)",
+              respostas: ["Alimentação de munição da direita para a esquerda.","Alimentação de munição de baixo para cima.","Alimentação de munição de cima para baixo.","Sistema em que a munição é inserida pelo fundo do carregador ou câmara"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que é considerado uma arma leve? (id:18010)",
+              respostas: ["Toda arma de fogo","Toda arma de calibre inferior a 0.60","Toda arma de porte.","Toda arma portátil."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a classificação de uma arma de acordo com o seu emprego coletivo? (id:18011)",
+              respostas: ["De porte","Não-portátil.","Individual.","Coletivo."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é a forma de refrigeração de um Fuzil de Assalto M16A2Mod705? (id:18012)",
+              respostas: ["À água.","A ar e à água.","A ar.","À água e à óleo."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o sentido de alimentação de um carregador de um Fuzil de Assalto M16A2Mod705? (id:18013)",
+              respostas: ["De cima para baixo.","Da direita para a esquerda.","Da esquerda para a direita.","De baixo para cima."],
+              correta: "rep3"
+            },
+                       
+            {
+              pergunta: "Quantas raias um Fuzil de Assalto M16A2Mod705 tem e qual é o sentido do raiamento? (id:18014)",
+              respostas: ["6 raias à esquerda.","4 raias à direita."," 6 raias à direita.","4 raias à esquerda."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a nomenclatura do fuzil automático leve calibre 7,62mm? (id:18015)",
+              respostas: ["FAL 7,62mm M964","Fz 7,62mm M964 (FAL)","Fuzil 7,62mm M964 (FAL)","Fuzil automático leve 7,62mm modelo 1964 (FAL)"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é o sentido de alimentação do carregador metálico do fuzil M964 FAL? (id:18016)",
+              respostas: ["Da esquerda para a direita","De cima para baixo","De baixo para cima","Da direita para a esquerda"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o número de raias do raiamento do fuzil M964 FAL? (id:18017)",
+              respostas: ["4 à esquerda","4 à direita","6 à esquerda","6 à direita"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é o peso do fuzil M964 FAL sem o carregador? (id:18018)",
+              respostas: ["4,20kg","0,730kg","4,93kg","0,167kg"],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual é o alcance máximo do fuzil M964 FAL? (id:18019)",
+              respostas: ["600m","1.000m","3.800m","5.000m"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a nomenclatura da metralhadora 5,56mm MINIMI? (id:18020)",
+              respostas: ["Metralhadora Média","Metralhadora Pesada","Metralhadora Ligeira","Metralhadora Automática"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Como é feita a alimentação da metralhadora 5,56mm MINIMI? (id:18021)",
+              respostas: ["Carregador de esferas","Carregador tipo tambor"," Carregador tipo fita com elos metálicos articulados","Carregador de mola"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o sentido de alimentação da metralhadora 5,56mm MINIMI? (id:18022)",
+              respostas: ["Para cima","Para baixo","Para a esquerda","Para a direita"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual é o comprimento da metralhadora 5,56mm MINIMI? (id:18023)",
+              respostas: ["1,04m"," 1,10m","1,20m","1,30m"],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual é a velocidade teórica de tiro máximo da metralhadora 5,56mm MINIMI? (id:18024)",
+              respostas: ["500 tpm"," 750 tpm","1000 tpm","1250 tpm"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a nomenclatura da metralhadora 7,62mm Mod B 60-20 MAG? (id:18025)",
+              respostas: ["Metralhadora a gás 5,56mm Modelo A","Metralhadora a gás 7,62mm Modelo B","Metralhadora a ar 5,56mm Modelo A.","Metralhadora a ar 7,62mm Modelo B."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a classificação da metralhadora quanto ao tipo de emprego? (id:18026)",
+              respostas: [" Individual."," Coletivo.","Portátil","Não portátil."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é o tipo de alimentação da metralhadora? (id:18027)",
+              respostas: ["Carregador de tambor"," Carregador de fuzil."," Carregador de fita com elos metálicos articulados","Carregador de pente."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é o comprimento da metralhadora? (id:18028)",
+              respostas: ["1,355m","1,255m.","1,155m.","1,455m."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é o alcance máximo da metralhadora 7,62mm Mod B 60-20 MAG? (id:18029)",
+              respostas: ["2.800m.","3.800m.","1.800m.","800m."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é o calibre da pistola PT92 Beretta? (id:18030)",
+              respostas: [".45","9mm",".40"," .357"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a capacidade do carregador da pistola PT92 Beretta? (id:18031)",
+              respostas: ["10 cartuchos","12 cartuchos","15 cartuchos","18 cartuchos"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Como é o funcionamento da pistola PT92 Beretta? (id:18032)",
+              respostas: ["Automática"," Manual","Semi-automática","Mecânica"],
+              correta: "res2"
+            },
+                                   
+            {
+              pergunta: "Qual é o calibre da Metralhadora 12,7mm M2? (id:18033)",
+              respostas: ["7mm"," 9mm","12,7mm (.50)","14,5mm"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Como é feita a alimentação da Metralhadora 12,7mm M2? (id:18034)",
+              respostas: ["Por carregador de tambor","Por carregador de caixa","Por fita com elos metálicos","Por alimentação manual"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é o alcance útil máximo da Metralhadora 12,7mm M2? (id:18035)",
+              respostas: [" 500m","1000m"," 2500m"," 1830m"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é o princípio de funcionamento da Metralhadora 12,7mm M2? (id:18036)",
+              respostas: ["Recuo do cano"," Ação por ferrolho"," Ação por gatilho","Curto recuo do cano"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é o peso do cano da Metralhadora 12,7mm M2? (id:18037)",
+              respostas: ["25,424kg","12,712kg","1,643m","1,143m"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a classificação dessa arma quanto ao emprego? (id:18038)",
+              respostas: ["Coletivo","Individual","Militar","Policial"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é o calibre da espingarda Mossberg (id:18039)",
+              respostas: ["12mm","18,6mm","70mm","76mm"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a classificação da espingarda Mossberg quanto ao tipo de arma? (id:18040)",
+              respostas: ["Longa","Portátil","Automática","Semi-automática"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a capacidade de cartuchos da espingarda Mossberg (id:18041)",
+              respostas: ["6 cartuchos de 70mm de comprimento"," 8 cartuchos de 70mm de comprimento"," 8 cartuchos de 76mm de comprimento","10 cartuchos de 76mm de comprimento"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é o tipo de funcionamento da espingarda Mossberg? (id:18042)",
+              respostas: ["Semi-automático"," Automático","Repetição","Único"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é o alcance útil da espingarda Mossberg (id:18043)",
+              respostas: ["Fixo","Variável","Longo","Curto"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a nomenclatura do lança-granadas calibre 40mm modelo M203? (id:18044)",
+              respostas: [" LGr 40mm M202","LGr 40mm M203"," LGr 40mm M204","LGr 40mm M205"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a classificação do lança-granadas M203 quanto ao tipo? (id:18045)",
+              respostas: ["Fixo","Portátil","Automático","Semi-automático"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Como é realizada a alimentação do lança-granadas M203? (id:18046)",
+              respostas: ["Automaticamente"," Por meio de carregador","Manualmente: uma granada por vez","Por meio de fita de munição"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é o alcance máximo do lança-granadas M203? (id:18047)",
+              respostas: ["250m","350m","400m","450m"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é o princípio de funcionamento do lança-granadas M203? (id:18048)",
+              respostas: ["Ação elétrica do atirador","Ação hidráulica do atirador"," Ação mecânica do atirador","Ação muscular do atirador"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é a utilização primordial da munição AT-4? (id:18049)",
+              respostas: ["Contra fortificações"," Contra pessoal","Contra alvos aéreos","Contra alvos blindados"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é a nomenclatura da munição AT-4? (id:18050)",
+              respostas: ["Granada alto explosiva de 84mm AT-4","Munição anticarro AT-4","Lançador descartável AT-4","Projétil de alta penetração AT-4"],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "Qual é a classificação da munição AT-4 quanto ao tipo de emprego? (id:180051)",
+              respostas: ["Individual","Coletivo","Estacionário","Automático"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a penetração em blindagem da munição AT-4? (id:18052)",
+              respostas: ["100mm","200mm","300mm","400mm"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é o alcance eficaz da munição AT-4? (id:18053)",
+              respostas: ["500m","1000m","2100m","3000m"],
+              correta: "resp2"
+            },
+                                              
+            {
+              pergunta: " Com relação aos conceitos básicos sobre os armamentos do CFN, correlacione as colunas e marque a opção que apresenta a sequência correta. <br><br> ( ) É o número de disparos que podem ser feitos por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, à resolução de incidentes, etc.<br> ( ) É o número de disparos que pode ser feito por uma arma em um minuto, não se levando em conta o tempo necessário para a alimentação, pontaria, resolução de incidentes, etc. <br>( ) É a variação da velocidade prática de tiro que uma arma pode apresentar, expressa pelo número de disparos que ela pode realizar em um determinado período.<br>( ) É aquele até onde a arma pode ser utilizada eficazmente sem que a trajetória sofra variações imprevistas devido à dispersão.<br>(I) Velocidade teórica de tiro<br>(II) Velocidade prática de tiro.<br>(III) Cadência de tiro.<br>(IV) Alcance máximo (id:18054)",
+              respostas: [" (II) (I) (III) (-) "," (I) (II) (III) (-) ","(II) (I) (-) (IV) "," (II) (I) (III) (IV) "],
+              correta: "resp033"
+            },
+                                                         
+            {
+              pergunta: "Ciclo de funcionamento de uma arma é a sequência por meio da qual se pode explicar o funcionamento de uma arma. Enumere a sequência correta do ciclo de funcionamento de uma arma, logo após o disparo, e assinale a alternativa correta. <br><br> ( ) Extração <br>( ) Carregamento<br>( ) Ejeção<br>( ) Engatilhamento (id:18055)",
+              respostas: [" (2)(3)(1)(4)","(1)(4)(3)(2)","(1)(2)(4)(3)"," (1)(4)(2)(3)"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao armamento no CFN, marque F ou V nas sentenças abaixo e assinale a alternativa correta <br>( ) Armamento é todo equipamento pelo qual é efetuado o lançamento ou o disparo de munição. <br> ( ) Calibre é a parte saliente do raiamento que separa uma raia da outra. <br> ( ) Velocidade prática de tiro é o número de disparos que pode ser feito por uma arma em um minuto, não se levando em conta o tempo necessário para a alimentação, pontaria, resolução de incidentes, etc. <br> ( ) Alcance útil é aquele até onde a arma pode ser utilizada eficazmente sem que a trajetória sofra variações imprevistas devido à dispersão. <br> ( ) Velocidade teórica de tiro é a variação da velocidade prática de tiro que uma arma pode apresentar, expressa pelo número de disparos que ela pode realizar em um determinado período (id:18056)",
+              respostas: [" (F)(F)(F)(V)(V)"," (F)(F)(F)(V)(F) "," (F)(V)(F)(V)(F) "," (F)(F)(V)(F)(V)"],
+              correta: "resp1"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao alcance útil do armamento, associe as colunas e assinale a alternativa correta <br><br> A) FzAss 5,56mm M16A2MOD705<br>B) Mtr 5,56mm MINIMI (Standard)<br>C) MAG 7,62mm <br>D) Pst 9mm<br>( ) 550m<br>( ) 1000m<br>( ) 1300m<br>( ) 800m sobre tripé <br>( ) 50m (id:18057)",
+              respostas: [" (a)(b)(-)(-)(d) "," (a)(-)(b)(c)(d) ","(-)(b)(-)(c)(d)"," (a)(b)(-)(c)(d)"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Qual o alcance útil do Fuzil de Assalto 5,56 M16A2Mod 705 para alvos tipo ponto? (id:18058)",
+              respostas: ["400m","600m","500m","550m"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Como se classifica o Lança-granadas calibre 40mm modelo M203, quanto ao princípio de funcionamento? (id:18059)",
+              respostas: ["Automático","Repetição","Individual"," Ação muscular do atirador"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Marque a opção que preenche corretamente a sentença abaixo: (O armamento é _______________________quando realiza automaticamente as fases do ciclo de funcionamento, à exceção do disparo.) (id:18060)",
+              respostas: ["Individual","Coletivo"," De repetição","Semi-automático"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao armamento estudado no Manual do Fuzileiro Naval, qual é o alcance útil da metralhadora classificada, exclusivamente, quanto ao tipo, como portátil? (id:18061)",
+              respostas: ["1600 metros sobre tripé","1800 metros sobre bipé","3600 metros"," 1000 metros "],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "O CB-FN-IF SAFO JURUNA, avistando uma posição inimiga, manobrou com a sua ETe coordenou os fogos para neutralizar esta posição. Qual foi a cadência de tiro adotada pela ET? (id:18062)",
+              respostas: ["Acelerada","Rápida","Intermediária","Normal"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: " O que o atirador deverá observar para utilizar seu armamento, eficazmente, sem que a trajetória sofra variações imprevistas devido à dispersão? (id:18063)",
+              respostas: ["Ciclo de funcionamento ","Velocidade Prática de Tiro ","Alcance útil","Aparelho de pontaria"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual é a parte do armamento cuja destinação é imprimir ao projétil movimento de rotação, a fim de mantê-lo estável na sua trajetória? (id:18064)",
+              respostas: ["Raias","Cheio"," Aparelho de pontaria ","Calibre"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: " Com relação a munição AT-4, marque a opção correta. (id:18065)",
+              respostas: ["Como o lança-rojão, não apresenta recuo e é de transporte coletivo.","Utilizado primordialmente contra alvos blindados e fortificações e, secundariamente, contra pessoal.","Classificação quanto ao funcionamento em semi-automático","Peso de 6,7 Kg"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "São sulcos helicoidais aberto na parte interna do cano de uma arma, destinados a imprimir ao projétil movimento de rotação, a fim de mantê-lo estável na sua rotação. (id:18066)",
+              respostas: ["Calibre","Raias","Alma","Cano"],
+              correta: "resp1"
+            },
+                                                         
+            {
+              pergunta: " Como se classifica o armamento usado no CFN quanto à alimentação? (id:18067)",
+              respostas: ["Da direita para a esquerda, da esquerda para a direita, de baixo para cima, de cima para baixo e retrocarga."," Ação muscular do atirador","De repetição, semi-automático e automático","Manual e com carregador. "],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "A regulagem do aparelho de pontaria do Fuzil de Assalto 5,56 M16A2Mod 705, apresenta uma alça de mira com regulagem micrométrica, com visor basculante, graduado de 100 em 100 metros no alcance de quantos metros? (id:18068)",
+              respostas: ["300 a 600m","300 a 900m ","300 a 800m ","200 a 800m"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual a velocidade prática de tiro do Fuzil de Assalto 5,56 M16A2Mod 705 no funcionamento semi-automático? (id:18069)",
+              respostas: ["45 tpm","50 tpm","90 tpm"," 55 tpm"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Como se classifica a pistola 9mm, quanto ao tipo? (id:18070)",
+              respostas: ["Individual","Coletivo","Semi-automática","De porte "],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Qual o alcance máximo do Fuzil Automático 7,62mm M964 FAL? (id:18071)",
+              respostas: ["3600m","3000m","3800m","4000m"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual a velocidade prática de tiro do Fuzil Automático 7,62mm M964 FAL no funcionamento automático? (id:18072)",
+              respostas: ["100 tpm","200 tpm","120 tpm","140 tpm"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual o comprimento do Fuzil Automático 7,62mm M964 FAL? (id:18073)",
+              respostas: ["1m","1,1m","1,3m","1,11m"],
+              correta: "resp1"
+            },
+                                                         
+            {
+              pergunta: " Como é denominada a parte saliente do raiamento que separa uma raia da outra? (id:18074)",
+              respostas: ["Cheio","Raia","Sulco","Centro de gravidade"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Como se classifica a metralhadora MAG 7,62mm quanto ao tipo? (id:18075)",
+              respostas: ["Não portátil ","Automático","Coletivo","Portátil e não portátil "],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Qual o tipo de cadência de tiro usada quando há necessidade de manter os alvos sob fogo por longos períodos? (id:18076)",
+              respostas: ["Rápida","Normal","Aprofundada","Lenta"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao alcance máximo do armamento/munição, associe as colunas e assinale a alternativa correta. <br><br> (A) FAL <br> (B) Mtr 5,56mm MINIMI (Standard) <br> (C) AT-4 <br> (D) Pst 9mm <br> (___) 3600m <br> (___) 800m <br> (___) 1800m  <br> (___) 2700m  <br> (___) 2100m (id:18077)",
+              respostas: [" (-)(-)(D)(B)(C)","(A)(-)(D)(B)(C)","(-)(C)(D)(B)(-)","(A)(D)(-)(-)(C)",""],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Como se classifica a Metralhadora MAG 7,62mm quanto ao princípio de funcionamento? (id:18078)",
+              respostas: ["Automática e semi-automática","Coletivo","Ação dos gases sobre o êmbolo "," Força muscular do atirador "],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual o peso do tripé da Metralhadora MAG 7,62mm? (id:18079)",
+              respostas: ["10,450Kg","10,800Kg","10,600Kg","11,500Kg"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Assinale a alternativa que apresenta uma arma leve (id:18080)",
+              respostas: [" Obus 155mm"," Morteiro 60mm","Morteiro 81mm"," Lança Granadas 40mm"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Qual o comprimento da pistola 9mm PT92 - TAURUS? (id:18081)",
+              respostas: ["21,7cm"," 21,8cm","21,5cm","21,9cm"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Qual o alcance máximo da pistola 9mm PT92 - TAURUS? (id:18082)",
+              respostas: ["600m","800m","1600m","1800m"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Com relação as definições básicas de armamento empregado no CFN, assinale a alternativa correta (id:18083)",
+              respostas: ["Cadência de tiro é a variação da velocidade prática de tiro que uma arma pode apresentar, expressa pelo número de disparos que ela pode realizar em um determinado período.","Velocidade prática de tiro é o número de disparos que pode ser feito por uma arma em um minuto, não se levando em conta o tempo necessário para a alimentação, pontaria, resolução de incidentes, etc","Velocidade teórica de tiro é o número de disparos que podem ser feitos por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, à resolução de incidentes, etc.","Calibre é a parte saliente do raiamento que separa uma raia da outra. "],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Como se classifica o Lança-granadas calibre 40mm modelo M203, quanto ao funcionamento? (id:18084)",
+              respostas: ["Coletivo","Automático","Repetição","Individual"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao Fuzil de Assalto 5,56mm M16A2Mod705, podemos afirmar que: I. (___) Sua massa de mira é tipo ponto, com protetores laterais e regulagem em direção <br> II. (___) Seu peso com carregador desmuniciado é de 3,510Kg.  <br> III. (___) Sua alça de mira é de regulagem micrométrica, com visor basculante, graduado de 100 em 100 metros no alcance de 550 a 800m e disco de direção com regulagem variáve <br> IV. (___) O alcance útil para alvos tipo ponto é de 550m (id:18085)",
+              respostas: ["As alternativas I, II e IV estão corretas","As alternativas II, III e IV estão corretas","As alternativas II e IV estão corretas","As alternativas III e IV estão corretas"],
+              correta: "resp2"
+            },
+                                                         
+            {
+              pergunta: "Qual o número e direção de raias da pistola 9mm PT92 - TAURUS? (id:18086)",
+              respostas: ["6 à direita","6 à esquerda","4 à esquerda ","4 à direita"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Com relação ao armamento do CFN, analise as proposições abaixo e assinale a opção correta. <br><br> I. Armamento é todo equipamento pelo qual é efetuado o lançamento ou o disparo de munição <br> II. Lançador é o conjunto formado pela arma e por sua munição, especificado para atender determinados requisitos, algumas vezes referido apenas pelo lançador ou arma e outras, pela munição. <br> III. Munição é o artefato empregado para produzir determinado efeito sobre um alvo, sendo geralmente lançado por uma arma. <br> IV. Calibre é a medida do diâmetro entre duas raias, e tem a função de caracterizar a arma. (id:18087)",
+              respostas: ["As opções I, III e IV estão corretas.","As opções II e III estão corretas.","As opções III e IV estão corretas.","Apenas a opção III está correta."],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Qual a capacidade do carregador da pistola 9mm PT92 - TAURUS? (id:18088)",
+              respostas: ["10 cartuchos","15 cartuchos","30 cartuchos","16 cartuchos"],
+              correta: "resp1"
+            },
+                                                         
+            {
+              pergunta: "Como é denominado o conjunto formado pela arma e por sua munição? (id:18089)",
+              respostas: ["Armamento","Tubo","Arma","Lançador"],
+              correta: "resp0"
+            },
+                                                         
+            {
+              pergunta: "Qual o alcance útil do Lança-Granadas 40mm M203 para alvos tipo área? (id:18090)",
+              respostas: ["200m","250m","300m","350m"],
+              correta: "resp3"
+            },
+                                                         
+            {
+              pergunta: "Correlacione os tipos de arma com seu respectivo alcance máximo e, em seguida, assinale a opção correta. <br><br> I - Fuzil de Assalto 5,56mm <br> II - GAE 84mm AT-4 <br> III - MAG 7,62mm <br> IV - Pistola 9mm PT92 BERETTA <br> V - Metralhadora 5,56mm MINIMI <br> (___) 2700m <br> (___) 3600m <br> (___) 3800m <br> (___) 2100m <br> (___) 800m <br> (___) 1800m (id:18091)",
+              respostas: [" (V) (I) (III) (II) (-) (IV) "," (V) (I) (III) (II) (IV) (-)","(V) (III) (II) (I) (-) (IV) ","(II) (I) (III) (-) (II) (IV)"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Como se classifica o fuzil de assalto 5,56mm quanto ao emprego? (id:18092)",
+              respostas: ["Portátil","Coletivo","Semi-automático e automático com rajadas de 3 disparos","Individual"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: " Com se classifica o GAE 84 mm AT-4 quanto ao funcionamento? (id:18093)",
+              respostas: ["Semi-automático"," De repetição","Automático","Coletivo"],
+              correta: "resp1"
+            },
+                                                                    
+            {
+              pergunta: "Qual o alcance máximo do AT-4? (id:18094)",
+              respostas: ["1800m","2000m","2100m","2400m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Qual o alcance eficaz do AT-4? (id:18095)",
+              respostas: ["50m","150m","200m","300m"],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Qual a capacidade de penetração em blindagem do AT-4? (id:18096)",
+              respostas: ["400mm","500mm","300mm","600mm"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Coloque F (Falso) ou V (Verdadeiro) nas afirmativas abaixo, em relação ao armamento/munição do CFN, de acordo com o CGCFN-1101, e assinale a opção correta. <br><br> (___) O conjunto formado pela arma e por sua munição é denominado armamento. <br> (___) O GAE 84 mm AT-4, quanto ao funcionamento, classifica- se em ação muscular do atirador combinada com a ação de corrente elétrica sobre a estopilha da granada. <br>(___) A velocidade teórica de tiro é o número de disparos que podem ser feitos por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, resolução de incidentes de tiro, etc. <br>(___) A classificação do fuzil de assalto 5,56mm quanto ao tipo é individual. <br> (___) Alcance útil é aquele até onde a arma pode ser utilizada eficazmente sem que a trajetória sofra variações imprevistas devido à dispersão. (id:18097)",
+              respostas: [" (V) (F) (F) (V) (V) "," (V) (F) (F) (F) (F) "," (V) (V) (F) (F) (V) "," (V) (F) (F) (F) (V) "],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: "Com relação ao armamento o CFN, marque a opção correta. (id:18098)",
+              respostas: ["Velocidade teórica de tiro é o número de disparos que podem ser feitos por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, à resolução de incidentes, etc."," O armamento automático realiza automaticamente as fases do ciclo de funcionamento, à exceção do disparo."," O FzAss 5,56mm, quanto ao tipo, se classifica em Individual. ","O Lança-granadas calibre 40mm possui um alcance máximo de 400m."],
+              correta: "resp3"
+            },
+                                                                    
+            {
+              pergunta: " Qual o alcance útil do Lança-Granadas 40mm M203 para alvos tipo ponto e o seu alcance mínimo de segurança, respectivamente? (id:18099)",
+              respostas: ["150m; 31m para combate; e 80m para exercício","150m; 80m para combate; e 31m para exercício","250m; 31m para combate; e 80m para exercício","350m; 80m para combate; e 31m para exercício"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Como se classifica o Lança-granadas calibre 40mm modelo M203, quanto ao funcionamento? (id:18100)",
+              respostas: ["Coletivo","Automático","Repetição","Individual"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Com relação ao Fuzil de Assalto calibre 5,56mm M16A2, assinale a opção incorreta. (id:18101)",
+              respostas: ["alcance máximo: 3.800m","alcance máximo: 3.600m"," número de raias: 6 à direita"," capacidade do carregador: 20 cartuchos"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Em relação ao armamento do Corpo de Fuzileiros Navais, é correto afirmar que: (id:18102)",
+              respostas: ["Armamento é todo equipamento pelo qual é efetuado o lançamento ou o disparo de munição. ","Calibre é a parte saliente do raiamento que separa uma raia da outra","Velocidade prática de tiro é o número de disparos que podem ser efetuados por uma arma em um minuto, levando-se em conta o tempo necessário à pontaria, à alimentação, à resolução de incidentes, etc","Alcance máximo é aquele até onde a arma pode ser utilizada eficazmente sem que a trajetória sofra variações imprevistas devido à dispersão."],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Assinale a opção que apresenta corretamente o alcance máximo do armamento/munição utilizado pelo CFN (id:18103)",
+              respostas: ["Pistola 9mm BERETTA: 1.600m","Fuzil Automático Leve 7,62mm M964 FAL: 2.700m","Granada Alto Explosiva de 84mm AT-4: 2.100m"," Metralhadora a Gás 7,62mm Mod B 60-20 MAG: 2.800m"],
+              correta: "resp2"
+            },
+                                                                    
+            {
+              pergunta: "Quanto a Metralhadora 12,7mm (.50) HB M2 QCB BROWNING, analise as proposições abaixo e assinale a alternativa que apresenta a afirmação correta. <br> I - O seu princípio de funcionamento é o curto recuo do cano. <br> II - Quanto à alimentação, a sua capacidade é indeterminada (pois não tem cofre); e o sentido pode ser da esquerda para a direita ou da direita para a esquerda, mediante o reposicionamento de algumas peças do sistema de alimentação <br> III - Seu cano possui 8 raias à direita. <br> IV - Sua alça de mira é do tipo lâmina, com cursor e visor, graduada de 100 a 2600 jardas(aproximadamente de 90 a 2.380m). <br> V - Sua massa de mira é de seção triangular curva, com protetores laterais. (id:18104)",
+              respostas: ["Todas estão corretas.","Todas estão incorretas.","Somente a I e II estão corretas","Somente a II, a IV e a V estão incorretas"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Quanto à Espingarda 18,6mm (CAL 12) Mossberg, podemos afirmar que: (id:18105)",
+              respostas: ["Somente conta com a massa de mira; pesa 4kg aproximadamente; e o seu alcance útil é variável em função da munição empregada","Quanto ao tipo, classifica-se como portátil e quanto ao emprego, classifica-se como coletiva.","Quanto ao princípio de funcionamento, é uma arma de repetição; e o seu funcionamento se dá pela força muscular do atirador.","Sua capacidade (com um cartucho na câmara) é de 8 cartuchos de 70mm de comprimento ou 9 cartuchos de 76mm de comprimento"],
+              correta: "resp0"
+            },
+                                                                    
+            {
+              pergunta: "Com relação aos armamentos/munição utilizados no CFN, marque a opção incorreta (id:18106)",
+              respostas: ["A Metralhadora 5,56mm MINIMI é de emprego coletivo.","A Pistola 9mm PT92 BERETTA possui alcance máximo de 1800 metros."," O Lança Granadas 40mm M203 é uma arma especialmente desenvolvida para ser empregada junto com o Fuzil M16A2.","O AT-4 é um armamento primordialmente anticarro e subsidiariamente antipessoal e antifortificações."],
+              correta: "resp3"
+            },
+          
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

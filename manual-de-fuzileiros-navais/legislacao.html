@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>legislação</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Legislação</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Legislação</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+          
+          {
+            pergunta:"Qual é a lei suprema de um país? (id:25001)",
+            respostas: ["Lei de Direitos e Deveres Individuais e Coletivos","Constituição Federal","Regulamento Disciplinar para a Marinha","Código Penal Militar"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que são objetivos fundamentais da República Federativa do Brasil? (id:25002)",
+            respostas: ["A construção de uma sociedade militarizada e autoritária","A manutenção da desigualdade social e o bem estar de poucos","A redução das desigualdades sociais e o bem estar de todos"," A promoção do preconceito e da discriminação"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é a lei que regula a situação, obrigação, deveres, direitos e prerrogativas dos membros das Forças Armadas? (id:25003)",
+            respostas: ["Constituição Federal","Regulamento Disciplinar para a Marinha","Código Penal Militar","Estatuto dos Militares"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é o propósito do Regulamento Disciplinar para a Marinha? (id:25004)",
+            respostas: ["Especificação e classificação de contravenções penais","Especificação e classificação de contravenções disciplinares","Definição de crimes militares em tempo de paz","Regulamentação da aplicação da Lei Penal Militar"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"De acordo com o artigo 9º do Código Penal Militar, quais são as hipóteses em que um crime militar em tempo de paz é praticado por um militar da ativa? (id:25005)",
+            respostas: ["Quando a vítima for militar da ativa; quando praticado em local sujeito à administração militar; quando em serviço, em formatura ou em manobra"," Quando a vítima for militar em formatura, em manobra ou em prontidão","Quando a vítima for militar em local sujeito à Administração Militar; quando a vítima for militar no desempenho de serviço de vigilância, garantia e preservação da ordem pública ou em função de natureza militar, mesmo que em local não sujeito à administração militar.","Quando contra o patrimônio sob a administração militar, ou contra a ordem administrativa militar."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual é o objetivo da Lei de Remuneração dos Militares? (id:25006)",
+            respostas: ["Definir os critérios para a promoção de praças na Marinha.","Estabelecer procedimentos relativos ao cerimonial naval da Marinha.","Regular a remuneração dos militares em tempo de paz.","Consolidar as disposições fundamentais relativas à organização das forças navais e demais estabelecimentos da Marinha."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é o Plano de Carreira de Praças da Marinha? (id:25007)",
+            respostas: ["Um regulamento que estabelece os procedimentos relativos ao cerimonial naval da Marinha."," Um documento normativo essencial para a correta condução das atividades diárias a bordo das OM."," Um conjunto de normas que orientam a carreira das praças dos diversos corpos e quadros.","Um regulamento que estabelece os uniformes da Marinha."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é regulado pelo Código de Processo Penal Militar? (id:25008)",
+            respostas: ["A remuneração dos militares em tempo de paz.","As normas para a condução dos Inquéritos Penais Militares (IPM).","Os procedimentos relativos ao cerimonial naval da Marinha.","As honras, as continências e sinais de respeito que os militares prestam a determinados símbolos nacionais e às autoridades civis e militares."],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o propósito do Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial Militar das Forças Armadas? (id:25009)",
+            respostas: ["Regular a remuneração dos militares em tempo de paz.","Estabelecer os procedimentos relativos ao cerimonial naval da Marinha.","Estabelecer os uniformes da Marinha e regular seu uso, posse e confecção.","Estabelecer as honras, as continências e sinais de respeito que os militares prestam a determinados símbolos nacionais e às autoridades civis e militares."],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é o propósito da Ordenança Geral para o Serviço da Armada? (id:25010)",
+            respostas: ["Estabelecer os procedimentos relativos ao cerimonial naval da Marinha","Regular a remuneração dos militares em tempo de paz.","Consolidar as disposições fundamentais relativas à organização das forças navais e demais estabelecimentos da Marinha.","Estabelecer as honras, as continências e sinais de respeito que os militares prestam a determinados símbolos nacionais e às autoridades civis e militares."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é a finalidade das diretrizes para o emprego das Forças Armadas na Garantia da Lei e da Ordem? (id:25011)",
+            respostas: ["Orientar as políticas estabelecidas pelo Ministro da Defesa","Realizar operações de paz","Preservar a ordem pública e a incolumidade das pessoas e do patrimônio","Realizar ações de polícia investigativa"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Quem é responsável pelo preparo dos órgãos operativos e de apoio das Forças Armadas? (id:25012)",
+            respostas: ["O Conselho de Disciplina","O Ministro da Defesa","Os Comandantes Militares das Forças Armadas","Os reservistas"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é o Conselho de Disciplina? (id:25013)",
+            respostas: ["Um órgão consultivo do Ministério da Defesa","Um órgão disciplinar, jurisdicional e consultivo da Administração Militar","Um grupo de militares reservistas","Um órgão responsável pelo recrutamento das Forças Armadas"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é regulamentado pela Lei do Serviço Militar? (id:25014)",
+            respostas: ["A estabilidade dos militares das Forças Armadas","As penalidades aplicadas aos militares das Forças Armadas","O Serviço Militar obrigatório e suas peculiaridades","As operações de paz realizadas pelas Forças Armadas"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Quem pode ser excluído do serviço ativo das Forças Armadas sem a necessidade de constituição de um Conselho de Disciplina? (id:25015)",
+            respostas: ["Praças com procedimento incorreto no desempenho do cargo","Praças com estabilidade assegurada","Militares com mais de 10 anos de serviço ativo","Oficiais com condenação por crime doloso"],
+            correta: "resp1"
+          },
+          
+          {
+            pergunta:"Segundo o Manual Básico do FN, analise as proposições abaixo, considere-as como verdadeiras ou falsas, e assinale a alternativa que apresenta a sequência correta. <br> ( ) A Constituição Federal é a lei suprema de um país, a partir da qual todas as demais devem se subordinar.<br> ( ) Regulamento de Promoção de Praças da Marinha (RPPM) tem como propósito orientar a carreira das praças dos diversos corpos e quadros, definir as habilitações necessárias ao exercício de funções nas várias graduações da carreira, e complementar os critérios para a condução da carreira. Nele estão contidos os requisitos para a matrícula nos cursos de carreira, os requisitos das promoções e os critérios para engajamento e reengajamento. <br> ( ) O Plano de Carreira de Praças da Marinha (PCPM) dispõe sobre os critérios e as condições para regular as promoções e a aplicação da quota compulsória para as praças de carreira da Marinha <br> ( ) O Estatuto dos Militares (EM) - Lei 6.880/80 - regula a situação, obrigação, deveres, direitos e prerrogativas dos membros das Forças Armadas, tanto da ativa quanto da inatividade, respeitando-se os preceitos fundamentais da hierarquia e da disciplina. (id:25016)",
+            respostas: [" (V) (F) (F) (V)","(V) (V) (F) (F)"," (V) (V) (V) (F)"," (F) (V) (V) (F)"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:" Segundo o Código Penal Militar, assinale a alternativa que indica um Crime Militar. (id:25017)",
+            respostas: [" Praticado por civil contra militar da ativa durante uma discussão no trânsito","Praticado por militar contra civil em um bar","Praticado por militar da ativa contra militar da reserva em uma discussão no trânsito.","Praticado por civil contra militar de folga no serviço do Monumento no Aterro do Flamengo."],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Segundo o Manual Básico do FN, qual legislação codifica toda a matéria relativa à parte processual penal militar em tempo de paz ou de guerra, sem ter o seu aplicador de recorrer à legislação penal comum, salvo em casos muito especiais? (id:25018)",
+            respostas: ["Normas Gerais para a Organização, o Preparo e o Emprego das Forças Armadas - Lei Complementar 97/99.","Diretrizes para o Emprego das Forças Armadas na Garantia da Lei e da Ordem (GLO) -Decreto 3.897/01.","Código Penal Militar","Código de Processo Penal Militar."],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Segundo o Manual Básico do FN, qual legislação tem por objetivo a preservação da ordem pública e da incolumidade das pessoas e do patrimônio, sempre que esgotados os instrumentos previstos na própria Constituição Federal, cabendo às Forças Armadas desenvolverem ações de polícia ostensiva, de natureza preventiva ou repressiva? (id:25019)",
+            respostas: ["Normas Gerais para a Organização, o Preparo e o Emprego das Forças Armadas - Lei Complementar 97/99.","Diretrizes para o Emprego das Forças Armadas na Garantia da Lei e da Ordem (GLO) -Decreto 3.897/01"," Código Penal Militar.","Código de Processo Penal Militar."],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:"Segundo o Manual Básico do FN, qual legislação estabelece a subordinação das Forças Armadas ao Ministro da Defesa (MD)? (id:25020)",
+            respostas: ["Normas Gerais para a Organização, o Preparo e o Emprego das Forças Armadas - Lei Complementar 97/99.","Diretrizes para o Emprego das Forças Armadas na Garantia da Lei e da Ordem (GLO) -Decreto 3.897/01.","Estatuto dos Militares.","Ordenança Geral para o Serviço da Armada."],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Segundo o Manual Básico do FN, qual legislação constitui-se em documento normativo essencial para a correta condução das atividades diárias a bordo das OM? (id:25021)",
+            respostas: [" Estatuto dos Militares.","Código Penal Militar","Código de Processo Penal Militar."," Ordenança Geral para o Serviço da Armada."],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Conforme o Manual do FN, qual legislação estabelece as normas relativas aos valores e à ética militar? (id:25022)",
+            respostas: [" Estatuto dos Militares","Regulamento Disciplinar para a Marinha.","Código Penal Militar"," Código de Processo Penal Militar."],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Qual legislação pertinente, de acordo com o Manual do FN, possui normas para a condução dos Inquéritos Policial-Militar (IPM), com a finalidade de investigar os crimes militares? (id:25023)",
+            respostas: ["Diretrizes para o Emprego das Forças Armadas na Garantia da Lei e da Ordem (GLO) -Decreto 3.897/01.","Regulamento Disciplinar para a Marinha.","Código Penal Militar"," Código de Processo Penal Militar."],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"É a legislação pertinente que prevê as normas para as honras prestadas às autoridades civis e militares pelos militares da Marinha do Brasil (MB): (id:25024)",
+            respostas: ["Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial Militar das Forças Armadas","Estatuto dos Militares.","Cerimonial da Marinha.","Cerimonial da Armada."],
+            correta: "resp2"
+          },
+                    
+          {
+            pergunta:"É a legislação pertinente que estabelece os direitos e deveres dos reservistas navais: (id:25025)",
+            respostas: [" Lei do Serviço Militar","Estatuto dos Militares."," Regulamento Disciplinar.","Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial Militar das Forças Armadas"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Conforme o Manual do FN, qual legislação estabelece as honras que os militares prestam às autoridades civis e militares? (id:25026)",
+            respostas: ["Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial Militar das Forças Armadas","Cerimonial das Forças Armadas."," Cerimonial da Marinha.","Cerimonial da Armada"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"É a legislação que fixa as normas que constituem o cerimonial militar no que for comum às Forças Armadas: (id:25027)",
+            respostas: ["Regulamento de Continências, Honras, Sinais de Respeito e Cerimonial Militar das Forças Armadas.","Cerimonial das Forças Armadas.","Cerimonial da Marinha."," Cerimonial da Armada"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:" Conforme o Manual do FN, qual legislação tem como propósito consolidar as disposições relativas ao pessoal, seus deveres e serviços? (id:25028)",
+            respostas: [" Estatuto dos Militares.","Cerimonial da Marinha"," Plano de Carreira de Praças da Marinha.","Ordenança Geral para o Serviço da Armada."],
+            correta: "resp3"
+          },
+                    
+        ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

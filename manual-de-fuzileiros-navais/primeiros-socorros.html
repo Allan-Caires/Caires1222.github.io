@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Primeiros Socorros</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Primeiros Socorros</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Primeiros Socorros</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é a definição de primeiro socorro? (id:29001)",
+              respostas: ["Tratamento completo e definitivo de uma enfermidade ou ferimento","Atendimento provisório prestado a uma vítima de enfermidade ou ferimento.","Intervenção médica especializada em situações de emergência","Exame da vítima para determinar a prioridade e a sequência lógica do atendimento."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que é uma situação de emergência? (id:29002)",
+              respostas: ["Situação em que o risco de vida pode existir, mas a intervenção pode aguardar um tempo.","Situação em que o risco de vida é crítico e iminente","Avaliação da vítima para determinar a prioridade e a sequência lógica do atendimento.","Avaliação detalhada da vítima, abordando lesões que não implique risco imediato de vida."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Quais são os princípios gerais que devem ser observados ao prestar primeiros socorros? (id:29003)",
+              respostas: ["Avaliar a vítima de situações de risco antes de prestar socorro, examinar a vítima para conhecer a extensão e a localização da enfermidade, e proceder ao exame secundário."," Executar procedimentos complexos e aguardar o auxílio médico antes de tomar qualquer iniciativa."," Não avaliar a vítima em situações de risco, iniciar o atendimento de forma imediata e proceder o exame secundário antes do exame primário.","Iniciar o atendimento imediatamente sem avaliar a vítima e executar procedimentos complexos antes de conhecer a extensão da enfermidade"],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual é a sequência de cuidados para estabelecer as funções vitais da vítima? (id:29004)",
+              respostas: ["Exposição e controle do ambiente, incapacidade, estado neurológico, vias aéreas com controle da coluna vertebral, respiração e ventilação, circulação com controle de hemorragia.","Circulação com controle de hemorragia, respiração e ventilação, exposição e controle do ambiente, vias aéreas com controle da coluna vertebral, incapacidade, estado neurológico.","Vias aéreas com controle da coluna vertebral, respiração e ventilação, circulação com controle de hemorragia, incapacidade, estado neurológico, exposição e controle do ambiente.","Incapacidade, estado neurológico, exposição e controle do ambiente, circulação com controle de hemorragia, respiração e ventilação, vias aéreas com controle da coluna vertebral."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Durante o exame inicial da vítima, qual a primeira avaliação que deve ser feita? (id:29005)",
+              respostas: ["Identificação de fraturas faciais.","Avaliação do estado de consciência.","Avaliação da perfusão periférica."," Avaliação das vias aéreas."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual a recomendação para restabelecer a permeabilidade das vias aéreas em vítimas com suspeita de lesão na coluna cervical e queda da língua? (id:29006)",
+              respostas: [" Elevação da mandíbula."," Inclinação da cabeça.","Compressão do tórax."," Massagem cardíaca."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Como o socorrista deve executar a elevação da mandíbula em uma vítima inconsciente com suspeita de lesão na coluna cervical? (id:29007)",
+              respostas: ["Posicionando-se atrás da cabeça da vítima em decúbito dorsal.","Empurrando os ângulos da mandíbula com o polegar","Deslocando a mandíbula para frente enquanto faz a abertura da boca.","Usando as mãos para diferenciar o posicionamento da cabeça e do pescoço."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Quais as causas de obstrução de vias aéreas tratáveis pelo socorrista? (id:29008)",
+              respostas: ["Trauma craniano e lesão da medula espinhal.","Infecção respiratória aguda e asma","Queda da língua e corpos estranhos","Pneumonia e insuficiência respiratória."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Em qual situação o socorrista não deve deslocar a mandíbula para frente para restabelecer a permeabilidade das vias aéreas? (id:29009)",
+              respostas: ["Suspeita de lesão da coluna cervical","Queda da língua sobre a parede posterior da faringe","Corpos estranhos nas vias aéreas","Vítima com obstrução de vias aéreas de origem traqueolaringeal"],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual é a importância da respiração para o organismo? (id:29010)",
+              respostas: ["Eliminação de água","Eliminação de oxigênio","Eliminação de gás carbônico","Eliminação de nitrogênio"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Quais lesões podem prejudicar de imediato a respiração? (id:29011)",
+              respostas: ["Pneumotórax simples e contusões pulmonares","Pneumotórax aberto e fraturas de costelas","Pneumotórax hipertensivo e tórax instável com contusão pulmonar","Todas as opções estão corretas"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é uma das principais causas de morte no período pós-traumático? (id:29012)",
+              respostas: [" Queimaduras","Fraturas","Hemorragia","Choque elétrico"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que a cor da pele pode indicar na avaliação de uma vítima hipovolêmica traumatizada? (id:29013)",
+              respostas: ["O nível de consciência da vítima","A quantidade de sangue circulante","A presença de lesões associadas","A frequência cardíaca da vítima"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Como podem ser os pulsos periféricos em uma vítima com circulação normal? (id:29014)",
+              respostas: ["Cheios, lentos e irregulares"," Cheios, rápidos e irregulares","Vazios, lentos e irregulares"," Cheios, lentos e regulares"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "O que é hemorragia externa grave? (id:29015)",
+              respostas: ["É quando há perda de sangue circulante.","É a perda de sangue que ocorre apenas no interior do corpo.","É a perda de sangue que ocorre em pequena quantidade.","É a perda de sangue que ocorre de forma rápida e visível."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "O que é o método A.V.D.I? (id:29016)",
+              respostas: ["Um método de avaliação neurológica","Um método de avaliação de fraturas","Um método de imobilização.","Um método de avaliação cardíaca."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "O que deve ser feito antes de se cortar as roupas de uma vítima? (id:29017)",
+              respostas: ["É necessário verificar se a vítima está respirando","É necessário mover a vítima para um local mais seguro.","É necessário oferecer água ou outras bebidas","É necessário cortar as roupas imediatamente."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "O que são plaquetas? (id:29018)",
+              respostas: ["Células de defesa do corpo humano.","Corpúsculos que fazem parte da porção sólida do sangue."," Células responsáveis pelo transporte de oxigênio.","Parte líquida do sangue composta por água, sal e proteínas."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é a primeira regra básica para salvar vidas em caso de acidente ou emergência? (id:29019)",
+              respostas: ["Imobilizar a vítima em caso de fraturas.","Oferecer água ou outras bebidas","Parar a hemorragia.","Fazer a respiração artificial."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é a característica do sangramento arterial? (id:29020)",
+              respostas: ["Sangramento contínuo de coloração vermelho escuro"," Sangramento em jato (pulsátil) de coloração vermelho vivo","Sangramento discreto por se tratar de vaso de pequeno calibre","Sangramento que acompanha a contração cardíaca"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que é hemorragia externa? (id:29021)",
+              respostas: ["Sangramento de estruturas profundas","Sangramento de estruturas superficiais com exteriorização do sangramento","Hemorragia no tórax","Hemorragia no abdômen"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Como pode ser reconhecida uma hemorragia interna? (id:29022)",
+              respostas: ["Através de lesões perfurantes e equimoses na pele","Pela presença de fraturas de bacias e fêmur","Pela distensão abdominal com dor após traumatismo","Todas as alternativas estão corretas"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Quais são os órgãos que mais frequentemente apresentam graves sangramentos? (id:29023)",
+              respostas: [" O fígado e o pulmão","O coração e o estômago","O fígado e o baço"," O baço e o rim"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "O que deve ser feito caso seja necessário prestar socorro e não seja possível usar luvas? (id:29024)",
+              respostas: ["A ação do socorrista deve ser adiada até que se consiga luvas","Pode-se improvisar com saco ou sacolas plásticas","Nada deve ser feito, é necessário esperar ajuda médica chegar","Deve-se pedir a alguém que tenha luvas para prestar socorro"],
+              correta: "resp1"
+            },
+                                 
+            {
+              pergunta: "Qual a medida inicial a ser tomada para conter hemorragias em ambiente não hospitalar? (id:29025)",
+              respostas: ["Posicionar a vítima em decúbito dorsal com as extremidades inferiores elevadas","Elevar o local do sangramento acima do nível do coração","Manipular a vítima com as mãos protegidas","Desobstruir as vias aéreas e efetuar assistência respiratória se necessário"],
+              correta: "resp3"
+            },
+                                 
+            {
+              pergunta: "O que fazer caso a compressa utilizada sobre o ferimento fique encharcada de sangue? (id:29026)",
+              respostas: ["Retirar a compressa e aplicar uma nova","Fazer pressão no local com a mão protegida","Aplicar um torniquete","Nenhuma das alternativas acima."],
+              correta: "resp0"
+            },
+                                 
+            {
+              pergunta: "Em que situação é recomendado o uso de torniquete? (id:29027)",
+              respostas: ["Para conter qualquer tipo de hemorragia;","Como medida inicial de controle de hemorragias;","Em hemorragias graves nas extremidades do corpo quando outros métodos não funcionarem;","Quando a hemorragia for moderada."],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Quais são os cuidados na utilização do torniquete? (id:29028)",
+              respostas: ["Utilizar arame ou outro material cortante","Cobrir com atadura ou curativo","Colocar sobre uma proeminência óssea (ex. joelho, cotovelo etc.)","Marcar a hora que foi colocado o torniquete e afrouxar a cada intervalo de 10/15 minutos."],
+              correta: "resp3"
+            },
+                                 
+            {
+              pergunta: "Qual o material recomendado para improvisar um torniquete? (id:29029)",
+              respostas: ["Fios, barbantes ou arames","Materiais finos e estreitos","Panos largos","Nenhuma das alternativas acima"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "O que é a RCP? (id:29030)",
+              respostas: ["Técnica cirúrgica","Técnica adotada para tratamento de câncer","Técnica adotada para retardar uma lesão cerebral até a instituição de medidas mais avançadas","Técnica utilizada em cirurgias plásticas"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "O que é a parada cardíaca? (id:29031)",
+              respostas: ["Interrupção repentina da função de bombeamento cardíaco","Sinais de parada cardiorrespiratória (PCR)","Consequências da PCR","Procedimento básico durante a RCP"],
+              correta: "resp0"
+            },
+                                 
+            {
+              pergunta: "Qual é o objetivo básico da RCP? (id:29032)",
+              respostas: ["Aumentar a lesão cerebral","Oxigenar e fazer circular o sangue até que seja iniciado o tratamento definitivo"," Cessar a oxigenação dos órgãos","Aumentar a pressão arterial"],
+              correta: "resp1"
+            },
+                                 
+            {
+              pergunta: "Quais são os procedimentos básicos durante a RCP? (id:29033)",
+              respostas: ["Iniciar as compressões torácicas sem verificar a presença de pulso"," Realizar o exame primário determinado para verificar se a vítima está em parada respiratória","Cessar as manobras de RCP sem ordem médica","Retirar, caso haja, corpos estranhos da boca da vítima após realizar as compressões torácicas"],
+              correta: "resp1"
+            },
+                                 
+            {
+              pergunta: "Como realizar a RCP em um adulto com apenas um socorrista? (id:29034)",
+              respostas: ["Ajoelhar ao lado da vítima, retirar corpos estranhos da boca da vítima e iniciar as compressões torácicas","Retirar corpos estranhos da boca da vítima, ajoelhar ao lado da vítima e realizar duas ventilações em intervalos de 5 segundos","Ajoelhar ao lado da vítima, realizar o exame primário determinado para verificar se a vítima está em parada respiratória e retirar corpos estranhos da boca da vítima"," Iniciar as compressões torácicas sem verificar a presença de pulso"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Qual é a função do líder durante a R.C.P. com dois ou mais socorristas? (id:29035)",
+              respostas: ["Ficar responsável pela ventilação","Verificar a eficácia das compressões torácicas","Efetuar o exame primário","Fazer a contagem das compressões em voz alta"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Quantas compressões torácicas devem ser realizadas após duas ventilações durante a R.C.P. com dois ou mais socorristas? (id:29036)",
+              respostas: ["10 compressões","15 compressões","20 compressões","25 compressões"],
+              correta: "resp1"
+            },
+                                 
+            {
+              pergunta: "Como é verificada a eficácia das compressões torácicas durante a R.C.P. com dois ou mais socorristas? (id:29037)",
+              respostas: ["Observando a movimentação do tórax","Verificando a cor da pele","Palpando o pulso carótideo","Medindo a frequência cardíaca"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Com que frequência deve ser verificado o retorno da atividade cardíaca durante a R.C.P. com dois ou mais socorristas? (id:29038)",
+              respostas: ["A cada 1 minuto","A cada 2 minutos"," A cada 3 minutos","A cada 4 minutos"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "O que deve ser feito caso o socorrista que efetua as compressões torácicas canse durante a R.C.P. com dois ou mais socorristas? (id:29039)",
+              respostas: ["A R.C.P. deve ser interrompida","O socorrista que estava responsável pela ventilação deve assumir as compressões torácicas","O socorrista que estava efetuando as compressões deve continuar até que outro socorrista chegue","Utiliza-se a técnica de troca de posições"],
+              correta: "resp3"
+            },
+                                 
+            {
+              pergunta: "Qual é o objetivo do curativo inicial em um ferimento? (id:29040)",
+              respostas: ["Secar o ferimento","Acelerar a cicatrização","Proteger contra a contaminação de micróbios e sujeira","Aplicar medicamentos"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Qual é o líquido recomendado para lavar um ferimento na ausência de soro fisiológico? (id:29041)",
+              respostas: ["Álcool"," Água com sabão","Água limpa em abundância","Suco de limão"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "As regras básicas de proteção de ferimentos se aplicam a quais tipos de ferimentos? (id:29042)",
+              respostas: [" Apenas ferimentos superficiais","Apenas ferimentos graves","A todos os tipos de ferimentos","Apenas ferimentos causados por elementos químicos"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Quais são as quatro origens possíveis de queimaduras? (id:29043)",
+              respostas: ["Térmica, elétrica, química e radiativa","Térmica, elétrica, radiativa e magnética","Química, elétrica, magnética e sonora","Térmica, sonora, magnética e radiativa"],
+              correta: "resp0"
+            },
+                                 
+            {
+              pergunta: "Como são caracterizadas as queimaduras de 2º grau profundo? (id:29044)",
+              respostas: ["Com vermelhidão e muita dor","Com a presença de bolhas e muita dor","Com uma menor destruição de terminais nervosos","Com o rompimento das bolhas ou do (soltar da pele)"],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Qual é a regra utilizada para calcular a extensão da lesão em uma queimadura? (id:29045)",
+              respostas: [" Regra dos sete.","Regra dos oito","Regra dos nove.","Regra dos onze."],
+              correta: "resp2"
+            },
+                                 
+            {
+              pergunta: "Qual das áreas a seguir pode ser considerada uma lesão grave em uma queimadura? (id:29046)",
+              respostas: ["Abdomen.","Costas","Pernas."," Mãos e pés."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "O que fazer em caso de queimaduras químicas? (id:29047)",
+              respostas: ["Utilizar gelo no local.","Lavar com água corrente em abundância e retirar as vestes contaminadas pelo agente químico.","Utilizar remédios caseiros como manteiga, dentifrícios e pomadas.","Não fazer nada."],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Por que não se deve romper bolhas em queimaduras? (id:29048)",
+              respostas: [" Para evitar a contaminação.","Porque as bolhas são bonitas","Para prevenir infecções.","Porque as bolhas podem ajudar na cicatrização"],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "O que fazer em caso de fogo em suas próprias roupas? (id:29049)",
+              respostas: ["Correr em direção a um lugar seguro.","Deitar e rolar vagarosamente, batendo o fogo com as mãos","Deitar e dormir","Deixar o fogo se apagar sozinho"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "O que é um traumatismo do sistema ósteo-mio-articular? (id:29050)",
+              respostas: ["Uma lesão que acomete somente o sistema muscular.","Uma lesão que apresenta solução de continuidade da pele","Uma lesão que causa risco imediato à vida","Uma lesão que acomete os sistemas ósseo, muscular e as articulações, que podem se apresentar sozinhas ou associadas."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Quais são as causas mais comuns de traumatismo do sistema ósteo-mio-articular? (id:29051)",
+              respostas: ["Quedas","Acidentes aéreos.","Ataques cardíacos.","Fraturas"],
+              correta: "resp0"
+            },
+                                            
+            {
+              pergunta: "Qual é a diferença entre hematoma e equimose? (id:29052)",
+              respostas: ["Hematoma é uma coleção de líquidos, enquanto equimose é o resultado do rompimento de vasos de pequeno calibre","Hematoma é o resultado do rompimento de vasos de pequeno calibre, enquanto equimose é uma coleção de líquidos.","Hematoma é o resultado do rompimento de vasos mais calibrosos, enquanto equimose é o resultado do rompimento de vasos de pequeno calibre","Hematoma é uma lesão que ocorre em determinada articulação, enquanto equimose é uma coleção de líquidos."],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "O que é uma luxação? (id:29053)",
+              respostas: [" Uma lesão que acomete somente o sistema muscular.","Uma lesão que apresenta solução de continuidade da pele."," Uma lesão que causa risco imediato à vida.","Uma lesão que ocorre em determinada articulação, devido a um movimento brusco que ultrapassa o limite fisiológico com perda de relação entre as superfícies articulares"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "O que é uma amputação? (id:29054)",
+              respostas: ["É a ruptura ou solução de continuidade óssea decorrente de um traumatismo direto, indireto ou patológico."," É a separação de um membro de uma estrutura protuberante do corpo","É a lesão dos grandes vasos, ramos nervosos principais, lesão cervical, abdome e tórax, hemorragia maciça e lesão de medula espinhal.","É a sensação de atrito dos fragmentos ósseos no foco da fratura."],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "O que deve ser feito após uma amputação para conservar o segmento amputado? (id:29055)",
+              respostas: ["Limpar e envolver com pano limpo.","Limpar, envolver com pano limpo e proteger com saco plástico","Limpar, envolver com pano limpo e colocar em recipiente com água quente","Limpar, envolver com pano sujo e colocar em recipiente com água gelada."],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "O que são fraturas fechadas? (id:29056)",
+              respostas: ["São fraturas com solução de continuidade da pele sobre a lesão.","São fraturas com fragmentos ósseos expostos.","São fraturas que ocorrem por doenças degenerativas, como câncer","São fraturas que não apresentam solução de continuidade da pele sobre a lesão."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Como proceder em caso de fraturas fechadas? (id:29057)",
+              respostas: ["Tentar reduzir a fratura","Imobilizar sempre a articulação proximal (acima) da fratura","Não retirar anéis, pulseiras ou outros acessórios que possam comprometer a circulação.","Testar a sensibilidade e o enchimento capilar distal."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Quais as complicações associadas às fraturas? (id:29058)",
+              respostas: ["Lesões de grandes vasos e ramos nervosos principais.","Lesão cervical, abdome e tórax.","Hemorragia maciça e lesão de medula espinhal.","Todas as alternativas estão corretas."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual o procedimento indicado em caso de fraturas expostas? (id:29059)",
+              respostas: ["Tentar reintroduzir o osso fraturado","Fazer curativo com pano seco","Remover as roupas da vítima","Conter a hemorragia e não tentar reintroduzir o osso fraturado"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Em relação ao transporte de feridos, quais são os procedimentos que devem ser observados? (id:29060)",
+              respostas: ["Fixação da vítima durante o transporte","Remoção de fraturas/luxações imobilizadas","Administração de medicamentos analgésicos","Monitorização dos batimentos cardíacos"],
+              correta: "resp0"
+            },
+                                            
+            {
+              pergunta: "O que fazer em caso de suspeita de fratura de coluna? (id:29061)",
+              respostas: ["Mover a vítima para um local seguro","Solicitar que a vítima mova os dedos das mãos e dos pés","Tentar levantar a cabeça e mover a coluna","Transportar a vítima imediatamente para o hospital"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Qual o método mais indicado para transportar uma pessoa que esteja inconsciente devido a afogamento ou asfixia? (id:29062)",
+              respostas: ["Método de uma pessoa","Método de duas pessoas","Método de três pessoas","Metodo de uma ou duas pessoas"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "O que fazer em caso de suspeita de fratura de pescoço? (id:29063)",
+              respostas: ["Movimentar a vítima com cuidado, segurando apenas a cabeça e o pescoço","Colocar algo macio embaixo do pescoço da vítima","Movimentar a vítima sem se preocupar com a cabeça e o pescoço"," Não mover o acidentado em nenhum caso e, se houver absoluta necessidade de movimentá-lo, apenas uma pessoa deverá sustentar a cabeça e o pescoço"],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual é a técnica de transporte indicada para vítimas inconscientes? (id:29064)",
+              respostas: ["Elevação manual direta","Transporte tipo bombeiro","Transporte de Vítimas não Traumáticas","Nenhuma das opções acima"],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Como devem se posicionar os socorristas na técnica de Elevação Manual Direta? (id:29065)",
+              respostas: ["Em lados opostos da vítima.","Em lados diferentes da vítima.","Próximos à cabeça da vítima"," Nenhuma das opções acima."],
+              correta: "resp1"
+            },
+                                            
+            {
+              pergunta: "Em que posição a vítima deve ser transportada em casos de dor torácica? (id:29066)",
+              respostas: [" Decúbito dorsal com as extremidades inferiores elevadas.","Decúbito lateral esquerdo.","Semi sentado.","Decúbito dorsal com o tronco elevado."],
+              correta: "resp3"
+            },
+                                            
+            {
+              pergunta: "Qual é a posição indicada para transportar vítimas com dispneia? (id:29067)",
+              respostas: ["Decúbito dorsal com as extremidades inferiores elevadas","Decúbito lateral esquerdo","Semi sentado.","Decúbito dorsal com o tronco elevado"],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "Por que a cabeceira baixa é contra indicada no transporte de vítimas em choque? (id:29068)",
+              respostas: ["Porque dificulta a respiração","Porque pode causar broncoaspiração.","Porque não permite um bom funcionamento do diafragma."," Nenhuma das opções acima."],
+              correta: "resp2"
+            },
+                                            
+            {
+              pergunta: "Como reconhecer uma cobra peçonhenta? (id:29069)",
+              respostas: ["Possui dentes inoculadores grandes, caniculados e móveis localizados na parte anterior da boca.","Possui dentes inoculadores pequenos, imóveis e caniculados localizados na parte anterior da boca.","Possui um par de dentes posteriores maiores que os outros dentes, sulcados e fixos.","Possui todos os dentes do mesmo tamanho e sem sulcos."],
+              correta: "resp0"
+            },
+                                            
+            {
+              pergunta: "Como socorrer uma vítima mordida por cobra? (id:29070)",
+              respostas: ["Dar uma bebida ao ferido e procurar atendimento médico o mais rápido possível.","Lavar o ferimento com bastante água, esfregando para remover o veneno","Manter a vítima deitada e calma, lavar imediatamente o ferimento com bastante água, sem esfregar, proteger o ferimento e remover o doente, e se houver dificuldade respiratória, fazer respiração artificial. Providenciar socorro médico o mais rápido possível.","Não verificar se a cobra é venosa ou não, e tratar o ferimento como um acidente comum."],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "O que fazer em caso de picadas de insetos como abelhas, marimbondos e formigas? (id:29071)",
+              respostas: ["Cobrir o local com compressas de álcool com gotas de amônia ou anti-séptico.","Não fazer nada, pois a picada não causa reações adversas.","Cobrir o local com um curativo caseiro feito com pasta de dente e açúcar.","Lavar o local atingido e esfregar para remover o ferrão."],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "O que fazer em caso de contato com plantas venenosas? (id:29072)",
+              respostas: ["Coçar o local atingido para aliviar a irritação.","Lavar o local com água fria e sabão, cobrir a parte afetada e procurar atendimento médico.","Não fazer nada, pois a irritação é passageira.","Passar manteiga ou óleo no local afetado"],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "O que fazer em caso de contato com águas-vivas ou caravelas? (id:29073)",
+              respostas: ["Coçar o local afetado para aliviar a dor","Lavar o local atingido e esfregar com sabão.","Proteger o ferimento e procurar atendimento médico","Passar álcool no local afetado."],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "O que é insolação? (id:29074)",
+              respostas: ["Ingestão excessiva de álcool."," Acidente elétrico.","Exposição demorada aos raios solares.","Acúmulo excessivo de gordura no corpo"],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "Qual é o procedimento correto a ser tomado em caso de insolação? (id:29075)",
+              respostas: [" Fazer massagem com álcool e manter a vítima aquecida.","Procurar desligar a fonte de energia elétrica e iniciar imediatamente a respiração artificial.","Colocar a vítima em um lugar fresco e arejado, desapertar sua roupa e dar água com um pouco de sal.","Tratar como na intermação."],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "O que fazer em caso de cãibras? (id:29076)",
+              respostas: ["Tratar como na intermação.","Fazer massagem com álcool e manter a vítima aquecida.","Colocar a vítima em um lugar fresco e arejado, desapertar sua roupa e dar água com um pouco de sal.","Dar bebidas quentes"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "Qual é a recomendação para remoção de corpos estranhos nos olhos? (id:29077)",
+              respostas: ["Esfregar os olhos vigorosamente","Fechar os olhos por alguns minutos e aguardar as lágrimas levar o corpo estranho para o canto do olho.","Tentar retirar o corpo estranho com uma pinça.","Procurar atendimento médico imediatamente."],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "O que fazer em caso de afogamento? (id:29078)",
+              respostas: [" Fazer massagem com álcool e manter a vítima aquecida.","Procurar desligar a fonte de energia elétrica e iniciar imediatamente a respiração artificial.","Deitar a vítima de bruços sobre seus joelhos e procurar fazê-la eliminar a água ingerida.","Lavar o corpo da vítima com água fria"],
+              correta: "resp2"
+            },
+                                                                 
+            {
+              pergunta: " De acordo com o Manual do Fuzileiro Naval, no que diz respeito às características das cobras peçonhentas e não peçonhentas, associe a coluna da direita com a coluna da esquerda e marque a opção que apresenta a sequência correta. <br> 1 - cascavel, jararaca e surucucu <br> 2 - coral <br> 3 - sucuri, jiboia, salamanta e cobra-cachorro <br> 4 - cobra-verde e cobra-espada <br> ( ) cobras não peçonhentas e que possuem todos os dentes do mesmo tamanho e sem sulcos. <br> ( ) cobras que apresentam par de dentes inoculadores grandes, caniculados e móveis, localizados na parte anterior da boca. <br> ( ) cobras que apresentam par de dentes inoculadores pequenos, caniculados e fixos, localizados na parte anterior da boca. <br> ( ) cobras não peçonhentas que apresentam um par de dentes posteriores maiores que os outros (id:29079)",
+              respostas: ["3-2-4-1","3-4-1-2","3-1-2-4","2-1-4-3"],
+              correta: "resp2"
+            },
+                                                                           
+            {
+              pergunta: "Com relação aos procedimentos de primeiros socorros que devem ser prestados à vítima de mordida de cobra, segundo o Manual do Fuzileiro Naval, assinale a opção incorreta. (id:29080)",
+              respostas: [" Manter a vítima deitada e calma, mantendo a ferida abaixo da linha do coração","Lavar imediatamente o ferimento com bastante água, sem esfregar, proteger o ferimento e remover o doente","Se houver dificuldade respiratória, fazer respiração artificial.","Providenciar socorro médico o mais rápido possível e hidratar bastante a vítima."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Com base no Manual do Fuzileiro Naval, analise as proposições abaixo, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> ( ) Em picadas de insetos como abelhas, marimbondos e formigas, procurar não retirar o ferrão, cobrindo o local com compressas de álcool, gotas de amônia ou anti-séptico <br> ( ) Todos os escorpiões são peçonhentos, isto é, produzem veneno e são capazes de injetá-lo na vítima. No Brasil devem ser temidos, pois existem espécies que têm veneno em quantidade suficiente para matar um homem. O veneno é neurotóxico porque age especialmente sobre o sistema nervoso, causando a morte por asfixia, devido ao bloqueio do sistema respiratório. No caso de acidentes com aranhas ou escorpiões, proceder damesma forma como descrito para o acidente com cobras, providenciando socorro médico o mais rápido possível. <br> ( ) Antes de atender a vítima de acidente por choque elétrico, procurar desligar a fonte de energia elétrica que alimenta o sistema. Se não for possível, usar um pau seco, pano seco, cinto de lona ou outro material não condutor de eletricidade para afastar a vítima do contato com a fonte elétrica. Iniciar imediatamente a respiração artificial, caso a vítima não esteja respirando, e providenciar socorro médico o mais rápido possível. <br> ( ) O procedimento para socorrer vítima de afogamento consiste, inicialmente, em remover as secreções das vias respiratórias. Em seguida, deitar a vítima de barriga para cima e procurar fazê-la eliminar a água ingerida <br> ( ) O Envenenamento por monóxido de carbono ocorre geralmente nas proximidades de viaturas, principalmente em locais fechados. O atendimento de primeiros socorros nesses casos consistirá em remover a vítima para um local arejado e, havendo dificuldade respiratória, fazer respiração artificial. (id:29081)",
+              respostas: ["V-F-V-F-V"," F-V-V-F-V"," F-F-V-V-F","F-F-V-V-V"],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: " Na classificação quanto à origem, são as queimaduras de difícil avaliação, pois lesões que parecem superficiais podem ter danos profundos: (id:29082)",
+              respostas: ["Química","Radiativa","Térmica","Elétrica"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Quanto à profundidade, é a queimadura que se caracteriza pelo comprometimento profundo da pele, atingindo músculos, vasos e ossos. (id:29083)",
+              respostas: ["3°grau","2°grau profundo.","2°grau superficial.","3°grau superficial."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Quanto aos procedimentos com as vítimas de queimaduras, assinale a alternativa que apresenta um procedimento que NÃO deverá ser adotado. (id:29084)",
+              respostas: ["Resfriar a lesão com água na temperatura ambiente. No caso de queimaduras químicas, deve-se lavar com água corrente em abundância e retirar as vestes contaminadas pelo agente químico e não utilizar remédios “caseiros” tais como, manteiga, dentifrícios (pasta de dente), pomadas e óleos. Essas substâncias podem agravar as lesões, promover infecção e dificultar a avaliação médica.","Remover joias (cordão, anel, pulseiras) e vestes da vítima para evitar problemas com o edema (inchaço) e fazer uma estimativa da superfície corporal queimada para avaliar a gravidade da situação e não transportar a vítima envolvida com panos úmidos ou molhados e nem usar gelo no local, pois isso diminuirá ainda mais a temperatura corporal (hipotermia). Deve-se envolver a vítima em panos limpos secos, papel alumínio, para reduzir a perda de calor, e evitar a contaminação.","No caso de fogo em suas próprias roupas, não se deve correr, pois o vento avivará o fogo. Deve-se deitar, enrolar o corpo em um cobertor ou em pano para abafar o fogo, deixando a cabeça de fora. Na falta de material de fortuna, deve-se deitar e rolar vagarosamente, batendo o fogo com as mãos","No caso de fogo na roupa de outra pessoa, deve-se deitá-la no chão (se for necessário, deve-se fazer uso da força). colocar a parte em chamas virada para baixo e abafar com um pano ou outro material similar. Apagadas as chamas, deve-se tratar o estado de choque após tratar as queimaduras."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Quanto à origem, são as queimaduras causadas pela condução de calor: (id:29085)",
+              respostas: ["Térmica","Elétrica","1° Grau","Radiativa"],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Segundo o Manual do Fuzileiro Naval, com relação às queimaduras, analise as proposições abaixo e assinale a alternativa que apresenta a afirmativa correta. <br> I - A extensão da lesão indica a gravidade do queimado e pode ser calculada pela regra dos nove, na qual estima-se que a cabeça e cada membro superior representem 9%, cada membro inferior 18% e o tronco 36% da superfície corporal. <br> II - Deve-se ter em mente que em uma vítima de queimadura as lesões são uniformes e vários graus de profundidade podem estar presentes em uma mesma aérea. <br> III - No caso de fogo na roupa de outra pessoa, deve-se sempre proceder dos pés para a cabeça. <br> IV - A queimadura de 2º grau superficial caracteriza-se pelo não surgimento de bolhas, mas pela vermelhidão e por muita dor. O aspecto geral é similar às lesões de 1º grau (id:29086)",
+              respostas: ["Todas estão corretas.","Apenas a IV está correta","Apenas a III está incorreta","Apenas a I está correta"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: " Com relação as lesões que acometem os sistemas ósseo, muscular e as articulações, as quais podem se apresentar sozinhas ou associadas, relacione a coluna da direita com a coluna da esquerda e assinale a alternativa que indica a sequência correta. <br> 1- Equimoses <br> 2- Hematomas <br> 3- Contusão <br> 4- Entorse <br> 5- Luxação <br> ( ) São traumatismos causados por forças externas e geralmente não apresentam solução de continuidade da pele. <br> ( ) É o resultado do rompimento de vasos de pequeno calibre, invadindo os tecidos, ficando no local, manchas roxas, edemaciado (inchado) e dolorido <br> ( ) Ocorre devido ao rompimento de vasos mais calibrosos, sendo possível observar manchas roxas, edema, dor e uma coleção de líquidos. <br> ( ) São lesões que ocorrem em determinada articulação, devido a um movimento brusco que ultrapassa o limite fisiológico com perda de relação entre as superfícies articulares. <br> ( ) São traumatismos causados por movimentos bruscos e violentos sobre articulações, causando perda de função das mesmas. (id:29087)",
+              respostas: ["3-1-2-5-4","3-2-1-5-4","3-1-2-4-5","2-1-5-3-4"],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " Quanto ao procedimento no trato das fraturas fechadas, assinale a alternativa incorreta. (id:29088)",
+              respostas: ["Testar a sensibilidade e o enchimento capilar distal.","Tentar reduzir a fratura.","Se for impossível alinhar as extremidades em uma posição anatômica, imobilizar na melhor posição possível.","Retirar anéis, pulseiras ou outros acessórios que possam comprometer a circulação"],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: " Com relação às lesões que acometem os sistemas ósseo, muscular e as articulações, as quais podem se apresentar sozinhas ou associadas, analise as proposições abaixo e marque a opção que apresenta a afirmativa correta. <br> I - Essas lesões não causam risco imediato à vida, podendo ser avaliadas em exames secundários. Em alguns casos, podem levar ao choque hipovolêmico por danos vasculares e fisiológicos, e as causas mais comuns são acidentes automobilísticos, na prática de esportes e nas quedas. <br> II - Os hematomas ocorrem devido ao rompimento de vasos de pequeno calibre, podemos observar manchas roxas, edema, dor e uma coleção de líquidos que ao comprimirmos sentimos o seu deslocamento. Já as equimoses são o resultado do rompimento de vasos mais calibrosos, invadindo os tecidos, ficando no local, manchas roxas, edemaciado (inchado) e dolorido. <br> III - Contusão são traumatismos causados por movimentos bruscos e violentos e geralmente não apresentam solução de continuidade da pele. Nesses traumatismos podemos observar com frequência as equimoses e os hematomas. Seus sintomas são: dor, edema, equimose ou hematoma. Deve-se limpar e manter a área atingida em repouso, aplicando gelo nas primeiras 48 - 72 horas (caso haja disponibilidade). Quanto às entorses, são traumatismos causados por forças externas sobre articulações, causando perda de função das mesmas. Seus sintomas são: dor, impotência funcional, edema, rubor da articulação e equimose / hematoma. Deve-se aplicar gelo nas primeiras 48 - 72 horas, imobilizar o local, mantendo o local em repouso com a extremidade levantada. Tão logo possível, encaminhar para um hospital a fim de ser feito uma radiografia para excluir diagnósticos de fraturas. <br> IV - Luxação são lesões que ocorrem em determinada articulação, devido a um movimento brusco que ultrapassa o limite fisiológico com perda de relação entre as superfícies articulares. Nesses casos, recorre-se à técnica conhecida como redução, que são as manobras que visam fazer a extremidade luxada retornar ao seu lugar, tendo como fatores impeditivos de realizá-la o aumento da tensão muscular, ruptura de ligamento, fraturas associadas e dor (respeitar o limite de dor da vítima). <br> V - Amputações referem-se à separação de um membro de uma estrutura protuberante do corpo. Podem ocorrer por esmagamento ou ação de objetos cortantes. As mais comuns são as causadas por acidentes industriais ou automobilísticos. As amputações completas tendem a sangrar mais do que as parciais, devido à capacidade elástica dos vasos sanguíneos. Quanto às fraturas, essas podem ser classificadas como fechadas ou abertas/expostas. A diferença é que nas fraturas fechadas a pele sobre a lesão permanece integra, nas abertas, isso não ocorre (id:29089)",
+              respostas: ["Todas estão incorretas.","Apenas a II e a III estão incorretas.","Apenas a I, a IV e a V estão corretas.","Apenas a II, a III e a V estão incorretas."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Quanto aos procedimentos relativos às fraturas abertas, assinale aquele que NÃOdeverá ser adotado (id:29090)",
+              respostas: [" Fixar os fragmentos para que durante o transporte estes não causem outras feridas","Reintroduzir o osso fraturado para evitar infecções graves","Conter a hemorragia, caso haja."," Limpar a superfície ferida e retirar fragmentos, desde que não estejam incrustados."],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Quanto aos procedimentos a serem observados no transporte de feridos, assinale como verdadeiras ou falsas as sentenças abaixo e marque a opção que apresenta a sequência correta. <br> ( ) Antes de transportar o ferido, deve-se sempre verificar as condições da respiração e circulação, conter as hemorragias, imobilizar as fraturas/luxações, tratar os ferimentos, controlar a dor (quando possível), prevenir o estado de choque e fixar a vítima durante o transporte. <br> ( ) Se o ferido tiver que ser levantado antes de um exame para verificação das lesões, cada parte de seu corpo deve ser apoiada e o corpo precisa ser mantido sempre em linha reta, não devendo ser curvado. Além disso, se for preciso arrastar um ferido para local seguro, ele deve ser arrastado pela direção da cabeça ou pelos pés, mas nunca pelos ladose é preciso se certificar de que a cabeça está protegida. <br> ( ) Para o transporte de uma vítima sem a maca, deve ser escolhido o método de uma, duas ou três pessoas, dependendo do tipo, da gravidade da lesão, da ajuda disponível e do local (escadas, paredes, passagens estreitas, etc.). <br> ( ) Caso se suspeite de que há fratura de coluna, não se deve mover a vítima. Para essa verificação, estando a vítima consciente, solicita-se que ela mova os dedos dos pés e das mãos. Não se deve tentar levantar a cabeça e nem mover a coluna. No entanto, havendo suspeita de fratura de pescoço, não mover o acidentado em nenhum caso, pois isso poderá provocar a morte <br> ( ) Se houver absoluta necessidade de movimentar o ferido, apenas uma pessoa deverá sustentar a cabeça e o pescoço, sem deixá-los movimentar-se, enquanto outros guarnecem o restante do corpo. Os métodos que empregam um ou dois socorristas são ideais para transportar uma pessoa que esteja inconsciente devido a afogamento ou asfixia. Todavia, não servem para carregar um ferido com suspeita de fraturas ou outras lesões graves. Em tais casos, usa-se sempre o método de três socorristas. (id:29091)",
+              respostas: ["V-V-V-V-V.","V-V-V-V-F.","V-V-F-V-F","V-V-V-F-F."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " Quanto aos acidentes por agentes físicos, assinale a opção incorreta. (id:29092)",
+              respostas: ["A insolação é causada pelo calor, especialmente pela exposição demorada aos raios solares. Tem como sintomas a dor de cabeça, face avermelhada, pele quente e seca, a sudorese excessiva, o pulso forte e rápido, a temperatura alta e a perda da consciência.Deve-se lavar o corpo da vítima com água fria, especialmente a cabeça. Não se deve dar estimulantes, somente água com um pouco de sal.","A intermação é causada pela exposição demorada ao calor, especialmente em ambiente fechado. Os pacientes apresentam a face pálida, a pele úmida e fria, sudorese excessiva, pulso fraco e temperatura baixa. Deve-se colocar a vítima em um lugar fresco e arejado, desapertar sua roupa, dar água com um pouco de sal e repositores eletrolíticos","As cãibras ocorrem especialmente no abdômen e nas pernas e devem ser tratadascom os mesmos procedimentos previstos para a intermação.","Nos casos de choque elétrico, antes de atender a vítima, procurar desligar a fonte de energia elétrica que alimenta o sistema onde a pessoa levou o choque. Caso isso não seja possível, usar um pau seco, pano seco, cinto de lona ou outro material não condutor de eletricidade para afastar a vítima do contato com fonte elétrica. Iniciar imediatamente a respiração artificial, caso a vítima não esteja respirando, e providenciar socorro médico o mais rápido possível."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Quanto aos procedimentos relativos aos primeiros socorros, no atendimento à vítima fraturada, assinale a alternativa incorreta. (id:29093)",
+              respostas: ["Nos casos de fraturas, deve-se ter atenção para as seguintes complicações associadas: lesões de grandes vasos; lesões de ramos nervosos principais; lesão cervical, abdome e tórax; hemorragia maciça; e lesão de medula espinhal.","Nas fraturas internas, deve-se testar a sensibilidade e o enchimento capilar distal, pois a lentidão no enchimento capilar e a alteração de sensibilidade indicam complicações.","Nas fraturas, deve-se imobilizar sempre a articulação proximal e distal da fratura","Nas fraturas expostas ocorre solução de continuidade da pele sobre a lesão, ou seja, rompimento da pele, e nos deparamos com fragmentos ósseos expostos."],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Quanto ao transporte de feridos, segundo o Manual Básico, é correto afirmar que: (id:29094)",
+              respostas: ["O transporte de feridos é um procedimento importante como primeiros socorros, haja vista que um transporte mal feito pode agravar o estado da vítima. Devemos sempre lembrar que, mesmo nos casos em que a vida da vítima esteja em situação de risco, tais como desabamento e explosões, a vítima só deve ser transportada após realizados todos os procedimentos de primeiros socorros, e de preferência com seu quadro estabilizado.","A maca é o melhor meio de transporte. Para isso, pode-se fazer uma boa maca abotoando-se duas gandolas em duas varas ou bastões resistentes ou enrolando um cobertor dobrado em quatro, em volta de tubos de ferro ou bastões. Ou, ainda, usando uma tábua larga.","A maca é o melhor meio de transporte. Para isso, pode-se fazer uma boa maca abotoando-se duas gandolas em duas varas ou bastões resistentes ou enrolando um cobertor dobrado em quatro, em volta de tubos de ferro ou bastões. Ou, ainda, usando uma tábua larga.","O método de transporte tipo bombeiro é indicado para socorrer vítimas que estejam inconscientes."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Das alternativas abaixo, assinale a que indica a posição correta para transporte de uma vítima não traumática que esteja inconsciente (id:29095)",
+              respostas: ["Decúbito dorsal com os joelhos dobrados","Decúbito dorsal com o tronco elevado.","Decúbito dorsal com as extremidades inferiores elevadas.","Decúbito lateral."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Nas vítimas de queimaduras, existem áreas no corpo que podem ser consideradas como lesões graves em função das complicações que podem advir. Das alternativas abaixo, assinale aquela que, segundo o Manual Básico do Fuzileiro Naval, NÃO se enquadra nesse contexto (id:29096)",
+              respostas: ["Mãos e pés","Face","Períneo","Abdômen"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Quanto às lesões que acometem os sistemas ósseo, muscular e as articulações, é incorreto afirmar que (id:29097)",
+              respostas: ["Devem ser consideradas como uma situação de emergência, pois causam risco imediato à vida. Precisam, portanto, ser avaliadas em exames primários.","A têmporo-mandibular, a escapulo-umeral e a de cotovelo são os tipos mais comuns de luxação.","Hematoma é um tipo de lesão que ocorre devido ao rompimento de vasos mais calibrosos.","As manobras que visam fazer a extremidade luxada retornar ao seu lugar são denominadas de redução."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " Das alternativas abaixo, assinale a que indica um procedimento que NÃO deve ser adotado no socorro às vítimas de picada de cobra peçonhenta. (id:29098)",
+              respostas: ["Manter a vítima deitada, com a ferida abaixo da linha do coração","Lavar imediatamente o ferimento com bastante água, esfregando com uma gaze ou outro material similar para evitar infecções.","Proteger o ferimento e remover o doente o mais rápido possível.","Caso a vítima apresente dificuldade respiratória, fazer respiração artificial."],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: " Das alternativas abaixo, assinale a que não apresenta um sintoma característico da vítima de intermação. (id:29099)",
+              respostas: ["Face avermelhada.","Pele úmida e fria.","Sudorese excessiva"," Pulso fraco."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Com relação às hemorragias, assinale a alternativa incorreta (id:29100)",
+              respostas: ["A hemorragia arterial caracteriza-se pelo sangramento em jato (pulsátil), seguindo as contrações pulmonares."," A hemorragia capilar apresenta sangramento contínuo e rompimento de vasos de pequeno calibre","A hemorragia venosa apresenta sangramento vermelho escuro","A hemorragia arterial é mais grave do que a hemorragia venosa"],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " Quanto às lesões que acometem os sistemas ósseo, muscular e as articulações, são traumatismos causados por movimentos bruscos e violentos sobre articulações, causando perda de função das mesmas: (id:29101)",
+              respostas: ["Luxação","Fratura","Equimose","Entorse"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Quais são as causa mais comuns de obstrução das vias aéreas? (id:29102)",
+              respostas: [" Secreções e corpo estranho."," Corpo estranho e queda da língua.","Queda da língua e secreções."," Lesões e queda da língua"],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Das alternativas abaixo, assinale a que não apresenta um sintoma característico da vítima de insolação. (id:29103)",
+              respostas: ["Face avermelhada","Pele seca e quente","Ausência de sudorese"," Pulso fraco"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Conforme o Manual do Fuzileiro Naval, analise as proposições abaixo, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> ( ) Primeiro socorro é o atendimento imediato e provisório prestado a uma vítima de enfermidade ou ferimento de forma a assegurar a vida enquanto se aguarda ou até se consiga o atendimento médico especializado necessário. É aplicado apenas em situação de emergência. <br> ( ) Urgência é a situação em que o risco de vida é crítico e iminente. Caso não se intervenha imediatamente, esta poderá evoluir para complicações graves ou ser fatal <br> ( ) Emergência é a situação em que o risco de vida pode até existir porém, a intervenção pode aguardar um tempo, pois o risco de vida não é iminente. <br> ( ) Em primeiros socorros, deverá ser observada a sequência dos princípios gerais que consistem em inicialmente avaliação de situações de risco, antes de a prestação do socorro ser iniciada (ex.: possíveis explosões, trânsito que propicie atropelamento, possibilidade de desabamento, tiroteio etc.). Em seguida, é necessário examinar a vítima para conhecer a extensão e a localização da enfermidade, e só depois tomar qualquer iniciativa. Por fim, deve-se proceder o exame da vítima para determinar a prioridade e a sequência lógica do atendimento de primeiros socorros. <br> ( ) Asequência de cuidados no atendimento de primeiros socorros segue as seguintes prioridades, que podem ser realizadas simultaneamente: vias aéreas com controle da coluna vertebral; respiração e ventilação; circulação com controle de hemorragia; incapacidade, estado neurológico; e exposição e controle do ambiente (despir completamente a vítima, mais prevenindo a hipotermia - baixa temperatura corporal). (id:29104)",
+              respostas: ["V-V-V-F-F","F-F-F-V-V","F-V-V-F-F","V-V-F-F-V"],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Segundo o Manual do Fuzileiro Naval, nos primeiros socorros, durante o exame inicial da vítima, as vias aéreas (VA) devem ser avaliadas em primeiro lugar, assegurando a sua permeabilidade. As causas de obstrução de vias aéreas podem ser divididas em quantos grupos? (id:29105)",
+              respostas: [" 2 grupos, tratáveis e não tratáveis pelo socorrista"," 2 grupos, de urgência e de emergência."," 2 grupos, de risco e sem risco.","3 grupos, tratáveis, não tratáveis e de remoção."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Assinale a alternativa que apresenta corretamente os três aspectos que devem ser observados no diagnóstico hemodinâmico (fluxo sanguíneo) de vítima traumatizada, segundo o Manual do Fuzileiro Naval. (id:29106)",
+              respostas: [" Pressão arterial, respiração fraca e pupila dilatada.","Nível de consciência da vítima, cor da pele e pulso.","Estado de choque, sudorese e pele fria"," Convulsão, tremedeira e pupila dilatada."],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Conforme o Manual do Fuzileiro Naval, analise as proposições abaixo, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> ( ) Quando o volume de sangue é reduzido, o fluxo sanguíneo cerebral pode estar prejudicado, alterando o nível de consciência da vítima. Entretanto, esta pode estar consciente mesmo perdendo uma quantidade significativa de sangue. <br> ( ) A cor da pele pode ser importante na avaliação de uma vítima hipovolêmica traumatizada. Uma vítima com pele de coloração rósea, especialmente na face e extremidade, raramente estará criticamente hipovolêmica após um trauma. Ao contrário, a coloração acinzentada da face e a pele esbranquiçada e extremidades cianóticas (roxas) são sinais evidentes de hipovolemia, estes últimos sinais usualmente indicam uma perda de volume sanguíneo de pelo menos 10%. <br> ( ) O pulsar sanguíneo de fácil acesso (carotídeo) deve ser examinado, bilateralmente para se avaliar sua quantidade, frequência e regularidade. Pulsos periféricos cheios, lentos e regulares, são usualmente sinais de hipovolemia (circulação normal) <br> ( ) Hemorragias externas graves são identificadas com um exame primário, a rápida perda sanguínea externa é controlada exercendo pressão manual sobre a ferida ou utilizando o torniquete. <br> ( ) Hemorragias torácicas, do abdômen, nos músculos ao redor de fraturas, e como resultado de ferimentos penetrantes podem ser responsáveis por perdas ocultas consideráveis de sangue. <br> ( ) Uma avaliação neurológica rápida é realizada no final do exame secundário para estabelecer o nível de consciência da vítima. (id:29107)",
+              respostas: [" V-F-F-F-V-F","V-F-V-F-F-V","F-F-F-F-V-V","V-F-F-V-V-F"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: " Conforme o Manual do Fuzileiro Naval, no que diz respeito aos primeiros socorros, como é conhecido o método para avaliar o nível de consciência das vítimas? (id:29108)",
+              respostas: ["A-V-D-I (ALERTA-VERBALIZANDO-DOR-INCONSCIENTE).","A-V-D-A (ALERTA-VERBALIZANDO-DOR-ANÊMICO)"," A-H-D-I (ALERTA-HEMORRÁGICO-DOR-INCONSCIENTE)","A-V-P-I (ALERTA-VERBALIZANDO-PNEUMOTÓRAX-INCONSCIENTE)"],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " Qual alternativa abaixo descreve na totalidade as regras básicas para salvar vidas, em caso de acidente ou emergência, segundo o Manual do Fuzileiro Naval? (id:29109)",
+              respostas: ["Parar a hemorragia; Reanimação cardio-pulmonar; Proteger os ferimentos; e Prevenir o choque hipovolêmico."," Parar a hemorragia; Respiração artificial; e Aquecer a vítima.","Reanimação cardio-pulmonar; Proteger os ferimentos; e Prevenir o choque","Prevenir o choque hipovolêmico; Respiração artificial; e Aquecer a vítima."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Como se classificam as hemorragias, quanto à localização, conforme o Manual do Fuzileiro Naval? (id:29110)",
+              respostas: ["Arterial e Venosa.","Arterial, Venosa e Capilar","Externa e Branda","Interna e Externa"],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Como se classificam as hemorragias, quanto ao tipo de vaso lesionado, conforme o Manual do Fuzileiro Naval? (id:29111)",
+              respostas: ["Arterial e Venosa","Arterial, Venosa e Capilar","Externa e Branda"," Interna e Externa."],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Segundo o Manual do Fuzileiro Naval, analise as proposições abaixo, considere-as como corretas ou incorretas e assinale a alternativa com a afirmação certa. <br> I - Hemorragia Arterial é aquela que apresenta sangramento em jato (pulsátil) acompanhando a contração cardíaca. Geralmente o sangue é de coloração vermelho vivo. É menos grave que o sangramento venoso, pois a pressão no sistema arterial é maior que a pressão no sistema venoso, então a perda sanguínea é menor. <br> II - Hemorragia Venosa é aquela que apresenta sangramento contínuo, geralmente de coloração vermelho claro. <br> III - Hemorragia Capilar é aquela que apresenta sangramento contínuo, discreto, por se tratar de vaso de pequeno calibre. <br> IV - Hemorragia Externa é aquela que apresenta sangramento de estruturas superficiais com exteriorização do sangramento, e que não podem ser controladas utilizando técnicas básicas de primeiros socorros. <br> Hemorragia interna é aquela que apresenta sangramento de estruturas profundas, sempre oculto. As medidas básicas de socorro funcionam e a vítima não precisa ser levada ao hospital.(id:29112) ",
+              respostas: [" Apenas a III está incorreta","Todas estão incorretas.","Todas estão corretas","A III está correta."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Conforme o Manual do Fuzileiro Naval, analise as proposições abaixo, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> ( ) As hemorragias internas muitas vezes podem ser reconhecidas na inspeção. Vítima com roupas grossas pode disfarçar a hemorragia, devido à absorção do sangue pelas vestes. O sangue pode também ser absorvido pelo solo e tapetes, lavado pela chuva, dificultando a ação do socorrista <br> ( ) As vítimas politraumatizadas com sinais de choque e lesão externa pouco importantes provavelmente apresentam lesão interna. <br> ( ) As hemorragias internas são comuns no crânio e abdômen <br> ( ) Os órgãos que mais frequentemente apresentam graves sangramento são o estômago e o baço <br> ( ) A distensão abdominal com dor após traumatismo deve sugerir hemorragia interna. (id:29113)",
+              respostas: ["F-F-V-V-F","V-V-F-F-V","V-V-F-F-F","V-F-F-F-F"],
+              correta: "resp1"
+            },
+                                                                           
+            {
+              pergunta: "Nas hemorragias, conforme o Manual do Fuzileiro Naval, no que diz respeito à aplicação de torniquete, assinale a alternativa correta (id:29114)",
+              respostas: ["O torniquete é o primeiro recurso para conter hemorragias graves nas extremidades do corpo. Sendo muito utilizado nas amputações traumáticas"," O torniquete deve ser utilizado ainda que não se tenham esgotados os outros métodos de controle de hemorragia, sendo aplicado entre o ferimento e o coração, sobre as vestes e em cima das articulações."," Pode utilizar qualquer tipo de cabo, inclusive arame, colocando-o sobre uma proeminência óssea (ex. joelho, cotovelo etc.).","O torniquete não deve ser coberto com atadura ou curativo, e quando utilizado de forma errada tem como complicações o esmagamento de vasos sanguíneos, nervos, músculos e a interrupção do fluxo sanguíneo."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: " É a técnica de primeiros socorros adotada para retardar uma lesão cerebral até a instituição de medidas mais avançadas, que consiste na associação das técnicas de abertura de vias aéreas, respiração assistida e compressões torácicas. (id:29115)",
+              respostas: ["Reanimação cardiorespiratória","Prevenção do Choque Hipovolêmico.","Análise Primária",""],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Das alternativas abaixo, assinale aquela que não representa um sinal de Parada Cardiorespiratória (id:29116)",
+              respostas: ["Calafrios","A ausência de respiração","Inconsciência"," Dilatação pupilar (midríase)."],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: "Conforme o Manual do Fuzileiro Naval, a lesão cerebral é irreversível após quantos minutos sem oxigenação? (id:29117)",
+              respostas: ["2 a 4 minutos","3 a 5 minutos"," 4 a 8 minuto","4 a 6 minutos."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: "Para a reanimação cardiopulmonar de uma vítima com parada cardiorespiratória, qual deve ser a frequência das ventilações e das compressões? (id:29118)",
+              respostas: [" 3 ventilações a cada 15 compressões."," 15 compressões a cada 4 ventilações","2 compressões a cada 15 ventilações.","15 compressões a cada 2 ventilações."],
+              correta: "resp3"
+            },
+                                                                           
+            {
+              pergunta: " Segundo o Manual do FN, das alternativas abaixo, assinale aquela que indica um princípio geral na prestação dos primeiros socorros. (id:29119)",
+              respostas: ["Avaliar situações de risco, antes da prestação do socorro ser iniciada.","Desobstruir as vias aéreas com controle da coluna vertebral.","Verificar a circulação sanguínea com controle da hemorragia.","Verificar o estado neurológico da vítima empregando a técnica AVDI"],
+              correta: "resp0"
+            },
+                                                                           
+            {
+              pergunta: " De acordo com o Manual do FN, assinale a alternativa que indica corretamente a sequência lógica na prestação dos primeiros socorros. (id:29120)",
+              respostas: ["Executar a respiração artificial; desobstruir as vias aéreas; controlar a hemorragia; verificar o estado neurológico; expor completamente a vítima","Desobstruir as vias aéreas; executar a respiração artificial; controlar a hemorragia; verificar o estado neurológico; expor completamente a vítima.","Desobstruir as vias aéreas; executar a respiração artificial; verificar o estado neurológico; controlar a hemorragia; expor completamente a vítima.","Expor completamente a vítima; desobstruir as vias aéreas; executar a respiração artificial; verificar o estado neurológico; controlar a hemorragia."],
+              correta: "resp1"
+            },
+                                                                                     
+            {
+              pergunta: "Segundo o Manual do FN, das alternativas abaixo, assinale aquela que não indica uma regra básica na prestação dos primeiros socorros. (id:29121)",
+              respostas: ["Reanimação cardiopulmonar","Proteger os ferimentos.","Prevenir o choque hipovolêmico.","Estabelecer a segurança do local."],
+              correta: "resp3"
+            },
+                                                                                                
+            {
+              pergunta: "De acordo com o Manual do FN, no capítulo que versa sobre os primeiros socorros, são as lesões que podem prejudicar de imediato a respiração, exceto: (id:29122)",
+              respostas: ["Tórax instável com contusão pulmonar."," Fraturas de costelas","Pneumotórax aberto."," Fratura da clavícula"],
+              correta: "resp3"
+            },
+           
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

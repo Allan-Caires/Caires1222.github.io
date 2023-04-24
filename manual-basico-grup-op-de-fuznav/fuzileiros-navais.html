@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Fuzileiros Navais</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Fuzileiros Navais</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Fuzileiros Navais</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="fuzileiros-navais.html">Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="guerra-confli-poder.html">Guerra, Conflito e Poder</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+
+            {
+              pergunta: "Qual é a principal capacidade das Forças de Fuzileiros Navais? (id:15001)",
+              respostas: [" Projeção de poder em operações internacionais de paz"," Defesa das instalações navais e portuárias brasileiras"," Controle das margens durante operações ribeirinhas"," Todas as opções anteriores estão corretas"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "O que são os eixos estruturantes que balizam o preparo e o emprego do CFN? (id:15002)",
+              respostas: ["Organização de combate nucleada por tropa de Fuzileiros Navais","Capacidade de realizar operações anfíbias","Guerra de manobra","Todas as opções anteriores estão corretas"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Qual é o estilo de guerra que o CFN privilegia para o emprego do GptOpFuzNav? (id:15003)",
+              respostas: ["Guerra de Atrito","Guerra de Massa"," Guerra de Manobra","Guerra de Desgaste"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Quais são as atividades realizadas pelos GptOpFuzNav? (id:15004)",
+              respostas: ["Atividades de combate, de apoio ao combate e de apoio à sobrevivência em combate","Atividades de segurança e defesa de instalações navais","Atividades de apoio logístico em operações de paz","Atividades de resgate e salvamento em áreas ribeirinhas"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual é a tropa de combate básica dos GptOpFuzNav? (id:15005)",
+              respostas: ["Artilharia","Cavalaria","Infantaria ","Operações Especiais"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a técnica de combate utilizada pela Infantaria? (id:15006)",
+              respostas: ["Fogo potente à longa distância","Assalto com Viaturas Blindadas","Combate corpo-a-corpo","Combinação de Fogo, Movimento e Ação de Choque"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "O que são as Operações Especiais?(id:15007)",
+              respostas: ["Operações realizadas apenas por Carros de Combate","Operações que exploram a surpresa, rapidez e ação de choque "," Operações defensivas para manter o terreno","Operações de longa duração que envolvem a coleta de dados"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Em que situações os Carros de Combate podem ser empregados nas ações de combate? (id:15008)",
+              respostas: [" Sempre que possível","Apenas em situações defensivas"," Quando as características dos blindados implicam no emprego desses meios","Quando a Infantaria está ausente do campo de batalha"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Por que os elementos de Infantaria estão mais sujeitos às baixas de pessoal? (id:15009)",
+              respostas: [" Porque geralmente operam à distância"," Porque geralmente operam em conjunto com Carros de Combate","Por causa do contato direto com o inimigo","Porque não possuem liderança em todos os níveis."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual o objetivo das atividades de apoio ao combate (id:15010)",
+              respostas: [" Proporcionar apoio de fogo, apoio ao movimento, apoio à capacidade de Comando e Controle e à proteção do GptOpFuzNav como um todo.","Preparar as Praias de Desembarque (PraDbq), para Embarcações de Desembarque (ED) e CLAnf, e Zonas de Desembarque (ZDbq), para helicópteros, facilitando o movimento da tropa e seu material, desde os primeiros momentos do assalto.","Contribuir, em conjunção com outras armas, para o cumprimento da missão da Força de Desembarque (ForDbq), tendo grande importância, particularmente quando, em face da situação militar do inimigo, for impossível o desembarque da Artilharia de Campanha nos primeiros momentos do MNT e quando as condições meteorológicas limitarem o emprego do ApAe.","Apoiar os elementos de combate aplicando fogos sobre os escalões avançados do inimigo e seus meios de apoio de fogo, bem como aprofundando o combate por meio de fogos contra as instalações de comando, comunicações, sistemas de armas, logísticas e reservas do oponente."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que é Apoio Aéreo Ofensivo (ApAeOf)? (id:15011)",
+              respostas: ["Ações de transporte tático.","Ações de apoio ao movimento.","Ações de apoio de fogo","Ações de apoio à capacidade de Comando e Controle."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é Apoio ao Desembarque (ApDbq)? (id:15012)",
+              respostas: ["Preparação das Praias de Desembarque (PraDbq) e Zonas de Desembarque (ZDbq).","Apoio logístico por aeronaves.","Utilização de aeronaves para exploração da terceira dimensão do combate.","Emprego de Artilharia de Campanha."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual é a função do Apoio de Fogo Naval (ApFN)? (id:15013)",
+              respostas: ["Contribuir para o cumprimento da missão da Força de Desembarque (ForDbq).","Realizar o transporte tático de tropas."," Realizar ações de reconhecimento."," Criar obstáculos para o inimigo."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual é a importância da Artilharia de Campanha nas Operações de Guerra Naval? (id:15014)",
+              respostas: ["É o principal meio de apoio de fogo orgânico dos GptOpFuzNav."," Realiza a preparação das Praias de Desembarque (PraDbq) e Zonas de Desembarque (ZDbq)."," Realiza ações de resgate.","Realiza ações de reconhecimento."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que é o Apoio de Fogo (ApF)? (id:15015)",
+              respostas: ["Um processo cíclico e contínuo de seleção e análise de alvos e da definição do meio que irá bater cada um deles","Uma estratégia de combate que visa neutralizar as capacidades do inimigo por meio de ataques aéreos.","Um conjunto de atividades de defesa contra aeronaves hostis.","Um processo de coordenação de operações anfíbias."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que é a Coordenação do Apoio de Fogo (CAF)? (id:15016)",
+              respostas: ["Um processo sistêmico de análise e decisão, que envolve o emprego simultâneo de múltiplos sistemas de armas.","Um conjunto de atividades de defesa contra aeronaves hostis.","Um processo de coordenação de operações anfíbias."," Um conjunto de atividades de defesa contra ataques terrestres inimigos."],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "O que é a Defesa Antiaérea (DefAAe)? (id:15017)",
+              respostas: ["Um processo cíclico e contínuo de seleção e análise de alvos e da definição do meio que irá bater cada um deles.","Uma estratégia de combate que visa neutralizar as capacidades do inimigo por meio de ataques aéreos.","Um conjunto de atividades de defesa contra aeronaves hostis.","Um processo de coordenação de operações anfíbias."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que são as atividades de DAC? (id:15018)",
+              respostas: [" Atividades de defesa contra aeronaves hostis.","Um processo cíclico e contínuo de seleção e análise de alvos e da definição do meio que irá bater cada um deles.","Um conjunto de atividades de defesa contra ataques terrestres inimigos.","Um processo de coordenação de operações anfíbias."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que deve ser considerado no planejamento do ApF? (id:15019)",
+              respostas: ["Apoio às Forças em contato, o atendimento à ideia de manobra, a integração com o conceito da operação e a continuidade do ApF.","O atendimento à ideia de manobra, a continuidade do ApF e a defesa anticarro.","A coordenação com as atividades de DAC e DefAAe.","A potencialização dos efeitos dos fogos de apoio."],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "Qual é o objetivo principal da Engenharia de Combate? (id:15020)",
+              respostas: ["Aumentar a mobilidade das Forças inimigas","Reduzir a mobilidade dos GptOpFuzNav"," Aumentar a mobilidade dos GptOpFuzNav e reduzir a mobilidade das Forças inimigas","Não há um objetivo principal definido"],
+              correta: "resp2"
+            },
+            
+            {
+              pergunta: "O que é GC (Guerra Cibernética)? (id:15021)",
+              respostas: ["Uma modalidade de guerra que ocorre no espaço terrestre ou marítimo."," Uma modalidade de guerra que ocorre no espaço cibernético.","Uma modalidade de guerra que ocorre no espaço aéreo.","Uma modalidade de guerra que ocorre no espaço sideral."],
+              correta: "resp1"
+            },
+            
+            {
+              pergunta: "O que são artefatos cibernéticos? (id:15022)",
+              respostas: ["Dados digitalizados que são criados, armazenados, modificados, transitados e processados no espaço cibernético.","Equipamentos ou sistemas empregados no espaço cibernético para execução de ações de defesa, exploração e ataque.","Indivíduos, equipamentos ou sistemas com potencial para causar um incidente de TI."," Nenhuma das alternativas acima."],
+              correta: "resp1"
+            },
+            
+            {
+              pergunta: "O que é GE (Guerra Eletrônica)? (id:15023)",
+              respostas: ["Um conjunto de ações que se utiliza do espectro eletromagnético para coletar dados sobre o inimigo."," Um conjunto de ações que se utiliza do espectro eletromagnético para negar o uso do espectro por parte do inimigo.","Um conjunto de ações que se utiliza do espectro eletromagnético para proteger o nosso uso do espectro contra as ações ofensivas inimigas.","Todas as alternativas acima."],
+              correta: "resp3"
+            },
+            
+            {
+              pergunta: "O que é MAGE (Medidas de Apoio à Guerra Eletrônica)? (id:15024)",
+              respostas: ["Vertente da GE que se utiliza do espectro eletromagnético para coletar dados sobre o inimigo."," Vertente da GE que se utiliza do espectro eletromagnético para negar o uso do espectro por parte do inimigo."," Vertente da GE que se utiliza do espectro eletromagnético para proteger o nosso uso do espectro contra as ações ofensivas inimigas.","Nenhuma das alternativas acima."],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "Qual é a finalidade da reunião de atividades funcionais em funções logísticas na ApSvCmb? (id:15025)",
+              respostas: ["Facilitar a organização, o planejamento, a execução e o controle do ApLog","Reduzir o número de atividades funcionais.","Aumentar a complexidade do ApLog.","Reduzir a eficiência da ApSvCmb."],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "Qual é a função da atividade de bem-estar e manutenção do moral da tropa na ApSvCmb? (id:15026)",
+              respostas: ["Manter as condições psicossociais adequadas ao cumprimento da missão."," Aumentar o estresse e a pressão emocional dos soldados.","Reduzir a moral da tropa."," Causar conflitos internos no GptOpFuzNav."],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "O que é o conjunto de atividades relacionadas com a conservação do pessoal, nas condições adequadas de aptidão física e psíquica, por intermédio de medidas sanitárias de prevenção e recuperação, para que a tropa tenha plenas condições de cumprir suas tarefas? (id:15027)",
+              respostas: ["Recursos Humanos.","Saúde","Suprimento","Manutenção"],
+              correta: "resp1"
+            },
+            
+            {
+              pergunta: "O que é o suprimento na ApSvCmb? (id:15028)",
+              respostas: ["O conjunto de atividades que trata da previsão e provisão do material, de todas as classes, necessário ao GptOpFuzNav.","O conjunto de atividades que trata da previsão e provisão de recursos humanos ao GptOpFuzNav.","O conjunto de atividades que trata da previsão e provisão de infraestrutura física e instalações ao GptOpFuzNav.","O conjunto de atividades que trata da previsão e provisão de armamento ao GptOpFuzNav."],
+              correta: "resp0"
+            },
+            
+            {
+              pergunta: "O que é a função da atividade de engenharia na ApSvCmb? (id:15029)",
+              respostas: ["Executar obras e serviços para obtenção e adequação da infraestrutura física e das instalações existentes às necessidades dos GptOpFuzNav.","Executar a manutenção preventiva e corretiva dos meios","Realizar o controle de efetivos, recompletamentos, controle de extraviados, assistência religiosa, moral, justiça e disciplina, dentre outros aspectos.","Levantar as necessidades, determinar os padrões psicofísicos, selecionar médicos e odontológicos, executar medicina preventiva e medicina curativa."],
+              correta: "resp0"
+            },
+                        
+            {
+              pergunta: "É o conjunto de atividades que trata da previsão e provisão do material, de todas as classes, necessário ao GptOpFuzNav, permitindo o dimensionamento da estrutura para o fornecimento dos diversos itens e o estabelecimento e manutenção do fluxo de ressuprimento. (id:15030)",
+              respostas: ["Logística","Manutenção","Engenharia","Suprimento"],
+              correta: "resp3"
+            },
+                                    
+            {
+              pergunta: "Complete: Os elementos de ApSvCmb são responsáveis pelo apoio ________________________ aos GptOpFuzNav, executando várias tarefas que, agrupadas em atividades afins, constituem as seguintes funções logísticas: recursos humanos, saúde, suprimento, manutenção, engenharia, transporte e salvamento. A reunião de atividades funcionais em funções logísticas tem o propósito de facilitar a organização, o planejamento, a execução e o controle do ApLog. Cabe, ainda, ressaltar que muitas vezes elas se interrelacionam ou se complementam. Enquadram-se, também, nas atividades de ApSvCmb, o Serviço de ________________ e as demais atividades da Defesa NBQRe. (id:15031)",
+              respostas: ["De Fogo / Polícia (SP)","Logístico / Guarda (SG)","Logístico / Polícia (SP)","Logístico / Inteligência"],
+              correta: "resp2"
+            },
+                        
+            {
+              pergunta: "No que diz respeito aos Recursos Humanos do GptOpFuzNav, assinale a alternativa INCORRETA: (id:15032)",
+              respostas: ["Caso necessário, o Oficial de Pessoal do GptOpFuzNav levantará suas necessidades de pessoal, assim como as qualificações específicas desse pessoal, a fim de providenciar junto ao seu Comando superior o recompletamento e a qualificação necessários ao cumprimento de sua missão.","Os GptOpFuzNav ativados para emprego em operações são priorizados quanto ao recebimento do pessoal em quantidade e com a capacitação profissional necessária ao cumprimento de sua missão.","Com relação à atividade de bem-estar e manutenção do moral da tropa, visa manter as condições psicossociais adequadas ao cumprimento da missão.","Compreende ações voltadas para o atendimento de necessidades como: repouso, recuperação, recreação, suprimento reembolsável, serviço de assistência social, serviço de assistência religiosa, serviço postal, serviço de lavanderia e sepultamento."],
+              correta: "resp0"
+            },
+                        
+            {
+              pergunta: "É o conjunto de atividades que são executadas visando a salvaguarda e o resgate de recursos materiais, suas cargas ou itens específicos do GptOpFuzNav. (id:15033)",
+              respostas: ["Saúde","Salvamento","Incursão","Evacuação de não-combatentes"],
+              correta: "resp1"
+            },
+                        
+            {
+              pergunta: "É o conjunto de atividades relacionadas com a conservação do pessoal, nas condições adequadas de aptidão física e psíquica, por intermédio de medidas sanitárias de prevenção e recuperação, para que a tropa tenha plenas condições de cumprir suas tarefas. (id:15034)",
+              respostas: ["Manutenção","Suprimento","Saúde","Recursos Humanos"],
+              correta: "resp2"
+            },
+                        
+            {
+              pergunta: "É o conjunto de atividades que são executadas, visando ao planejamento e à execução de obras e de serviços com a finalidade de obter e adequar a infraestrutura física e as instalações existentes às necessidades dos GptOpFuzNav. (id:15035)",
+              respostas: ["Logística","Engenharia","Suprimentos","Manutençao"],
+              correta: "resp1"
+            },
+                        
+            {
+              pergunta: "Conjunto de atividades relacionadas diretamente com a segurança de instalações e comboios, com o estabelecimento de postos de controle de trânsito, com ações de controle de distúrbios e trato com os PG. (id:15036)",
+              respostas: ["Serviço de Guarda","Serviço de Inteligência","Serviço de Segurança","Serviço de Polícia"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "ENQUADRAM-SE , TAMBEM, NAS ATIVIDADES DE APSVCMB. (id:15037)",
+              respostas: ["SERVIÇO DE POLÍCIA E ATIVIDADES OFENSIVAS NBQRE"," GUARDA DE POLÍCIA E DEMONSTRAÇAO NBQRE"," GUARDA DE POLÍCIA E COORDENAÇÃO NBQRE","SERVIÇO DE POLÍCIA E DEMAIS ATIVIDADES DA DEFESA NBQRE"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "CORRELACIONE; <br><br> 1 RECURSOS HUMANOS <br> 2 SAÚDE <br> 3 SUPRIMENTO <br> 4 MANUTENÇÃO <br> 5 ENGENHARIA <br> 6 TRANSPORTE <br> 7 SALVAMENTO <br> ( ) É O CONJUNTO DE ATIVIDADES QUE SÃO EXECUTADAS, VISANDO AO PLANEJAMENTO E À EXECUÇÃO DE OBRAS E DE SERVIÇOES CCOM A FINALIDADE DE OBTER E ADEQUAR A INFRAESTRUTURA FÍSICA E AS INSTALAÇÕES EXISTENTES ÀS NECESSIDADES DOS GPTOPFUZNAV. <br> ( ) NORMALMENTE ESSA FUNÇÃO LOGÍSTICA REFERE-SE AO CONTROLE DE EFETIVOS , RECOMPLETAMENTOS , CONTROLE DE EXTRAVIADOS , ASSISTÊNCIA RELIGIOSA, MORAL , JUSTIÇA E DISCIPLINA , DENTR OUTROS ASPECTOS. <br> ( ) É O CONJUNTO DE ATIVIDADES RELACIONADAS COM A CONSERVAÇÃO DO PESSOAL , NAS CONDIÇÕES ADEQUADAS DE APTIDÃO FÍSICA E PSQUIMICA,POR INTERMÉDIO DE MEDIDAS SANITÁTIOAS DE PREVENÇÃO RECUPERAÇÃO PARA QUE A TROPA TENHA PLENAS CONDIÇÕES DE CUMPRIR SUAS TAREFAS. <br> ( ) HÁ NECESSIDADE DE QUE SEJAM CONFIÁVEIS E PROVEJAM A MOBILIDADE E PROTEÇÃO NECESSÁRIA PARA CADA TIPO DE MISSÃO DOS GPTOPFUZNAV, REQUERENDO MOTORISTAS E OPERADORES QUALIFICADOS A CONDUZI-LAS DE ACORDO COM AS CONDIÇÕES DE TRAFEGABILIDADE DA ARÉA DE OPERAÇÕES. <br> ( ) PARA TAL, DEVE SER REALIZADO O LEVANTAMENTO DAS NECESSIDADES QUANTO A INSTALAÇÕES, PESSOAL QUALIFICADO E MATERIAL ( FERRAMENTAL E SOBRESSALENTES ) PARA ATENDER ÀS ESPECIFICIDADES DE CADA GPTOPFUZNAV ATIVADO. <br> ( ) É O CONJUNTO DE ATIVIDADES QUE SÃO EXECUTADAS VISANDO A SALVAGUARDA E O RESGATE DE RECURSOS MATERIAIS, SUAS CARGAS OU ITENS ESPECÍFICOS DO GPTOPFUZNAV. <br> ( ) É O CONJUNTO DE ATIVIDADES QUE TRATA DA PREVISÃO E PROVISÃO DO MATERIAL , DE TODAS AS CLASSES, NECESSÁRIO AO GPTOPFUZNAV,PERMITINDO O DIMENSIONAMENTO DA ESTRUTURA PARA FORNECIMENTO DOS DIVERSOS ITENS E O ESTABELECIMENTO E MANUTENÇÃO DO FLUXO DE RESSUPRIMENTO. (id:15038)",
+              respostas: [" 5-1-2-6-4-7-3"," 1-5-3-4-7-6-2","5-1-6-4-3-2-7","1-6-3-2-4-5-7"],
+              correta: "resp0"
+            },
+                        
+            {
+              pergunta: "OS ELEMENTOS DE APOIO DE SERVIÇO AO COMBATE , CONSTITUEM AS SEGUINTES FUNÇÕES LOGÍSTICAS, EXCETO: (id:15039)",
+              respostas: ["SAÚDE","RECURSOS HUMANOS","RESSARCIMENTO","SALVAMENTO"],
+              correta: "resp2"
+            },
+                        
+            {
+              pergunta: "OS GPTOPFUZNAV ATIVADOS PARA EMPREGO EM OPERAÇÕES SÃO PRIORIZADOOS QUANTO AO RECEBIMENTO DO PESSOAL EM QUANTIDADE E COM CAPACITAÇÃO PROFISSIONAL NECESSÁRIA AO CUMPRIMENTO DE SUA MISSÃO. (id:15040)",
+              respostas: [" RECURSOS HUMANOS","MANUTENÇÃO","SUPRIMENTO"," ARTILHARIA DE CAMPANHA"],
+              correta: "resp0"
+            },
+                        
+            {
+              pergunta: "CASO NECESSÁRIO, LEVANTARÁ SUAS NECESSIDADES DE PESSOAL, ASSIM COMO AS QUALIFICAÇÕES ESPECÍFICAS DESSE PESSOAL, A FIM DE PROVIDENCIAR JUNTO AO SEU COMANDO SUPERIOR O RECOMPLETAMENTO E A QUALIFICAÇÃO NECESSÁRIOS AO CUMPRIMENTO DE SUA MISSÃO. (id:15041)",
+              respostas: ["CMT DO GC","CMT DO PELOTÃO","CMT DA ET","CMT DO GPTOPFUZNAV"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "É PRESTADO VISANDO A CONSERVAÇÃO DO PODER COMBATENTE DOS GPTOPFUZNAV , O QUE PE CONSEGUIDO POR MEIO DE MEDIDAS DE MEDICINA PREVENTIVA E DA REABILITAÇÃO. (id:15042)",
+              respostas: [" APOIO AO DESEMBARQUE","APOIO MÓVEL","APOIO DE ENGENHARIA","APOIO DE SAÚDE"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "É FUNDAMENTAL PARA QUE O GPTOPFUZNAV POSSA CUMPRIR SUA MISSÃO. (id:15043)",
+              respostas: ["MANUTENÇÃO DA LOGÍSTICA E CORREÇÃO DOS MEIOS"," MANUTENÇÃO DA MISSÃO E COORDENAÇÃO DOS MEIOS"," MANUTENÇÃO PREVENTIVA E CORRETIVA DOS MEIOS"," MANUTENÇÃO DA COORDENAÇÃO E CONTROLE DOS MEIOS"],
+              correta: "resp1"
+            },
+                        
+            {
+              pergunta: "NO PLANEJAMENTO INICIAL DO GPTOPFUZNAV, DEVEM SER PREVISTOS ______ DE ESTOQUE DE SUPRIMENTOS QUE GARANTAM SUA SOBREVIVÊNCIA EM COMBATE (AUTOSSUFICIÊNCIA), DEVIDO A POSSÍVEIS ÓBICES PARA IMPLEMENTAÇÃO DO RESSUPRIMENTO PLANEJADO. (id:15044)",
+              respostas: [" NÍVEIS RAZOÁVEIS"," NÍVEIS MÍNIMOS"," NÍVEIS COORDENADOS"," NÍVEIS MÁXIMOS"],
+              correta: "resp1"
+            },
+                        
+            {
+              pergunta: "AS ATIVIDADES VOLTADAS PARA AMPLIAR AS CONDIÇÕES DE BEM-ESTAR DOS GPTOPFUZNAV, SÃO TAREFAS EXCLUSIVAMENTE DE : (id:15045)",
+              respostas: ["COMBATE","APOIO","COMANDO E CONTROLE","APOIO DE SERVIÇO AO COMBATE"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "QUAIS ATIVIDADES NÃO CONTRIBUEM DIRETAMENTE PARA A CONDUÇÃO DAS OPERAÇÕES, PORÉM MELHORAM AS CONDIÇÕES DE CONFORTO DE UMA TROPA E AUMENTAM SUA CAPACIDADE DE DURAR NA AÇÃO. (id:15046)",
+              respostas: ["GERAÇÃO DE SUPRIMENTOS, PRODUÇÃO DE MOBILIDADE E O APOIO EM CONSTRUÇÃO DE INSTALAÇÕES","GERAÇÃO DE ENERGIA, PRODUÇÃO DE SUPRIMENTOS E O APOIO EM CONSTRUÇÃO DE MOBILIDADE","GERAÇÃO DE ENERGIA, PRODUÇÃO DE ÁGUA POTÁVEL E O APOIO EM CONSTRUÇÕES DE INSTALAÇÕES","PRODUÇÃO DE ENERGIA, GERAÇÃO DE SUPRIMENTOS E O APOIO AO CASC"],
+              correta: "resp2"
+            },
+                        
+            {
+              pergunta: "CONSISTE E, COMBATER INCÊNCDIOS , CONTROLAR AVARIAS, REBOCARE, NO CASO DO MATERIAL ESPECÍFICO DO GPTOPFUZNAV ,DESATOLAR VIATURAS E EQUIPAMENTOS, REFLUTUAR VIATURAS ANFÍBIAS E RECUPERAR SUAS CARGAS OU ITENS ESPECÍFICOS. (id:15047)",
+              respostas: ["SUPRIMENTO","SAÚDE","TRANSPORTE","SALVAMENTO"],
+              correta: "resp3"
+            },
+                        
+            {
+              pergunta: "CONJUNTO DE ATIVIDADES RELACIONADAS DIRETAMENTE COM A SEGURANÇA DE INSTALAÇÕES E COMBOIOS, COM O ESTABELECIMENTO DE POSTOS DE CONTROLE DE TRÂNSITO, COM AÇÕES DE CONTROLE DE DISTÚRBIOS E TRATO COM OS PG. (id:15048)",
+              respostas: ["SALVAMENTO","SERVIÇO DE POLÍCIA","DEFNBQRE","SUPRIMENTO"],
+              correta: "resp1"
+            },
+                        
+            {
+              pergunta: "AS TAREFAS DE DESCONTAMINAÇÃO E DETOXIFICAÇÃO, CONSIDERADAS COMO ATIVIDADES DE APOIO DE SERVIÇO AO COMBATE, SÃO CUMPRIDAS PELAS SEÇÕES DE DESCONTAMINAÇÃO QBN ( SECDESCONQBN) (id:15049)",
+              respostas: ["DEFNBQRE","SUPRIMENTOS","COMUNICAÇÕES E MEIOS"," MATERIAL BÉLICO"],
+              correta: "resp0"
+            },
+                        
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

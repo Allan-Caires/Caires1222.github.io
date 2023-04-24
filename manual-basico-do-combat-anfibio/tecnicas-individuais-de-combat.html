@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tecnicas Individuais de Combate</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Tecnicas Individuais de Combate</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Tecnicas Individuais de Combate</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="carac-de-uma-area-de-op.html">Carac. de Uma Area de Operação</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="et-gc.html">ET / GC</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="comunicacoes.html">Comunicações</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="op-sob-visibilidade-reduzida.html">OP. sob Visibilidade Reduzida</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-anfibias.html">Operações Anfíbias</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-terrestres.html">Operações Terrestres</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="organizacao.html">Organização</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="patrulhas.html">Patrulhas</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="tecnicas-individuais-de-combat.html">Tecnicas Individuais de Combate</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "O que abrange a instrução, a preparação e o aperfeiçoamento do combatente? (id:14001)",
+              respostas: ["Apenas conhecimentos teóricos","Apenas prática de técnicas específicas","Ambos conhecimentos teóricos e prática de técnicas específicas","Nenhuma das alternativas acima"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Qual é uma das finalidades da ocupação de uma coberta? (id:14002)",
+              respostas: ["Observar"," Realizar fogos"," Apenas ocultar-se","Todas as alternativas acima"],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Quais são as regras para ocupação de cobertas? (id:14003)",
+              respostas: ["Utilizar a sombra, imobilidade, confundir-se com o terreno, não se projetar no horizonte, evitar pontos notáveis do terreno, deitar-se para observar e observar pelos cantos superiores.","Utilizar a sombra, movimentar-se, destacar-se do terreno, projetar-se no horizonte, observar pontos notáveis do terreno, ficar em pé para observar e observar através da coberta."," Utilizar a luz, imobilidade, destacar-se do terreno, projetar-se no horizonte, ocupar cobertas em pontos notáveis do terreno, deitar-se para observar e observar pelos cantos inferiores.","Utilizar a sombra, imobilidade, confundir-se com o terreno, não se projetar no horizonte, evitar pontos notáveis do terreno, deitar-se para observar e observar através da coberta ou pelos seus cantos inferiores."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Por que o combatente deve evitar pontos notáveis do terreno ao escolher uma coberta? (id:14004)",
+              respostas: ["Porque esses pontos chamam a atenção e a observação do inimigo, facilitando a condução de seus fogos","Porque esses pontos não oferecem proteção contra fogos.","Porque esses pontos são desconfortáveis para o combatente.","Porque esses pontos podem ser usados pelo inimigo para se proteger"],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Qual é a posição recomendada para observar em uma coberta? (id:14005)",
+              respostas: ["Em pé","Sentado","Deitado","Ajoelhado"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Quais são as condições que um abrigo deve satisfazer? (id:14006)",
+              respostas: ["Oferecer proteção contra o fogo amigo;","Permitir a observação;"," Facilitar a execução do tiro;","Todas as opções estão corretas."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Qual é a espessura mínima dos montes de terra para serem considerados abrigos naturais? (id:14007)",
+              respostas: ["0,20m","0,70m","0,90m","1m"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Em distâncias superiores a 800m, quais abrigos são necessários para proteger-se dos tiros? (id:14008)",
+              respostas: ["Aqueles que apresentem altura maior","Aqueles que apresentem largura maior"," Aqueles que apresentem profundidade maior","Não há abrigos eficientes nessa situação"],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Como o combatente deve se abrigar para se proteger dos fogos das armas com tiro de trajetória curva? (id:14009)",
+              respostas: ["Deve construir uma toca","Deve se aferrar imediatamente às dobras do terreno;","Deve se encostar no muro ou pedra à retaguarda","Todas as opções estão corretas"],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Por que não se deve ocupar um abrigo que possua pedras ou um muro à retaguarda? (id:14010)",
+              respostas: ["Porque o ricochete dos projéteis pode causar ferimentos tão graves quanto os impactos diretos;","Porque esses abrigos não são suficientemente espessos;","Porque não oferecem proteção contra os tiros inimigos","Todas as opções estão incorretas."],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Qual é o objetivo das precauções que o combatente deve tomar ao progredir em combate? (id:14011)",
+              respostas: ["Tornar-se invisível para o inimigo","Minimizar a exposição ao fogo inimigo.","Minimizar a exposição ao fogo inimigo.","Atrair a atenção do inimigo."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Quais são as precauções que um combatente deve tomar ao final de cada lanço ao progredir em combate? (id:14012)",
+              respostas: ["Parar e observar cuidadosamente o terreno antes de escolher o ponto seguinte a ocupar e o caminho que ofereça a menor proteção para atingi-lo."," Parar e observar cuidadosamente o terreno antes de escolher o ponto seguinte a ocupar e o caminho que ofereça a maior proteção para atingi-lo.","Abandonar a posição rapidamente e seguir em frente sem observar o terreno.","Deslocar-se rapidamente para evitar ser visto pelo inimigo"],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Qual é o procedimento recomendado para um combatente que precisa cruzar pequenos trechos descobertos do terreno ao progredir em combate? (id:14013)",
+              respostas: ["Correr o mais rápido possível.","Rastejar o mais rápido possível.","Aproveitar ruídos ou movimentos que possam distrair a atenção do inimigo.","Cruzar os trechos sem se preocupar com a exposição ao fogo inimigo."],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Em que situação um combatente deve usar deslocamentos por lanços ao progredir em combate? (id:14014)",
+              respostas: ["Quando dispuser de itinerários totalmente desenfiados.","Quando for necessário progredir em trechos do terreno expostos à observação e ao fogo direto do inimigo."," Quando houver muitos abrigos disponíveis no terreno","Quando estiver seguro de que não há inimigos próximos."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Quais são as precauções que um combatente deve observar ao cruzar pequenas faixas de terreno limpo e descoberto em uma situação em que o inimigo atira a distâncias maiores ou iguais a 800m? (id:14015)",
+              respostas: ["Progredir com a maior rapidez possível e manter a tropa concentrada em um único lanço.","Progredir com a maior rapidez possível e dispersar a tropa ao progredir."," Evitar cruzar áreas limpas e desabrigadas de maior extensão e usar um lanço rápido quando for necessário.","Cruzar pequenas faixas de terreno limpo e descoberto de forma individual e iniciada de lugares diferentes."],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Qual é o processo de progressão utilizado quando se deseja fugir à observação e ao fogo inimigo e as cobertas e abrigos existentes forem de altura muito reduzida? (id:14016)",
+              respostas: ["Marcha normal","Engatinhar","Rastejo alto","Rastejo baixo"],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Qual é o comando para integrar uma fração em marcha normal? (id:14017)",
+              respostas: ["MARCHE!","ENGATINHAR!"," RASTEJO ALTO!","MARCHE-MARCHE!"],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Quando é empregado o processo de rastejo alto? (id:14018)",
+              respostas: [" Quando se deseja fugir à observação e ao fogo inimigo e as cobertas e abrigos existentes forem de altura muito reduzida.","Quando se dispõe de cobertas e/ou abrigos de média altura","Quando se deseja transpor trechos limpos do terreno com o mínimo de exposição ao fogo inimigo","Quando não se está sob as vistas e fogos do inimigo ou em trechos desenfiados do terreno."],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Como é empregado o processo de marcha acelerada (marche-marche)? (id:14019)",
+              respostas: ["Quando não se está sob as vistas e fogos do inimigo ou em trechos desenfiados do terreno.","Quando se dispõe de cobertas e/ou abrigos de média altura.","Quando se deseja fugir à observação e ao fogo inimigo e as cobertas e abrigos existentes forem de altura muito reduzida."," Quando a velocidade de progressão for essencial ou quando se deseja transpor trechos limpos do terreno com o mínimo de exposição ao fogo inimigo."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Qual é o cuidado que deve ser tomado ao integrar uma fração em engatinhar? (id:14020)",
+              respostas: ["Conduzir a arma com ambas as mãos, em condições de empregá-la rapidamente.","Cuidar para que não entre terra no cano e na janela de ejeção.","Acomodar o fuzil nos braços, cuidando-se para que o cano da arma não encoste no solo.","Rolar tendo o cuidado de não deixar o cano da arma tocar o solo."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Qual é o principal fator a ser considerado na escolha do processo de progressão? (id:14021)",
+              respostas: [" Posição do inimigo","Velocidade desejada","Cobertura e abrigo do terreno","Esforço físico necessário"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Qual é o processo de progressão recomendado em áreas desprovidas de cobertura? (id:14022)",
+              respostas: ["Engatinhamento","Rastejo"," Marcha normal","Marche-marche"],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "O que é um lanço? (id:14023)",
+              respostas: ["Um deslocamento curto e rápido realizado entre duas posições abrigadas ou cobertas","Um tipo de cobertura","Um processo de progressão","Um tipo de arma"],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Quantos metros, no máximo, um lanço em marcha acelerada em terreno limpo deve ser? (id:14024)",
+              respostas: ["10 metros","15 metros"," 20 metros","25 metros"],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Quais são as perguntas que um combatente deve se fazer ao preparar um lanço? (id:14025)",
+              respostas: ["Onde vou, quando vou, como vou e por onde vou?","Onde vou, por onde vou, como vou e quem vai comigo?","Onde vou, como vou, quando vou e quanto tempo vai durar?","Onde vou, por onde vou, quanto tempo vai durar e quem vai comigo?"],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Qual é a recomendação para o combatente após cada lanço? (id:14026)",
+              respostas: ["Prosseguir imediatamente sem parar","Descansar por alguns minutos","Parar, escutar, observar e fazer um novo estudo","Continuar correndo até o próximo abrigo"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Por que o combatente deve evitar ocupar o mesmo abrigo utilizado pelo homem que o precedeu? (id:14027)",
+              respostas: ["Porque o abrigo pode estar sujo e desconfortável"," Porque o inimigo pode ter identificado essa posição","Porque o abrigo pode estar comprometido estruturalmente","Porque o abrigo pode estar muito distante do ponto seguinte de avanço"],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Qual é a recomendação para evitar que vários homens progridam por itinerários que não sejam completamente desenfiados? (id:14028)",
+              respostas: ["Avançar em grupos grandes","Avançar em fila indiana"," Avançar em formação dispersa","Evitar que vários homens progridam"],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Qual é a técnica recomendada para ultrapassar uma rede de arame farpado? (id:14029)",
+              respostas: ["Saltar sobre a rede","Transpor a rede com ajuda de cortinas de fumaça"," Rastejar por cima da rede","Rastejar por baixo da rede"],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Por que a ultrapassagem de obstáculos é uma operação difícil e que deixa o combatente vulnerável? (id:14030)",
+              respostas: ["Porque o inimigo nunca vigia obstáculos","Porque a ultrapassagem de obstáculos é sempre realizada à noite","Porque a ultrapassagem de obstáculos dificulta os movimentos do combatente, expondo-o ao inimigo","Porque a ultrapassagem de obstáculos não requer habilidades ou treinamento"],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Quando se trata de passar por uma vala ou trincheira, o combatente deve: (id:14031)",
+              respostas: ["Cruzá-la correndo, sem se preocupar com a presença do inimigo ou armadilhas.","Descer por um lado e subir pelo outro, se for larga; e saltá-la e cair do outro lado sem fazer ruído, se for estreita.","Atirar granadas no interior para se certificar de que não há presença do inimigo.","Procurar um caminho alternativo para evitar a vala ou trincheira."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "O que o combatente deve fazer ao atravessar uma área minada? (id:14032)",
+              respostas: ["Atravessar rapidamente para evitar ser detectado pelo inimigo."," Avançar lentamente, procurando com as mãos cordéis de tropeço e sondando cautelosamente o terreno com a baioneta para descobrir as minas enterradas","Ignorar as minas, pois elas não representam uma ameaça real","Atravessar a área minada em linha reta, sem desviar o percurso."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "O que deve ser feito após a neutralização e remoção do acionador principal de uma mina? (id:14033)",
+              respostas: ["A mina deve ser removida imediatamente pelo combatente.","A mina deve ser deixada no local, pois ainda pode estar ativada.","A mina deve ser desarmada pelo combatente.","A localização da mina deve ser marcada para posterior remoção ou destruição por pessoal especializado."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Qual a recomendação para um deslocamento silencioso durante a noite? (id:14034)",
+              respostas: ["Fazer bastante barulho para manter a atenção do inimigo.","Utilizar equipamentos de visão noturna sempre que possível","Não se preocupar em camuflar o rosto e outras partes do corpo."," Escurecer todo o rosto, nuca, orelhas, pescoço e mãos; envolver com fita isolante todas as partes do equipamento que possam vir a fazer ruído; e não levar objetos que possam fazer ruído."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "Quais são as minas mais perigosas para o combatente a pé? (id:14035)",
+              respostas: ["As minas anticarro (AC).","As minas antipessoal (AP).","As minas antitanque (AT).","As minas antiaéreas (AA)."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Como deve ser o movimento dos pés durante a progressão noturna próxima ao inimigo? (id:14036)",
+              respostas: ["O peso do corpo deve ficar sobre o pé da frente, para evitar embaraçar na vegetação rasteira.","O combatente deve aferrar-se ao solo, utilizando o apoio sobre o cotovelo direito."," Os movimentos devem ser lentos e compassados, evitando empregar o rastejo quando muito próximo do inimigo.","Deve-se levantar bem a perna que estiver à frente do corpo, para não se embaraçar na vegetação rasteira e com a ponta do pé escolher um lugar livre de gravetos, pedras, folhas secas e outros materiais que possam provocar ruído."],
+              correta: "resp3"
+            },
+                     
+            {
+              pergunta: "O que o combatente deve fazer ao ser surpreendido pelo arrebentamento de um artifício iluminativo em terreno limpo? (id:14037)",
+              respostas: ["Atirar-se ao chão antes do arrebentamento","Proteger os olhos até o desaparecimento do clarão.","Permanecer imóvel até a extinção da luminosidade."," Olhar para a luz para tentar identificar o inimigo."],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Qual é a postura correta do combatente ao perceber o lançamento de um foguete ou granada iluminativa? (id:14038)",
+              respostas: [" Atirar-se ao chão antes do arrebentamento","Jogar-se ao solo e ficar imóvel.","Olhar para a luz para tentar identificar o inimigo.","Fugir imediatamente da área iluminada."],
+              correta: "resp0"
+            },
+                     
+            {
+              pergunta: "Quais são alguns dos cuidados que devem ser tomados durante a progressão noturna? (id:14039)",
+              respostas: ["Correr sempre que possível para economizar tempo","Fumar ou acender lanternas para a orientação."," Aproveitar todos os ruídos que possam distrair a atenção do inimigo ou ocultar os ruídos do deslocamento.","Evitar terrenos planos e desobstruídos para dificultar a localização pelo inimigo."],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Qual a finalidade de um Posto de Observação (PO)? (id:14040)",
+              respostas: ["Proteger a unidade militar","Realizar ataques surpresas ao inimigo.","Cumprir uma tarefa de observação.","Fornecer suprimentos para a tropa."],
+              correta: "resp2"
+            },
+                     
+            {
+              pergunta: "Quantos homens normalmente ocupam um PO para que a observação seja contínua? (id:14041)",
+              respostas: ["Um homem.","Dois homens.","Três homens.","Quatro homens."],
+              correta: "resp1"
+            },
+                     
+            {
+              pergunta: "Quais as medidas de segurança que um PO deve dispor? (id:14042)",
+              respostas: ["Meios de comunicações e capacetes.","Armas amigas e silhuetas destacadas.","Rádio ou telefone e alcance de utilização das armas amigas.","Técnicas de camuflagem e itinerários de retraimento."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a maneira correta de ocupar uma árvore como observatório? (id:14043)",
+              respostas: [" Subir no topo da árvore para ter uma visão ampla.","Escolher uma árvore isolada e projetar a silhueta contra o horizonte.","Subir no tronco coberto das vistas inimigas até atingir um local com bastante folhagem para bem se ocultar.","Selecionar uma árvore sem folhagem para melhor visualização do terreno."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais os aspectos que uma crista deve apresentar para ser utilizada como observatório? (id:14044)",
+              respostas: ["Ser plana e sem vegetação","Ser isolada e destacada da vegetação à sua volta","Ser irregular e possuir vegetação.","Ser muito alta para melhor visualização do terreno."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é o primeiro passo para observação de um setor? (id:14045)",
+              respostas: [" Subdividir o setor em subsetores","Observar a faixa mais próxima","Esquadrinhar todo o setor de observação","Levantar rapidamente os olhos em direção à distância máxima desejada"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a recomendação para observação de um setor amplo? (id:14046)",
+              respostas: ["Observar apenas o centro do setor imediatamente à frente da posição","Cobrir o setor em apenas uma observação","Subdividir o setor em apenas dois subsetores","Subdividir o setor e observar cada subsetor da mesma forma"],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "O que é recomendado para obter um resultado eficiente na observação em movimento? (id:14047)",
+              respostas: ["Ocupar pontos de observação sucessivos","Realizar a observação em alta velocidade","Fazer a observação apenas durante o dia","Não realizar observação em movimento"],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "Como deve ser transmitido o resultado da observação? (id:14048)",
+              respostas: ["De forma incompleta, sem detalhes","Apenas por escrito","Da forma mais completa, dividindo o informe em cinco itens","Apenas verbalmente, sem registro por escrito"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Como os ruídos podem revelar a própria presença do combatente? (id:14049)",
+              respostas: ["O combate deve evitar fazer qualquer barulho","Deve-se usar protetores de orelhas para evitar ouvir ruídos","Os ruídos corriqueiros de combate devem ser identificados para evitar ser confundido com o inimigo","Deve-se tossir ou espirrar com força para mostrar presença"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual a importância das operações noturnas? (id:14050)",
+              respostas: [" Facilita a realização de deslocamentos de tropa.","Não é importante."," Facilita a visibilidade inimiga.","Nenhuma das alternativas."],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "Qual a técnica utilizada para manter a atenção dirigida para um objetivo sem olhá-lo diretamente? (id:14051)",
+              respostas: ["Adaptação à escuridão","Visão fora do centro.","Esquadrinhamento.","Nenhuma das alternativas."],
+              correta: "resp1"
+            },
+                                
+            {
+              pergunta: "Como deve ser feita a adaptação à escuridão? (id:14052)",
+              respostas: [" Permanecendo em torno de trinta minutos em completa escuridão."," Permanecendo em torno de dez minutos em completa escuridão.","Usando óculos de lentes verdes.","Nenhuma das alternativas."],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "O que reduzirá a capacidade visual durante a noite? (id:14053)",
+              respostas: ["A exposição à luz brilhante durante períodos prolongados.","O excesso de vitamina A."," O uso de álcool em doses moderadas.","Nenhuma das alternativas."],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "O que o combatente deve fazer caso seja exposto a uma luminosidade intensa? (id:14054)",
+              respostas: ["Fechar ou cobrir um dos olhos.","Ignorar a luz e continuar olhando normalmente","Pedir para sair da área iluminada.","Nenhuma das alternativas."],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "Qual é a importância da interpretação de indícios para um combatente? (id:14055)",
+              respostas: ["Não é importante"," É importante apenas em situações específicas","É importante para concluir ou deduzir quais os acidentes que se acham ocultos às nossas vistas"," É importante apenas para os comandantes"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "O que pode indicar a existência de uma estrada pelo menos carroçável? (id:14056)",
+              respostas: ["Uma torre de igreja emergindo entre telhados"," Rede elétrica e renques de árvores","Viaturas em marcha","Apitos de trem"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Como se pode concluir que existe um riacho ou córrego no meio do campo? (id:14057)",
+              respostas: [" Pela presença de granjas ou fazendas","Pela presença de uma picada ou trilha","Pela presença de uma rede elétrica","Pela presença de uma parte da vegetação mais escura e seguindo uma direção mais ou menos sinuosa"],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Como se pode determinar a velocidade de uma viatura a partir das marcas deixadas no solo? (id:14058)",
+              respostas: ["Pelas marcas deixadas pelas rodas ou lagartas no leito da estrada","Pela quantidade de lama ou terra espalhada","Pela profundidade dos sulcos","Todas as alternativas anteriores"],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Por que é importante que um combatente grave e transmita a seu comandante os indícios encontrados? (id:14059)",
+              respostas: ["Porque os indícios não são importantes","Porque os comandantes não são capazes de interpretar os indícios","Porque os indícios podem definir a tropa que a ocupava e o seu estado moral","Porque os indícios não têm relação com a tropa que a ocupava"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é o objetivo final do combate? (id:14060)",
+              respostas: ["Realizar uma aproximação do inimigo.","Utilizar armamento para intimidar o inimigo"," Incapacitar o inimigo por meio da correta utilização do armamento.","Manter uma posição defensiva para evitar confrontos."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais são as condições que uma boa posição de tiro deve oferecer? (id:14061)",
+              respostas: ["Bons campos de tiro, abrigo, visão noturna e apoio para o combatente","Boa observação, grande distância do alvo, proteção contra granadas e disfarce do combatente.","Bons campos de tiro, boa observação, abrigo ou coberta, disfarce e apoio para a arma e/ou combatente.","Boa iluminação, visão aérea, proteção contra granadas e alcance de tiro."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a precaução que o combatente deve tomar ao procurar uma posição de tiro? (id:14062)",
+              respostas: [" Utilizar cobertas e abrigos de forma desordenada.","Evitar que o inimigo perceba a aproximação e ocupação da posição.","Ocupar uma posição que ofereça o menor número das condições ideais","Utilizar granadas de mão para distâncias entre 50 e 150 metros da posição"],
+              correta: "resp1"
+            },
+                                
+            {
+              pergunta: "Como o combatente deve observar e atirar na posição de tiro? (id:14063)",
+              respostas: ["Pelo lado e pela parte superior do elemento de proteção","Expondo a maior parte do corpo e da cabeça.","De preferência da posição em pé.","Pelo lado e pela parte inferior do elemento de proteção."],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Quando o combatente deve evitar a ocupação da posição de tiro? (id:14064)",
+              respostas: ["Quando o terreno não apresentar opções","Quando houver fundo adequado a mascarar a sua silhueta.","Quando o inimigo estiver a uma distância superior a 150 metros.","Quando o combatente não estiver em condições de aproximar-se do inimigo."],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "Quais são os princípios a serem seguidos na limpeza dos campos de tiro? (id:14065)",
+              respostas: ["Remover toda a vegetação do campo de tiro.","Remover apenas os ramos das árvores mais altas.","Não realizar a limpeza completa dos campos de tiro.","Remover apenas a vegetação rasteira."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a técnica de pontaria utilizada no tiro noturno? (id:14066)",
+              respostas: ["Utilização do aparelho de pontaria.","Pontaria com um dos olhos fechados.","Pontaria com os dois olhos abertos.","Pontaria com o auxílio de iluminação artificial."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a utilidade das granadas de mão no combate noturno? (id:14067)",
+              respostas: ["Atirar a esmo e denunciar a posição do atirador.","Efeitos eficazes contra alvos incertos e não denunciam a posição de quem as arremessou","Provocar explosão prematura em qualquer obstáculo na trajetória.","Ser utilizadas com equipamentos de visão noturna."],
+              correta: "resp1"
+            },
+                                
+            {
+              pergunta: "Quando deve-se atirar durante a noite? (id:14068)",
+              respostas: ["Sempre que houver um alvo na mira.","Quando a luminosidade estiver favorável.","Quando não se observar o alvo com nitidez que permita atingi-lo.","Quando se observar o alvo com nitidez que permita atingi-lo."],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Como deve ser realizado o trabalho de limpeza dos campos de tiro? (id:14069)",
+              respostas: ["Deve ser iniciado do limite do alcance útil da arma até a posição.","Deve-se remover a vegetação que auxilia no disfarce da posição.","Deve-se remover a vegetação cortada para locais onde proporcione cobertas para o inimigo.","Deve-se fazer uma cuidadosa avaliação do vulto do trabalho dentro do tempo disponível."],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Qual é o objetivo da camuflagem? (id:14070)",
+              respostas: ["Atacar o inimigo","Defesa pessoal","Ocultar ou disfarçar pessoal, material e instalações da observação terrestre ou aérea do inimigo"," Estabelecer comunicação com o inimigo"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais são as três exigências fundamentais para atingir a finalidade da camuflagem? (id:14071)",
+              respostas: ["Escolha da posição, disciplina de camuflagem e destruição do objeto","Construção da camuflagem, disciplina de camuflagem e ataque ao inimigo","Escolha da posição, disciplina de camuflagem e construção da camuflagem","Escolha da posição, destruição do objeto e construção da camuflagem"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais precauções devem ser tomadas na escolha da posição para camuflagem? (id:14072)",
+              respostas: ["Permitir que o objeto contraste com o fundo e se projete no horizonte","Procurar a proximidade de pontos notáveis isolados, como árvores, cercas, casas, etc.","Não usar a sombra para auxiliar a ocultação","Não permitir que o objeto contraste com o fundo ou se projete no horizonte; evitar a proximidade de pontos notáveis isolados, como árvores, cercas, casas, etc.; e usar a sombra para auxiliar a ocultação."],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Qual é a importância da disciplina de camuflagem? (id:14073)",
+              respostas: ["Evitar que o inimigo ataque","Manter a segurança pessoal","Evitar que a atividade humana revele ao inimigo uma posição camuflada","Manter o equipamento em bom estado"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais técnicas devem ser observadas na construção da camuflagem? (id:14074)",
+              respostas: ["Permitir que a sombra projetada pelo objeto ou pela camuflagem denuncie a posição","Usar material de camuflagem em demasia, para que o objeto e suas sombras se tornem muito escuros"," Modificar todo o contorno do objeto, para não permitir que a sombra projetada denuncie a posição; evitar que a cor e a tonalidade do objeto e de sua camuflagem contrastem com o meio onde se encontra; e não usar material de camuflagem em demasia","Não observar nenhuma técnica"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Quais são os materiais de camuflagem ? (id:14075)",
+              respostas: ["Tintas, redes, telas e tecidos especiais.","Vegetação (cortada ou viva), entulhos, destroços, terra, areia, cascalho e grama.","Lona e náilon.","Capacetes, uniformes e equipamentos."],
+              correta: "resp1"
+            },
+                                
+            {
+              pergunta: "Qual é o cuidado importante que deve ser tomado ao usar a vegetação cortada na camuflagem? (id:14076)",
+              respostas: ["Pintar figuras irregulares sobre a superfície da vegetação","Usar folhas e ramos que estejam virados para baixo.","Substituir a vegetação frequentemente, antes que a folhagem murche.","Usar grampos e mosquetões para fixar a vegetação"],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Qual é a finalidade da camuflagem da pele? (id:14077)",
+              respostas: ["Eliminar o brilho do capacete."," Cobrir peças brilhantes com panos ou fita isolante.","Ofuscar o brilho natural da pele e reduzir o contraste de tonalidade com a vegetação circundante.","Usar pequenos furos no tecido para fixar folhas e ramos ao capacete."],
+              correta: "resp2"
+            },
+                                
+            {
+              pergunta: "Por que o uniforme camuflado, por si só, não é suficiente para fazer com que o combatente (desapareça no terreno)? (id:14078)",
+              respostas: ["Porque não é possível camuflar um uniforme camuflado."," Porque o uniforme camuflado é muito claro.","Porque o combatente não está usando o equipamento adequado","Porque é necessário utilizar o uniforme de acordo com as exigências fundamentais da camuflagem."],
+              correta: "resp3"
+            },
+                                
+            {
+              pergunta: "Em regiões desérticas, qual é o fator importante na identificação de um objeto? (id:14079)",
+              respostas: ["A coloração do objeto","A intensidade das sombras na região","A forma do objeto","A movimentação do objeto"],
+              correta: "resp1"
+            },
+                                
+            {
+              pergunta: "Como deve ser o uniforme utilizado em terrenos cobertos por neve? (id:14080)",
+              respostas: ["Todo branco, de camuflagem especial","Todo preto, para contrastar com a neve","De uma cor escura, para se misturar com as sombras","De uma cor vibrante, para chamar a atenção"],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "O que deve ser aproveitado para ajudar na dissimulação do pessoal e do material em terrenos cobertos por neve? (id:14081)",
+              respostas: [" As irregularidades do terreno e a vegetação","As áreas com menos neve","As áreas mais planas","As áreas com neve mais alta"],
+              correta: "resp0"
+            },
+                                
+            {
+              pergunta: "Em áreas edificadas, o que é um fator importante a ser levado em conta na ocultação do combatente e do seu equipamento? (id:14082)",
+              respostas: ["A uniformidade das construções","A falta de sombras pronunciadas","A ausência de abrigos","As sombras pronunciadas dos prédios"],
+              correta: "resp3"
+            },
+                                           
+            {
+              pergunta: "O que o combatente deve evitar a todo custo em regiões desérticas? (id:14083)",
+              respostas: ["Projetar sua sombra ou a do seu equipamento"," Se movimentar rapidamente","Ficar exposto ao sol por muito tempo","Usar uniforme de cor escura"],
+              correta: "resp0"
+            },
+           
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

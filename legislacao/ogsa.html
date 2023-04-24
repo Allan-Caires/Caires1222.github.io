@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>OGSA</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">OGSA</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">OGSA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="cerimonial.html">Cerimonial</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="estatuto-dos-militares.html">Estatuto dos Militares</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="ogsa.html">OGSA</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="rdm.html">RDM</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+            {
+              pergunta: "Qual é a competência do Ministro da Marinha para aprovação das Organizações de forças, navios, unidades aéreas e unidades de fuzileiros navais? (id:03001)",
+              respostas: ["Elaboração","Aprovação","Distribuição de tarefas","Distribuição de material"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Quem integra a Oficialidade de uma OM? (id:03002)",
+              respostas: ["Guardas-Marinha","Praças","Comandante ","Oficiais"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Quem integra a Guarnição de uma OM? (id:03003)",
+              respostas: ["Praças ","Oficiais","Oficiais","Oficiais"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Quem integra a Tripulação de uma OM? (id:03004)",
+              respostas: ["Praças ","Oficiais","Comandante","Oficialidade e Guarnição"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "Qual é o dever de todos os Oficiais e Praças, quer a bordo, quer em terra, em serviço ou não? (id:03005)",
+              respostas: [" Obedecer às normas de boa educação civil e militar e aos bons costumes, de modo a honrar as tradições da Marinha.","Cumprir os deveres estabelecidos pela legislação em vigor.","Cumprir os deveres estabelecidos pela legislação em vigor.","Procurar honrar a glória das armas brasileiras e sustentar a honra nacional."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "De onde promana a autoridade de cada um dos militares da Marinha? (id:03006)",
+              respostas: ["Do cargo que eles ocupam.","Do ato de designação para o cargo.","Do ato de designação para o cargo.","Das normas e instruções da Marinha."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "Qual é a responsabilidade individual de todos os militares da Marinha? (id:03007)",
+              respostas: ["Qual é a responsabilidade individual de todos os militares da Marinha?","Qual é a responsabilidade individual de todos os militares da Marinha?","Qual é a responsabilidade individual de todos os militares da Marinha?","Qual é a responsabilidade individual de todos os militares da Marinha?"],
+              correta: "resp3"
+            },
+
+            {
+              pergunta: "quais são as obrigações do subordinado em relação aos seus superiores? (id:03008)",
+              respostas: ["Desrespeitar seus superiores e ter para com eles a consideração devida, quer estejam ou não presentes","Desobedecer às ordens dos superiores.","Respeitar seus superiores e ter para com eles a consideração devida, quer estejam ou não presentes","Respeitar seus superiores apenas quando estiverem presentes."],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "o subordinado é responsável por: (id:03009)",
+              respostas: ["Executar apenas as ordens que receber","Executar as ordens que receber, mas não é responsável pelas consequências da omissão em participar ao superior, em tempo hábil, qualquer ocorrência que reclame providência, ou que o impeça de cumprir a ordem recebida.","Executar as ordens que receber e pelas consequências da omissão em participar ao superior, em tempo hábil, qualquer ocorrência que reclame providência, ou que o impeça de cumprir a ordem recebida","Executar as ordens que receber e pelas consequências da omissão em participar ao superior, em tempo hábil, qualquer ocorrência que reclame providência, ou que o impeça de cumprir a ordem recebida"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é proibido ao pessoal (id:03010)",
+              respostas: [" Fazer intimidade no exercício de suas atribuições","Tratar-se mutuamente com respeito e polidez","Tratar mal os subordinados","Tratar mal os subordinados"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "o que deve fazer o subordinado quando circunstâncias insuperáveis impossibilitarem a execução de uma ordem recebida? (id:03011)",
+              respostas: ["Executar a ordem recebida mesmo assim"," Dar conhecimento imediato do fato ao seu superior, ou logo que possível, para que este providencie como julgar conveniente","Resolver, sob sua responsabilidade, como lhe parecer mais conveniente ao serviço","Solicitar que lhe sejam dadas por escrito."],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: " como o superior deve dar suas ordens ao subordinado? (id:03012)",
+              respostas: ["Em linguagem e tom persuasivos","Em linguagem e tom imperativos","Em linguagem e tom gentis","Em linguagem e tom gentis"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: " quais tipos de expressões são proibidas na correspondência entre subordinado e superior? (id:03013)",
+              respostas: [" quais tipos de expressões são proibidas na correspondência entre subordinado e superior?","Expressões que envolvam ofensa, insulto ou injúria a alguém","Expressões que envolvam desculpas","Expressões que envolvam desculpas"],
+              correta: "resp1"
+            },
+
+            {
+              pergunta: "O que acontece com as representações, partes ou requerimentos que militares da Marinha dirigirem a autoridades superiores (id:03014)",
+              respostas: ["São entregues diretamente às autoridades superiores","São entregues diretamente às autoridades superiores","São encaminhados pelo Comandante do militar que as escreveu","São encaminhados pelo Comandante do militar que as escreveu"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Qual é a atribuição principal das Praças? (id:03015)",
+              respostas: ["Execução de tarefas administrativas","Realização de exercícios físicos","Manutenção e operação dos equipamentos e conservação de compartimentos de suas OM","Serviços de segurança e vigilância"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "Serviços de segurança e vigilância (id:03016)",
+              respostas: ["Cumprir as instruções, desempenhar tarefas, participar de mostras e exercícios"," Fiscalizar as sentinelas, manter as praças prontas, participar ao Oficial de Serviço fatos relativos ao serviço da Guarda e organizar o detalhe de serviço das praças","Executar qualquer serviço que contribua para o cumprimento de tarefa atribuída à OM, com responsabilidade pela parte que lhes couber, auxiliar diretos dos Suboficiais, ou dos Oficiais, conforme a OM em que servirem, em todos os atos de serviço e na execução das fainas que aqueles auxiliarem ou dirigirem, tomar parte nas mostras, fainas e exercícios e participar dos exercícios de cultura física e desportos","Realizar atividades recreativas e de entretenimento para os demais membros da OM"],
+              correta: "resp0"
+            },
+
+            {
+              pergunta: "Qual é a localização normal do Corpo da Guarda? (id:03017)",
+              respostas: ["No posto do Oficial de Serviço","No posto de Comando","Nas proximidades do posto do Oficial de Serviço","Em local determinado pelo Comandante da OM"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é responsabilidade do Comandante da Guarda? (id:03018)",
+              respostas: ["Fiscalizar o serviço das sentinelas e distribuir as sentinelas pelos postos","Fiscalizar o serviço das sentinelas e distribuir as sentinelas pelos postos","Fiscalizar o serviço das sentinelas e distribuir as sentinelas pelos postos","Fiscalizar o serviço das sentinelas e distribuir as sentinelas pelos postos"],
+              correta: "resp2"
+            },
+
+            {
+              pergunta: "O que é atribuição da Guarda? (id:03019)",
+              respostas: ["Realizar exercícios físicos e desportos","Desempenhar tarefas administrativas da OM","Executar o serviço de sentinelas e participar de cerimonial","Distribuir as sentinelas pelos postos e transmitir ordens que tenham que cumprir"],
+              correta: "resp2"
+            },
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

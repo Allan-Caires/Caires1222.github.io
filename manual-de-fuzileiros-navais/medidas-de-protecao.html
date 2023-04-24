@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Medidas de Proteção</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Medidas de Proteção</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Medidas de Proteção</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual é a definição de proteção (id:26001)",
+              respostas: ["O ataque surpresa às tropas inimigas."," A capacidade de combate de uma tropa para ser usada no local e momento apropriados."," A destruição de áreas do inimigo para impedir a sua ação."," A camuflagem e disfarce das forças amigas para evitar a observação do inimigo."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que é a Organização do Terreno (OT)? (id:26002)",
+              respostas: ["A defesa imediata das tropas em situações estáticas da ofensiva.","A destruição de áreas do inimigo para impedir a sua ação.","A alteração das características de uma área ou órgão por meio de construções ou destruições.","A preparação de fortificações permanentes em tempo de paz."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Quais são os dois grandes grupos de trabalhos de OT? (id:26003)",
+              respostas: ["Ataque e defesa","Fortificações de campanha e camuflagem.","Tropas terrestres e aéreas.","Comando e logística"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que são as fortificações de campanha? (id:26004)",
+              respostas: ["Fortificações permanentes construídas por pessoal especializado.","Fortificações pré-preparadas em tempo de paz ou na guerra."," Trabalhos defensivos realizados quando um ataque inimigo for iminente ou durante a consolidação de um objetivo conquistado.","Trabalhos de camuflagem realizados por tropas terrestres."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que é a limpeza dos campos de tiro? (id:26005)",
+              respostas: [" A remoção de árvores e arbustos para esconder as posições defensivas.","A construção de postos de observação em setores organizados para a defesa aproximada."," A criação de obstáculos de madeira, concreto ou aço em áreas com árvores esparsas.","A limpeza apropriada dos campos à frente de cada entrincheiramento ou espaldão para permitir a visibilidade dos inimigos."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é a função do espaldão tipo ferradura para metralhadora? (id:26006)",
+              respostas: ["Proteger a guarnição e a arma contra a ação de esmagamento dos carros.","Proteger contra o tiro das armas portáteis e contra estilhaços de granada ou bombas.","Facilitar a construção do espaldão e torná-lo resistente à passagem de carros de combate.","Permitir o tiro em todas as direções."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é a diferença entre os dois tipos de espaldões para metralhadora? (id:26007)",
+              respostas: ["O tipo ferradura apresenta menor flexibilidade que o tipo duas tocas.","O tipo duas tocas apresenta maior facilidade de construção e maior resistência à passagem de carros de combate.","O tipo ferradura é preferido por oferecer maior proteção contra a ação de esmagamento dos carros de combate","O tipo duas tocas é preferido por permitir a retirada rápida da arma da posição"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Como é feito o espaldão tipo ferradura para metralhadora? (id:26008)",
+              respostas: ["É escavada uma sapa em forma de ferradura acompanhando as faces laterais e posterior da escavação inicial.","É escavada uma toca para o atirador e outra para o municiador, com o parapeito disposto em torno da posição.","É feita uma escavação rasa com o lado maior perpendicular a provável direção de ataque do inimigo e um parapeito é construído com a terra escavada.","É feito um pequeno traço no terreno na direção principal de tiro e à direita é cavada a toca para o atirador."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Como é feito o espaldão tipo duas tocas para metralhadora? (id:26009)",
+              respostas: ["É feita uma escavação rasa com o lado maior perpendicular a provável direção de ataque do inimigo e um parapeito é construído com a terra escavada.","É escavada uma sapa em forma de ferradura acompanhando as faces laterais e posterior da escavação inicial.","É feito um pequeno traço no terreno na direção principal de tiro e à direita é cavada a toca para o atirador.","São cavadas duas tocas, uma para o atirador e outra para o municiador, com o parapeito disposto em torno da posição."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Quais são os abrigos básicos e individuais dos fuzileiros? (id:26010)",
+              respostas: ["Tocas","Poços","Espaldões","Granadas"],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual é a finalidade do sumidouro de granadas de mão? (id:26011)",
+              respostas: ["Proporcionar um espaço para dormir","Drenar as águas da chuva.","Coletar água e permitir que o homem sentado coloque os pés.","Empurrar as granadas lançadas pelo inimigo no interior da toca."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é a largura mínima da toca para que ela seja suficientemente larga para conter os ombros de um homem localizado na banqueta de tiro? (id:26012)",
+              respostas: ["0,60m","1,05m","1,20m","0,45m"],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "O que deve ser cavado no fundo da toca, em toda sua largura, para coletar água e permitir que o homem sentado coloque os pés? (id:26013)",
+              respostas: ["Granadas","Poços","Espaldões","Tocas"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Em que direção deve ter declive o poço da toca? (id:26014)",
+              respostas: ["45o","10o","30o","20m"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é a altura recomendada para o parapeito de uma toca de raposa? (id:26015)",
+              respostas: ["0,45m","0,60m","0,75m","0,15m "],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Para camuflar um parapeito com leivas, qual área deve ser retirada? (id:26016)",
+              respostas: ["Área circular de 3m de diâmetro"," Área quadrada de 1,5m de lado","Área quadrada de 2m de lado","Área quadrada de 3m de lado"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual é a principal razão pela qual a toca para dois homens é preferida em relação à toca para um homem? (id:26017)",
+              respostas: ["É mais resistente aos estilhaços de granadas","Oferece maior proteção contra a ação de esmagamento dos carros de combate","Proporciona revezamento e repouso para os ocupantes","É mais fácil de ser camuflada"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que são posições naturais? (id:26018)",
+              respostas: [" Posições de defesa construídas acima da superfície do terreno","Posições de defesa construídas abaixo da superfície do terreno","Cobertas naturais que existem na área de operações","Aberturas feitas na parede para proteger as armas"],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é a largura mínima recomendada para uma posição preparada na defensiva? (id:26019)",
+              respostas: ["0,30m","0,60m","1,20m","0,90m "],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual a definição de obstáculo? (id:26020)",
+              respostas: ["O fogo das armas utilizado para canalizar, retardar ou impedir o movimento do inimigo em uma determinada direção.","Qualquer objeto ou obra criada pelo homem para dificultar o movimento do inimigo.","Qualquer acidente do terreno, condição do solo ou ambiente, existente ou resultante de fenômeno meteorológico adverso, ou qualquer objeto, obra ou situação criada pelo homem, exceto o fogo das armas, utilizado para canalizar, retardar ou impedir o movimento do inimigo em uma determinada direção.","A defesa e proteção de uma posição militar."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é o objetivo dos obstáculos? (id:26021)",
+              respostas: ["Oferecer um alvo para a artilharia inimiga.","Permitir fácil penetração na posição defensiva.","Canalizar, retardar ou impedir o movimento do inimigo numa determinada direção.","Ser complexos, para que apenas tropas experientes possam construí-los."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que são obstáculos de arame farpado? (id:26022)",
+              respostas: ["Um tipo de cratera que oferece refúgio para as tropas inimigas.","Uma ferramenta utilizada para aprofundar as crateras.","Um tipo de objeto ou obra criada pelo homem para canalizar, retardar ou impedir o movimento do inimigo numa determinada direção.","Um tipo de barreira eficaz, classificado como tático, de proteção ou suplementar."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Como são classificados os obstáculos de arame farpado? (id:26023)",
+              respostas: ["Tático, de proteção ou suplementar.","Tático, de proteção ou ofensivo.","Ofensivo, de proteção ou suplementar","Ofensivo, defensivo ou suplementar."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "O que é necessário para se melhorar uma cratera? (id:26024)",
+              respostas: ["Cavá-la na diagonal, no lado voltado para o inimigo.","Aprofundá-la no lado voltado para a própria tropa.","Cavar verticalmente a sua borda, no lado voltado para o inimigo, e preparar uma posição cômoda para um atirador deitado, ajoelhado ou de pé.","Não é possível melhorar uma cratera."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que oferecem as crateras para as tropas que avançam? (id:26025)",
+              respostas: ["Uma posição de tiro desenfiada.","Um alvo para a artilharia inimiga.","Um refúgio imediato e disponível para abrigo ou coberta, bem como posições de tiro parcialmente desenfiadas."," Uma ferramenta para aprofundá-las."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que é camuflagem? (id:26026)",
+              respostas: ["O conjunto de medidas que visam a iludir ou a ocultar a verdadeira natureza de uma tropa, instalação, atividade ou equipagem, e que devem ser praticadas intensamente por todos.","A exposição da natureza de uma tropa, instalação, atividade ou equipagem, e que devem ser praticadas intensamente por todos.","A proibição de esconder a natureza de uma tropa, instalação, atividade ou equipagem, e que devem ser praticadas intensamente por todos.","A confusão e mistura de tropas amigas e inimigas em um combate."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Quem é responsável pela camuflagem individual? (id:26027)",
+              respostas: ["O comandante da tropa.","O sargento da tropa.","Cada fuzileiro é responsável por sua camuflagem individual.","O soldado mais experiente da tropa."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual o objetivo da camuflagem? (id:26028)",
+              respostas: ["Aproximar-se do inimigo sem ser visto, obter a surpresa, reduzir o número de baixas e dificultar o desencadeamento de fogos","Aproximar-se do inimigo para iniciar um combate imediato.","Criar um cenário de terror para o inimigo.","Identificar os inimigos antes de eles se aproximarem."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Quantos processos de camuflagem existem e quais são? (id:26029)",
+              respostas: ["Dois processos: mascaramento e dissimulação","Três processos: mascaramento, dissimulação e simulação.","Quatro processos: mascaramento, dissimulação, simulação e disfarce.","Cinco processos: mascaramento, dissimulação, simulação, disfarce e imitação"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Quais são as exigências fundamentais da camuflagem? (id:26030)",
+              respostas: [" Escolha da posição, mobilidade e ação ofensiva.","Escolha da posição, preparação psicológica e ação ofensiva.","Escolha da posição, preparação defensiva e mobilidade.","Escolha da posição, prevenção contra a observação do inimigo, facilidade de acesso e cumprimento da missão."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual a finalidade do revestimento das escavações em solos frouxos ou arenosos? (id:26031)",
+              respostas: ["Fornecer espaço a ser ocupado pelo revestimento.","Evitar desabamentos.","Proteger contra estilhaços."," Coletar água da superfície."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que é a drenagem em uma fortificação? (id:26032)",
+              respostas: [" Prevenir a formação de trilhas denunciadoras.","Coletar água da superfície.","Esconder o material escavado sob árvores ou em ravinas.","Prever a saída das águas da chuva, da superfície e de infiltração."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "O que deve ser feito com a água que cai no interior da escavação ou que para seu interior se infiltra através de suas paredes? (id:26033)",
+              respostas: ["Ser esgotada por baldes, sifões ou bombas.","Ser ocultada sob árvores ou em ravinas.","Ser aproveitada na construção de parapeitos de posições simuladas."," Ser misturada com neve."],
+              correta: "resp0"
+            },
+                                 
+            {
+              pergunta: "Em que situações os tetos são necessários em uma fortificação? (id:26034)",
+              respostas: ["Sempre","Somente em posições sumárias.","Quando é necessário coletar água da superfície.","Quando a fortificação é construída em terreno comum."],
+              correta: "resp1"
+            },
+                                 
+            {
+              pergunta: "Como deve ser manuseado o material escavado em terreno comum? (id:26035)",
+              respostas: ["Deve ser misturado com neve recente.","Deve ser formado um parapeito com ele.","Deve ser utilizado na construção do teto","Deve ser deixado à vista para denunciar a fortificação."],
+              correta: "resp1"
+            },
+                                             
+            {
+              pergunta: "Os obstáculos de arame farpado são classificados quanto à missão que desempenham como táticos, de proteção ou: (id:26036)",
+              respostas: ["Especiais","Suplementares","Impeditivos","Operacionais"],
+              correta: "resp1"
+            },
+                                                         
+            {
+              pergunta: "Com relação à classificação dos obstáculos de arame farpado, quanto à missão, como se classificam as redes de arame farpado lançadas para impedir ataques de surpresa de pontos situados próximos à posição defensiva? (id:26037)",
+              respostas: ["Proteção","Suplementar","Tático","Operacional"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "É o conjunto de medidas que visam a iludir ou a ocultar a verdadeira natureza de uma tropa, instalação, atividade ou equipagem, e que devem ser praticadas intensamente por todos. (id:26038)",
+              respostas: ["Mascaramento","Dissimulação","Simulação","Camuflagem"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Quem é o responsável pelo apropriado emprego da camuflagem? (id:26039)",
+              respostas: ["Todo Fuzileiro. ","Comandante","Oficial de Operações.","Oficial de Logística"],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "Que processo de camuflagem consiste na aplicação ou colocação de material, especializado ou não, sobre, acima ou em volta do objeto a camuflar, de modo a que pareça fazer parte do meio ambiente? (id:26040)",
+              respostas: ["Dissimulação","Simulação","Disfarce","Mascaramento"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "As exigências para o sucesso da camuflagem, relacionadas em ordem de importância, são: (id:26041)",
+              respostas: ["Escolha da posição, Montagem, Disciplina de camuflagem e Escolha do material.","Escolha da posição, Disciplina de camuflagem, Escolha do material e Montagem",' Disciplina de camuflagem, Escolha da posição, Montagem e Escolha do material.',"Escolha da posição, Disciplina de camuflagem, Montagem e Escolha do material"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Quanto aos obstáculos, assinale a alternativa incorreta. (id:26042)",
+              respostas: [" Na concepção militar, um obstáculo é qualquer acidente do terreno, condição do solo ou ambiente, existente ou resultante de fenômeno meteorológico adverso, ou qualquer objeto, obra ou situação criada pelo homem, inclusive o fogo das armas, utilizado para canalizar, retardar ou impedir o movimento do inimigo numa determinada direção.","Embora o obstáculo deva ser denso o bastante para impedir uma fácil penetração na posição defensiva, não deverá ser tão denso que seja facilmente identificado em fotografias aéreas ou ofereça um bom alvo para a artilharia inimiga","Os obstáculos deverão ser simples, de modo a poderem ser feitos rapidamente pelas tropas com pouca experiência, mesmo na escuridão e na presença do inimigo","O primeiro elemento construído deverá oferecer proteção imediata. O restante deverá ser executado sob a proteção do que já se encontra pronto."],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "Considere que a sua Esquadra de Tiro (ET) recebeu a missão de lançar uma rede de arame farpado cuja finalidade é iludir o inimigo quanto à real direção da barreira principal da sua posição defensiva. Segundo a classificação das redes de arame farpado, a missão da sua ET será lançar uma rede: (id:26043)",
+              respostas: ["De Proteção","Alternativa","Tática","Suplementar"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Qual o processo de camuflagem que consiste em ocultar completamente o objeto? (id:26044)",
+              respostas: ["Dissimulação","Mascaramento","Finta","Ocultação"],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "Qual o processo de camuflagem que consiste em dar a impressão da existência de equipagens e instalações militares que na verdade inexistem? (id:26045)",
+              respostas: ["Mascaramento","Finta","Ocultação","Simulação"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Qual o processo de camuflagem cujo exemplo clássico é o fuzileiro com sua camuflagem individual (id:26046)",
+              respostas: ["Dissimulação","Mascaramento","Finta","Ocultação"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "Quanto ao emprego de arame farpado na construção de obstáculos, analise as proposições abaixo, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta. <br> ( ) As redes de arame farpado táticas são lançadas ao longo do lado amigo da barreira principal, para quebrar as formações inimigas e obrigá-las a permanecer em áreas batidas pelos mais intensos fogos da defensiva. As redes táticas se estendem por toda a frente da posição e precisam ser contínuas. <br> ( ) As redes de arame farpado de proteção são lançadas para impedir ataques de surpresa de pontos situados próximos à posição defensiva <br> ( ) As redes de arame farpado de proteção são lançadas próximo o bastante da linha de defesa para poderem ser observadas dia e noite e, ao mesmo tempo, longe o bastante para impedir que o inimigo empregue granadas de mão. Dependendo do terreno, uma distância entre 35 a 75 metros satisfaz essa exigência. <br> ( ) As cercas de arame de proteção são construídas ao redor das instalações de retaguarda com o mesmo propósito que o das empregadas à frente. Quando construídas ao redor das áreas de companhia podem ser ligadas de modo a rodearem todo o batalhão <br> ( ) Quando o tempo permitir, serão adicionadas redes de arame táticas para dissimular a 3linha exata das redes suplementares e a direção da barreira principal. (id:26047)",
+              respostas: ["V-V-V-F-F","F-V-V-V-F","F-F-V-V-F","F-V-F-F-V"],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "Uma das exigências fundamentais da camuflagem é escolha da posição, a qual deverá obedecer aos seguintes aspectos, exceto: (id:26048)",
+              respostas: ["Missão","Desenfiamento"," Localização das Instalações e Serviços","Tipo de solo"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: " Nas exigências fundamentais da camuflagem, a necessidade de evitar mudanças no terreno ocupado é um propósito relacionado ao (à): (id:26049)",
+              respostas: ["Disciplina de Camuflagem.","Escolha da Posição.","Escolha do Material.","Montagem da Camuflagem."],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "Camuflagem é o conjunto de medidas que visam a iludir ou a ocultar a verdadeira natureza de uma tropa, instalação, atividade ou equipagem, e que devem ser praticadas intensamente por todos. Desse modo, todo fuzileiro é responsável por sua camuflagem individual, devendo preocupar-se com a equipagem, com o armamento, com a posição e com os seus itinerários de progressão. Deve ser devidamente preparado para empregá-la e motivado no sentido de que, utilizando-a bem, poderá aproximar-se do inimigo sem ser visto. Por sua vez, cada Comandante é responsável pelo apropriado emprego da camuflagem por sua tropa.Embora os modernos meios de observação possam detectar materiais artificiais bem como alterações no terreno ou na vegetação, a observação direta através do olho humano ainda é a mais largamente empregada. Desse modo, a camuflagem pode ser considerada um fator básico nas operações por sua influência no despistamento e na proteção.Seja na ofensiva, seja na defensiva, a camuflagem auxilia a obtenção da surpresa, além de reduzir o número de baixas. Nega ao inimigo o conhecimento das posições exatas ocupadas por tropas amigas, dificultando-lhe o desencadeamento de fogos. Muitas vezes, a rapidez inerente às operações de combate impede a execução de medidas de camuflagem elaboradas; nessas situações, o correto aproveitamento do disfarce proporcionado pelo terreno poderá contribuir eficazmente para a segurança da tropa. Segundo os fundamentos da camuflagem, é correto afirmar que: (id:26050)",
+              respostas: ["Há três exigências fundamentais da camuflagem, que são: mascaramento, dissimulação e simulação","Quando se fala em disciplina de camuflagem, um dos propósitos dessa exigência é fazer com que o objeto camuflado não possua uma forma regular e nem uma sombra definida.","As exigências para o sucesso da camuflagem são relacionadas em ordem de importância. Assim, considera-se a montagem da camuflagem como a mais importante de todas","O processo de camuflagem conhecido como simulação envolve dois métodos: o disfarce e o emprego de simulacros. O primeiro diz respeito a mudar a aparência de determinados objetos, como por exemplo, fazer um vagão de combustível parecer um vagão de passageiros. O segundo está relacionado a imitar determinados objetos, como por exemplo, criar uma falsa posição de um Posto de Comando."],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: " Consiste em alterar as características de uma área ou órgão por meio de construções ou destruições. (id:26051)",
+              respostas: ["Proteção"," Organização do Terreno. ","Fortificação de Campanha.","Fortificação Permanente"],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: " Consistem nos trabalhos defensivos realizados quando um ataque inimigo for iminente ou durante a consolidação de um objetivo conquistado, como prevenção de um contra-ataque (id:26052)",
+              respostas: ["Proteção","Organização do Terreno.","Fortificação de Campanha."," Fortificação Permanente. "],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: " O espaldão tipo ferradura é completado pela escavação de uma sapa, em forma de ferradura, com quantos metros de largura? (id:26053)",
+              respostas: ["0,30m","0,50m","0,60m","0,90m"],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "Segundo o Manual do Fuzileiro Naval, analise as afirmativas abaixo, inerentes às Medidas de Proteção, assinale-as como verdadeiras ou falsas e marque a alternativa que apresenta a sequência correta <br><br> ( ) Reunidos em dois grandes grupos - fortificações de campanha e camuflagem - os trabalhos de OT visam principalmente a ampliar o poder de combate das forças amigas, bem como a impedir ou dificultar as ações e a observação do inimigo. <br> ( ) Obedecendo ao princípio da continuidade dos trabalhos, as fortificações de campanha, normalmente, evoluem para construções mais elaboradas denominadas fortificações permanentes. Estas, construídas por pessoal especializado (normalmente elementos de infantaria), quase sempre ficam perpetuadas no terreno, mesmo após os conflitos. <br> ( ) No preparo de posições defensivas, já em contato com o inimigo, é realizada, à frente de cada entrincheiramento ou espaldão, a limpeza apropriada dos campos de tiro <br> ( ) Em setores organizados para a defesa aproximada, efetuar a limpeza até, pelo menos, 200m à frente da posição. <br> ( ) Nas florestas densas não é aconselhável nem possível a limpeza completa dos campos de tiro. Deve-se, portanto, restringir o trabalho ao desbastamento da vegetação rasteira e à remoção dos ramos mais baixos das árvores maiores. Além disso, deve-se preparar estreitos corredores de tiro para as armas automáticas. (id:26054)",
+              respostas: [" V-F-F-F-V"," V-F-V-F-F","V-F-F-V-V","F-F-V-F-V"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: "Em quantos e quais grandes grupos se divide o trabalho de Organização do Terreno? (id:26055)",
+              respostas: ["3 - Dissimulação; Ocultação; e Disfarce.","3 - Escolha da Posição; Camuflagem; e Ocultação.","3 - Mascaramento; Envolvimento; e Desbordamento.","2 - Fortificação de Campanha; e Camuflagem."],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Quais são os tipos de espaldão para metralhadora? (id:26056)",
+              respostas: ["2 tocas e meia lua.","toca de raposa e ferradura.","ferradura simples e ferradura dupla.","2 tocas e ferradura."],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Quanto ao espaldão para metralhadora, é correto afirmar que: (id:26057)",
+              respostas: ["No espaldão tipo ferradura, coloca-se a arma em posição pronta para o tiro. Primeiramente, a guarnição faz uma escavação rasa de 2,20m x 1,60m x 0,15m, aproximadamente, com o lado maior paralelo à provável direção de ataque do inimigo. A terra escavada é depositada em volta, formando um parapeito.","O espaldão é completado pela escavação de uma sapa, em forma de ferradura, com 1m de largura.","Esse espaldão protege apenas contra o tiro das armas portáteis. ","O espaldão de duas tocas, conforme o nome já diz, consiste em duas tocas para um homem, junto à posição da arma. Para demarcá-lo, é feito um pequeno traço no terreno, na direção principal de tiro."],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: "Analise as proposições abaixo, no que tange à construção das tocas, e marque a alternativa que apresenta a afirmativa correta. I - As tocas são os abrigos básicos e individuais dos fuzileiros, que proporcionam a máxima proteção contra o fogo inimigo de todos os tipos (exceto impactos diretos). <br> II - Exceto nos terrenos que dificultem o emprego de carros de combate, a toca deve ser suficientemente profunda para garantir, pelo menos, 0,90m de espaço entre o soldado agachado e a borda da toca, a fim de protegê-lo contra a ação de esmagamento. <br> III - Geralmente, as tocas são cavadas com o lado maior perpendicular à frente e distribuídas em torno dos espaldões das armas de emprego coletivo para garantir a defesa em todas as direções, e são localizadas de modo a permitir, principalmente, um bom campo de tiro <br> IV - As tocas devem possuir largura mínima de 0,60m; comprimento mínimo de 1,05m; e pelo menos 1,20m de profundidade até a banqueta de tiro da qual um homem de pé possa atirar <br> V - Se possível, a terra escavada deve ser removida para um local onde não atraia a atenção do inimigo e a toca camuflada com uma cobertura improvisada. (id:26058)",
+              respostas: ["Somente a III está correta."," Somente a V está correta.","Todas estão corretas"," A I está correta"],
+              correta: "resp3"
+            },
+                                                       
+            {
+              pergunta: " Nas tocas, qual deve ser a largura e a altura, respectivamente, do parapeito? (id:26059)",
+              respostas: [" 0,90m x 0,15m","0,15m x 0,90m"," 0,60m x 0,15m","0,15m x 0,60m"],
+              correta: "resp0"
+            },
+                                                       
+            {
+              pergunta: " Segundo as Medidas de Proteção, consistem nos trabalhos defensivos realizados quando um ataque inimigo for iminente ou durante a consolidação de um objetivo conquistado, como prevenção de um contra-ataque: (id:26060)",
+              respostas: ["Fortificação Permanente.","Camuflagem","Fortificação de Campanha.","Poder de Combate."],
+              correta: "resp2"
+            },
+                                                       
+            {
+              pergunta: "As _____________________ normalmente são compostas por obstáculos de aço e espaldões reforçados. (id:26061)",
+              respostas: ["Fortificações de Campanha.","Fortificações Permanentes.","Fortificações Individuais","Fortificações Construtivas."],
+              correta: "resp1"
+            },
+                                                       
+            {
+              pergunta: "Segundo o Manual do FN, no capítulo que versa sobre as Medidas de Proteção, qual a distância mínima para limpeza do campo de tiro nos setores organizados para a defesa aproximada? (id:26062)",
+              respostas: ["250 metros","200 metros.","150 metros","100 metros"],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Quanto à limpeza dos campos de tiro, nas medidas de proteção, assinale a opção incorreta. (id:26063)",
+              respostas: ["Antes de efetuar a limpeza dos campos de tiro, fazer uma cuidadosa avaliação do vulto do trabalho que pode ser feito dentro do tempo disponível. Essa estimativa, muitas vezes, determina a natureza e a extensão da limpeza a ser realizada, pois uma limpeza de campos de tiro que não possa ser completada pode dar ao inimigo melhores abrigos e cobertas que o terreno com sua feição natural.","Remover a vegetação cortada para locais onde não proporcione cobertas para o inimigo nem denuncie a posição.","Ceifar as plantações de cereais e os campos de feno ou queimá-los, se maduros ou secos, caso isto não revele a posição.","Nas áreas com árvores esparsas não é aconselhável nem possível a limpeza completa dos campos de tiro. Deve-se, portanto, restringir o trabalho ao desbastamento da vegetação rasteira e à remoção dos ramos mais baixos das árvores maiores."],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Quanto aos espaldões empregados para a metralhadora, o tipo _________________ apresenta uma menor flexibilidade. No entanto, devido à maior facilidade para construção e à maior resistência contra o esmagamento dos carros de combate, é o preferido. (id:26064)",
+              respostas: ["Perpendicular","Ferradura","Uma toca","Duas tocas"], 
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Quanto aos abrigos, analise as proposições abaixo, considere-as como corretas ou incorretas e assinale a única alternativa que apresenta uma afirmativa correta <br><br> I - As tocas são os abrigos básicos e individuais dos fuzileiros, que proporcionam a máxima proteção contra o fogo inimigo de todos os tipos, inclusive impactos diretos. <br>II - Inclusive nos terrenos que dificultem o emprego de carros de combate, a toca deve ser suficientemente profunda para garantir, pelo menos, 0,60m de espaço entre o soldado agachado e a borda da toca, a fim de protegê-lo contra a ação de esmagamento. <br> III - Geralmente, as tocas são cavadas com o lado maior perpendicular à frente e distribuídas em torno dos espaldões das armas de emprego coletivo para garantir a defesa em todas as direções e, nas situações defensivas estabilizadas, a toca pode ser aumentadapara comportar um espaço para dormir, devendo ter teto resistente. <br> IV - Contra esmagamento, na maioria dos tipos de solo, a toca proporciona proteção efetiva contra a ação de esmagamento dos carros de combate se o ocupante se agachar pelo menos 0,60m abaixo da superfície do terreno. Nos solos muito arenosos ou frouxos, pode ser necessário revestir os taludes para evitar seu desmoronamento. <br> V - Para proteger os fuzileiros contra os precisos arrebentamentos aéreos das granadas com espoleta tempo, as tocas devem possuir teto. Em alguns casos podem ser empregados troncos de 0,10m a 0,15m de diâmetro, cobertos com uma camada de terra. Em outras situações, qualquer material disponível pode servir se coberto com 0,15m a 0,20m de terra, areia ou neve. (id:26065)",
+              respostas: ["Todas estão incorretas.","Todas estão corretas.","Apenas a I e a II estão incorretas.","A V está correta."],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Na defensiva, quando não se dispuser de uma linha de defesa pronta e o tempo permitir, constroem-se posições protegidas contra o esperado ataque inimigo. Muitas vezes, devido às condições do solo ou d`água do subsolo, que impedem as escavações, as posições são construídas acima da superfície do terreno. Desse modo, o topo dessas posições acima do solo, a fim de oferecer proteção contra o calibre .30 e os estihaços de granada, deverá ter uma largura mínima de: (id:26066)",
+              respostas: ["0,60 metros","1,05 metros","0,20 metros","0,90 metros"],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Fortificações de campanha consistem nos trabalhos defensivos realizados quando um ataque inimigo for iminente ou durante a consolidação de um objetivo conquistado, como prevenção de um contra-ataque. Normalmente compreendem, EXCETO: (id:26067)",
+              respostas: [" Limpeza de campos de tiro.","Escavação de espaldões para armas e abrigos para o pessoal.","Construção de abrigos para órgãos de comando e para instalações de apoio logístico.","Construção de postos de comando"],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Na toca para um homem, qual deverá ser o comprimento mínimo para o sumidouro de granadas? (id:26068)",
+              respostas: ["0,45m"," 0,25m"," 0,60m","0,50m"],
+              correta: "resp0"
+            },
+                                                                 
+            {
+              pergunta: "Considerando que, como abrigo individua, as tocas para dois homens são as preferidas, assinale a alternativa abaixo que não justifica essa preferência (id:26069)",
+              respostas: ["Proporciona revezamento e repouso para os ocupantes, pois um deles descansa enquanto o outro fica alerta. Assim, as posições ficam guarnecidas eficientemente por períodos de tempo mais longos.","Se um dos soldados é ferido ou morto, a posição continuará ocupada, o que não acarretará uma brecha na linha.","Proporciona maior conforto, especialmente em tempo frio, quando os ocupantes poderão juntar seus cobertores e panos de barraca.","É preparada com maior dificuldade. Por isso um homem deve fazer a proteção, enquanto o outro trabalha na toca."],
+              correta: "resp3"
+            },
+                                                                 
+            {
+              pergunta: "Com relação às posições naturais, é incorreto afirmar que: (id:26070)",
+              respostas: ["Essas posições devem ser sempre utilizadas, desde que existam na área de operações, tendo em vista a grande economia de tempo e de mão-de-obra que proporcionam, e, também, por constituírem os melhores abrigos e cobertas naturais","As cercas vivas e as dobras naturais do terreno não podem ser consideradas como excelentes posições naturais.","As áreas urbanas apresentam grande variedade de posições naturais sob a forma de paredes de pedra, de tijolos e de outros tipos de alvenaria, e mesmo de escombros de edificações"," As posições naturais devem, geralmente, ser melhoradas e reforçadas."],
+              correta: "resp1"
+            },
+                                                                 
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tradições Navais</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Tradições Navais</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Tradições Navais</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/armamento.html">Armamento</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/condicionamento-fisico.html">Condicionamento Fisico</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/direito-da-guerra.html">Direito da Guerra</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/ed-moral-civica.html">ED. Moral e Cívica</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/hierarquia-disciplina.html">Hierarquia e Disciplina</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/historico-de-fuzileiros-navais.html">Histórico de Fuzileiros Navais</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/legislacao.html">legislação</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/medidas-de-protecao.html">Medidas de Proteção</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/navegacao-terrestre.html">Navegação Terrestre</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/organizacao-da-mb.html">Organização da MB</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/primeiros-socorros.html">Primeiros Socorros</a></li>
+                      <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="/manual-de-fuzileiros-navais/tradicoes-navais.html">Tradições Navais</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+          
+          {
+            pergunta:"Quem é a autoridade suprema de bordo? (id:30001)",
+            respostas: ["O Imediato","O Comandante","O Contramestre","O Polícia"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é o quarto d'alva? (id:30002)",
+            respostas: ["O que é o quarto d'alva?","Um período de serviço entre 0400 e 0800 horas.","Um período de serviço entre 1600 e 2000 horas.","Um período de serviço entre 2000 e 2400 horas."],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é o Polícia? (id:30003)",
+            respostas: [" Um suboficial ou sargento, ajudante do oficial de serviço.","Um sargento ou cabo, ajudante do oficial de serviço para efeito de fiscalização quanto ao cumprimento da rotina e manutenção da disciplina.","Um marinheiro ou soldado às ordens do oficial de serviço."," Um marinheiro ou soldado destacado para um posto de guarda, com atribuição básica de proteger a OM das ameaças provocadas por estranhos ou inimigos."],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Como os intervalos dos quartos são determinados a bordo? (id:30004)",
+            respostas: ["Por meio de um relógio de pulso.","Por meio de um cronômetro.","Por meio de batidas do sino de bordo.","Por meio de um apito."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é a função do apito do marinheiro a bordo? (id:30005)",
+            respostas: ["Qual é a função do apito do marinheiro a bordo?"," É uma peça meramente decorativa para os marinheiros.","É utilizado para os toques de rotina e comando de manobras."," É utilizado apenas em cerimônias oficiais."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Como são conduzidas as manobras que exigem coordenação e ordens contínuas de um Mestre ou Contramestre? (id:30006)",
+            respostas: ["Com toques de apito.","Aos gritos.","Com sinais de bandeira.","Com gestos manuais."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual é o evento que consta de sete vivas dados com o apito do marinheiro ou de toque de corneta? (id:30007)",
+            respostas: ["Regresso de licenciados.","Sinal para a bandeira.","Autorização para baixar a terra.","Cerimonial da bandeira."],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que acontece no quarto de 0000 às 0400 h a bordo? (id:30008)",
+            respostas: ["Todos se reúnem para uma marcha","O pessoal de serviço fica livre para fazer o que quiser","O restante do pessoal a bordo está recolhido para descanso e a atenção do pessoal de serviço é redobrada com a segurança","O pessoal de serviço recebe uma pausa."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é a continência (id:30009)",
+            respostas: ["Um cumprimento informal entre militares","Um aperto de mão entre militares","Uma saudação com a mão direita à têmpora em sinal de respeito","Uma reverência."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é obrigatório fazer ao entrar a bordo pela primeira vez no dia? (id:30010)",
+            respostas: [" Dar o pronto da execução de ordem recebida","Saudar o pavilhão nacional;","Saudar o oficial de serviço","Nenhuma das alternativas."],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é a câmara a bordo? (id:30011)",
+            respostas: ["Um local destinado aos marinheiros dormirem;","Um compartimento para armazenar alimentos;","Um compartimento para armazenar alimentos;","Um local destinado ao Comandante"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é o compartimento destinado à guarda ou armazenamento de materiais como munição, rancho, tintas, equipagens e fardamento? (id:30012)",
+            respostas: ["Bailéu","Secretaria","Corpo da Guarda"," Paiol"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Como são classificadas as fainas que envolvem o pessoal de bordo para um fim específico em um navio de guerra? (id:30013)",
+            respostas: ["Como gerais ou parciais","Como comuns ou de emergência","Como administrativas ou operacionais","Como urgentes ou não urgentes"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Onde são executadas atividades administrativas em uma OM? (id:30014)",
+            respostas: ["Corpo da Guarda","Paiol","Bailéu","Secretaria"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é a peça mais característica do uniforme do fuzileiro naval? (id:30015)",
+            respostas: ["Distintivo","Divisa","Gorro de fita ","Platinas"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é o nome da linguagem própria da Força utilizada pelos homens do mar? (id:30016)",
+            respostas: ["Linguagem naval","Linguagem do oceano","Linguagem marítima","Linguagem do homem do mar"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é a peça estrutural básica do casco do navio? (id:30017)",
+            respostas: ["Cavernas","Costado","Quilha ","Anteparas"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que são as peças curvas que se fixam transversalmente à quilha do navio e que servem para dar forma ao casco e sustentar o chapeamento exterior? (id:30018)",
+            respostas: ["Quilha","Anteparas","Costado","Cavernas "],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que é a parte do forro exterior do casco situada entre a borda e a linha de flutuação a plena carga? (id:30019)",
+            respostas: ["Cavernas","Quilha","Anteparas","Costado "],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que são as separações verticais que subdividem, em compartimentos, o espaço interno do casco, em cada pavimento? (id:30020)",
+            respostas: ["Quilha","Costado","Anteparas ","Cavernas"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que é a extremidade dianteira ou anterior do navio? (id:30021)",
+            respostas: ["Popa","Bordos","Convés de vôo ou convôo","Proa "],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é a definição de Superestrutura central? (id:30022)",
+            respostas: ["É a construção feita sobre o convés principal","É a existente na parte extrema da proa","É a existente na parte extrema da popa","É a existente a meia-nau"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que é Bailéu? (id:30023)",
+            respostas: ["É o espaço entre o convés mais baixo e o fundo do navio"," É um pavimento parcial abaixo do último pavimento contínuo","É a abertura feita na borda ou passagens nas balaustradas"," É um compartimento estanque onde se acondiciona a carga"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é Portaló? (id:30024)",
+            respostas: ["É a existente a meia-nau","É a abertura feita na borda ou passagens nas balaustradas","É a superestrutura na parte extrema da proa"," É a abertura feita no convés mais baixo"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que significa a expressão (estar na onça)? (id:30025)",
+            respostas: ["Estar em apuros","Estar em um pavimento abaixo do último pavimento contínuo","Estar no convés","Estar na superestrutura central"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"O que significa a expressão (a faina está safa)? (id:30026)",
+            respostas: ["A faina está sendo realizada no convés","A faina está sendo realizada nos conveses cobertos","A faina está correndo bem"," A faina está sendo realizada nos pavimentos abaixo"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual o significado de (safa-onça)? (id:30027)",
+            respostas: [" Salvação"," Entrave","Conhecimento profundo","Esperar a vez"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"O que significa (pegar)? (id:30028)",
+            respostas: ["Salvação","Entrave","Conhecimento profundo","Esperar a vez"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é (caverna mestra)? (id:30029)",
+            respostas: ["Salvação","Entrave","Militar a mais tempo no cargo","Esperar a vez"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que significa (ficar na bóia de espera)? (id:30030)",
+            respostas: ["Salvação","Entrave","Conhecimento profundo"," Esperar a vez"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que é (arvorar)? (id:30031)",
+            respostas: ["Dar volta na faina","Continuar uma atividade com ritmo acelerado","Proteger e cuidar com preferência"," Esperar a vez"],
+            correta: "resp0"
+          },
+         
+          {
+            pergunta:"De acordo com o CGCFN-1101, a respeito das tradições navais, assinale a opção correta (id:30032)",
+            respostas: ["A gente de bordo compõe-se da oficialidade e da guarnição de uma OM"," A oficialidade e composta pelos oficiais da OM, exceto o Imediato","Todos que entram a bordo obrigatoriamente saúdam o Oficial de Serviço e pedem licença para sair de bordo.","A tripulação da OM é composta pelas suas praças "],
+            correta: "resp2"
+          },
+                   
+          {
+            pergunta:" Como é composta a gente de bordo? (id:30033)",
+            respostas: [" Oficialidade e Guarnição","Comandante e Guarnição","Oficialidade e Tripulação","Comandante e Tripulação"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"As separações verticais que subdividem, em compartimento, o espaço interno do casco do navio, em cada pavimento, são denominadas: (id:30034)",
+            respostas: ["Anteparas.","Cavernas","Bordos","Convés"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Como é denominada a superestrutura localizada na proa do navio? (id:30035)",
+            respostas: ["Tombadilho"," Castelo de Proa."," Superestrutura","Superestrutura central."],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:" Onde, normalmente, encontramos no navio os conveses tijupá e passadiço? (id:30036)",
+            respostas: [" Na Superestrutura."," Na Superestrutura Central. ","No Castelo de proa","No Tombadilho"],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:" Com relação as partes mais importantes do navio, podemos afirmar que: <br> (I) Os Bordos são as partes do forro exterior do casco situada entre a borda e a linha de flutuação a plena carga.<br> (II) As Cavernas são peças curvas que se fixam transversalmente à quilha do navio e que servem para dar forma ao casco e sustentar o chapeamento exterior <br> (III) Convés é a denominação atribuída aos pavimentos com que o navio é dividido no sentido da altura <br> (IV) O Portaló de BE é considerado o de honra nos navios de guerra (id:30037)",
+            respostas: ["Apenas as alternativas II e III estão corretas","As alternativas I e III estão corretas","As alternativas I, III e IV estão corretas","As alternativas II, III e IV estão corretas"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:" Com relação ao partes do navio, as superestruturas feitas na parte extrema da popa, na parte extrema da proa, sobre o convés principal e a existente a meia nau, corresponde respectivamente a: (id:30038)",
+            respostas: [" Castelo de proa, Tombadilho, Superestrutura e Superestrutura central","Tombadilho, Castelo de proa, Superestrutura e Superestrutura central. ","Tombadilho, Castelo de proa, Superestrutura Central e Superestrutura.","Castelo de proa, Tombadilho, Superestrutura Central e Superestrutura"],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:" É o oficial cuja autoridade se segue, em qualquer caso, à do Comandante: (id:30039)",
+            respostas: ["Assistente","Imediato","Ajudante de Ordens.","Oficial de Serviço."],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:" É a autoridade suprema de bordo: (id:30040)",
+            respostas: ["Imediato","Comandante"," Oficial de serviço","Oficial de Pessoal."],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:" Como é composta a gente de bordo? (id:30041)",
+            respostas: ["Oficiais e Praças","Oficialidade e Tripulação","Comandante e Guarnição","Comandante e Tripulação"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Como é constituída a oficialidade de uma OM? (id:30042)",
+            respostas: ["Comandante e oficiais do Estado-Maior. "," Comandante e Imediato. ","Oficiais do Estado Maior","Imediato e demais Oficiais."],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Todos que entram a bordo, deverão obrigatoriamente saudar o: (id:30043)",
+            respostas: ["Oficial de Serviço.","Contramestre","Imediato","Comandante"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Qual a peça considerada a espinha dorsal do navio? (id:30044)",
+            respostas: ["Superestrutura central.","Superestrutura","Casco","Quilha"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Como se chama a abertura feita na borda ou passagens nas balaustradas, por onde o pessoal entra e sai do navio? (id:30045)",
+            respostas: ["Tombadilho","Portaló","Convés","Porão"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Como é denominado o espaço entre o convés mais baixo e o fundo do navio? (id:30046)",
+            respostas: ["Tombadilho","Bailéu","Porão","Cavernas"],
+            correta: "resp2"
+          },
+                    
+          {
+            pergunta:"Como são denominadas as duas partes simétricas em que o casco é dividido pelo plano diametral? (id:30047)",
+            respostas: ["Castelo de proa","Portaló","Tombadilho","Bordos"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:" Como são denominados os pavimentos com que o navio é dividido no sentido da altura? (id:30048)",
+            respostas: ["Tombadilho","Conveses"," Castelo de proa","Passadiço"],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:"Com relação às expressões do cotidiano, como é chamado o oficial ou praça que, por achar-se há muito tempo no navio e ser dedicado às coisas de bordo, torna-se profundo conhecedor dos problemas e peculiaridades do mesmo? (id:30049)",
+            respostas: ["Caverna mestra","Antigão","Velha guarda.","Mestre"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:" A expressão marinheira que significa o contrário de estar safo é: (id:30050)",
+            respostas: ["estar na onça","pegar","estar em dificuldade","onça"],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:"O 3º SG-FN-IF JURUNÁTICO, Comandante do 3ªGC do 1ºPel da 2ªCia do 3ºBtlInfFuzNav, recebeu a tarefa de embarcar com seu Grupo de Combate no Navio Transporte de Tropa Ary Carlos. Durante sua permanência, pode observar vários procedimentos, atinentes à linguagem do mar e tradições navais. Analise as proposições abaixo, assinale Falso ou Verdadeiro e marque a opção que indica a sequência correta (id:30051)",
+            respostas: ["(__) No dia do embarque do GC, o Comandante de Operações Navais visitou o Navio e recebeu as honras no Portaló de BB e, em seguida, foi para o convés principal acompanhado do Comandante do Navio.","(__) O SG JURUNÁTICO recebeu a determinação de guardar todo material do Pelotão no Bailéu, ou seja, no espaço entre o convés mais baixo e o fundo do navio.","(__) Precisando falar com o Oficial de Quarto, o SG JURUNÁTICO dirigiu-se até a Superestrutura Central, que fica a meia nau do navio, e constatou que o Oficial do Quarto encontrava-se junto com o Comandante do navio, em um pavimento dispondo de uma ponte (passagem) na direção de BB a BE, denominado passadiço.","(__) O SG JURUNÁTICO, posicionado no plano diametral e olhando para a popa, observou os bordos do navio, que são as duas partes simétricas em que o casco é dividido pelo plano diametral. Da sua posição, boreste (BE) é a parte à direita, e bombordo (BB) à esquerda. "],
+            correta: "resp1"
+          },
+                    
+          {
+            pergunta:"De acordo com as tradições navais, analise as proposições abaixo, considere-as como corretas ou incorretas e assinale a alternativa que apresenta a afirmação certa. <br> I - Uma série de atividades de bordo é executada pelo pessoal de serviço. Originalmente, o cuidado com o navio, em termos de zelo por sua segurança, determinou o emprego de parcelas da tripulação em períodos de quatro horas, denominados quartos. Resulta daí a divisão do dia em quartos de serviço, correspondentes aos períodos entre os horários de 00:00 às 04:00, de 04:00 às 08:00, de 08:00 às 12:00, de 12:00 às 16:00, de 16:00 às 20:00 e de 20:00 às 24:00 horas. O quarto de 06:00 às 08:00 é denominado quarto d'alva. <br> II - No exercício de suas atribuições, o Oficial de Serviço é o representante do Comandante. Ele é o responsável apenas pelo cumprimento da rotina e manutenção da disciplina. Já o Polícia, que pode ser um sargento ou um cabo, ajudante do Oficial de Serviço, é o responsável pela segurança da OM, pela manutenção da disciplina e pelo cumprimento da rotina. <br> III - No período compreendido entre os toques de alvorada e de silêncio, os intervalos dos quartos são determinados por batidas do sino de bordo, feitas ao fim de cada meia-hora. Desse modo, pode-se dizer que tanto às 10:30 hs da manhã quanto às 10:30 hs da noite serão executadas duas batidas duplas e uma batida singela. <br> IV - O Oficial de Serviço, nos navios, utiliza um apito tradicional, o qual serve para cumprimentar ou responder a cumprimentos dos cerimoniais (honras de passagem) de navios ou lanchas com autoridades que passam ao largo. <br> V - O expediente de bordo, tradicionalmente, é dividido em quartos. Desse modo, dos eventos que ocorrem em cada respectivo quarto, no decorrer do dia a dia das unidades, pode ser citado, como exemplo, os toques de sinal do meio-dia e rancho geral, os quais ocorrem no quarto de 12:00 às 16:00. (id:30052)",
+            respostas: ["Apenas a III está incorreta.","A III e a V estão corretas.","Apenas a II está correta","Todas estão incorretas"],
+            correta: "resp3"
+          },
+                    
+          {
+            pergunta:"Segundo o Manual do Fuzileiro Naval, no que diz respeito às instalações de bordo nos navios, assinale verdadeiro ou falso nas afirmativas abaixo e assinale a alternativa que apresenta a sequência correta. <br> ( ) Paiol é o compartimento destinado à guarda ou armazenamento de materiais, como rancho, tintas, equipagens, fardamento etc. Já as armas portáteis e de porte, bem como a munição, devem ficar guardadas na escoteria. <br> ( ) Quanto aos alojamentos, a câmara é destinada ao comandante. Os camarotes destinam-se aos oficiais e os alojamentos aos suboficiais e primeiros-sargentos. Já as cobertas serão destinadas aos demais sargentos, cabos, marinheiros e soldados. <br> ( ) Nas OM, de uma forma geral, haverá os seguintes ranchos: o do comandante, normalmente agregado à câmara; o dos oficiais, realizado na Praça D'armas; O Rancho dos suboficiais e das demais praças recebe a denominação de coberta de rancho. <br> ( ) Praça D'armas é o compartimento onde funcionam o refeitório e a sala de estar dos oficiais nos navios de guerra. A expressão originou-se do fato de, no tempo da Marinha dos navios a vapor, ser no compartimento reservado à refeição dos oficiais que se guardava o armamento portátil do navio. (id:30053)",
+            respostas: [" (F) (V) (V) (F) "," (F) (F) (V) (F) ","(V) (V) (F) (V) "," (V) (F) (V) (F) "],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"Segundo as tradições navais, assinale a alternativa que NÃO representa uma faina que deverá ser realizada pelo FN a bordo dos navios da Marinha do Brasil. (id:30054)",
+            respostas: ["Parcial para recebimento de munição.","Emergência para postos de abandono","Emergência para colisão","Comum para recebimento de combustível"],
+            correta: "resp0"
+          },
+                    
+          {
+            pergunta:"De acordo com as tradições navais, no que diz respeito aos uniformes, analise as proposições abaixo, considere-as como corretas ou incorretas e assinale a alternativa que apresenta a afirmação certa. <br> I - O uniforme típico do marinheiro não é universal, variando de acordo com as tradições de cada marinha no mundo. Suas peculiaridades são o lenço preto ao pescoço e a gola azul com três listras. <br> II - A cor azul da gola do uniforme é adotada por quase todas as marinhas do mundo. As três listras nela existentes foram usadas pela primeira vez nos funerais de Nelson, para comemorar suas vitórias nas três grandes batalhas: Aboukir, S. Vicente e Trafalgar. <br> III - Os Fuzileiros Navais também trazem em seus uniformes simbolismos e tradições. O gorro de fita, de forma escocesa, é umas das peças mais características do uniforme do Fuzileiro Naval.Foi ideia, em 1890, de um Comandante do Regimento Naval, o qual tinha ascendência britânica. <br> IV - O uniforme do Fuzileiro Naval, conhecido como garança, é notadamente utilizado nas cerimônias e nas apresentações das bandas de música. Sua túnica, no tom vermelho-vivo, corresponde à tradição reinante nas tropas do século XIX, no teatro da Europa, que empregavam uniformes nessa cor para ressaltar os valores de intrepidez e ardor com que se comportavam nas batalhas. Simbolicamente, retratavam o sangue do combatente a manchar sua vestimenta de combate. (id:30055)",
+            respostas: ["Apenas a III está incorreta.","A I e a III não estão incorretas.","Apenas a II está correta.","A I e a III estão incorretas."],
+            correta: "resp3"
+          },
+                    
+        ];
+        
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Marcha e Estacionamento</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Marcha e Estacionamento</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Marcha e Estacionamento</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="carac-de-uma-area-de-op.html">Carac. de Uma Area de Operação</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="et-gc.html">ET / GC</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="comunicacoes.html">Comunicações</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="op-sob-visibilidade-reduzida.html">OP. sob Visibilidade Reduzida</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-anfibias.html">Operações Anfíbias</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-terrestres.html">Operações Terrestres</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="organizacao.html">Organização</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="patrulhas.html">Patrulhas</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="tecnicas-individuais-de-combat.html">Tecnicas Individuais de Combate</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "O que é uma coluna de marcha? (id:08001)",
+              respostas: ["Um sinal colocado em um ponto crítico.","Duas ou mais unidades de marcha sob um comando único","O número de viaturas em formação de marcha por unidade de comprimento de estrada.","A distância entre duas unidades de um grupamento de marcha a pé."],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual é a finalidade da preparação cuidadosa para uma marcha? (id:08002)",
+              respostas: ["Evitar acidentes de trânsito.","Realizar a marcha com o mínimo de desgaste da tropa.","Chegar ao destino no tempo previsto e em condições de cumprir a missão.","Identificar um ponto crítico no início do itinerário."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "O que é um balizador ou balizamento? (id:08003)",
+              respostas: ["Uma coluna de marcha."," Um elemento que orienta e conduz uma unidade ou viatura.","Um sinal colocado em um ponto crítico para indicar uma direção, um procedimento ou um obstáculo.","O número de viaturas em formação de marcha por unidade de comprimento de estrada."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é o objetivo das marchas preparatórias? (id:08004)",
+              respostas: ["Executar o movimento com o mínimo de desgaste da tropa.","Realizar a marcha em condições de combate.","Facilitar o movimento em cruzamentos, passagens de nível, etc.","Constituir um grupamento de marcha"],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "O que é o ponto inicial (PI)? (id:08005)",
+              respostas: ["Um ponto predeterminado no início do itinerário.","A distância entre duas unidades de um grupamento de marcha a pé.","Um elemento que orienta e conduz uma unidade ou viatura","O número de viaturas em formação de marcha por unidade de comprimento de estrada."],
+              correta: "resp0"
+            },
+                      
+            {
+              pergunta: "Qual a formação geralmente adotada por uma tropa que marcha a pé? (id:08006)",
+              respostas: ["Coluna por um"," Coluna por dois","Coluna por três","Coluna por quatro"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Qual a velocidade média em estradas considerada para fim de planejamento de marchas a pé durante o dia? (id:08007)",
+              respostas: ["1 Km/h"," 2,5 Km/h"," 3 Km/h","4 Km/h"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual a tarefa do regulador de marcha em uma marcha a pé? (id:08008)",
+              respostas: ["Observar o mapa da região e orientar a tropa.","Carregar os equipamentos mais pesados da tropa.","Observar a velocidade prescrita e manter um ritmo uniforme.","Ser responsável por cuidar dos pés dos soldados."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual é a distância normal entre os homens em uma marcha preparatória diurna? (id:08009)",
+              respostas: ["4 metros","3 metros"," 2 metros","1 metro"],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Quantas horas por dia uma tropa deve marchar a pé em situações normais? (id:08010)",
+              respostas: ["Mais de 8 horas","Até 8 horas","Até 10 horas","Até 12 horas"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "Quais são os cuidados necessários com os pés antes de uma marcha? (id:08011)",
+              respostas: ["Usar um calçado apertado","Não cortar as unhas dos pés.","Não colocar polvilho anti-séptico entre os dedos."," Lavar os pés e enxugá-los bem, colocando polvilho anti-séptico entre os dedos, colocar meias limpas de tamanho apropriado e em perfeitas condições e colocar um calçado ajustado."],
+              correta: "resp3"
+            },
+                      
+            {
+              pergunta: "Qual a recomendação quanto à ingestão de água durante uma marcha? (id:08012)",
+              respostas: ["Beber água suficiente antes do início da marcha e durante todo o trajeto","Não beber água durante as 3 ou 4 primeiras horas de marcha.","Beber muita água de uma só vez.","Beber água apenas nos locais de estacionamento"],
+              correta: "resp1"
+            },
+                      
+            {
+              pergunta: "O que é um estacionamento acantonado? (id:08013)",
+              respostas: ["Uma tropa estacionada sob árvores, abrigos naturais ou improvisados, sem o emprego de barracas.","Uma tropa estacionada no campo em barracas de campanha.","Uma tropa estacionada no interior de casas ou edifícios particulares.","Uma tropa que não tem local fixo de estacionamento."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Quais são os procedimentos necessários para a manutenção da ordem e higiene nos estacionamentos? (id:08014)",
+              respostas: ["Jogar restos de comida e lixo em qualquer lugar.","Deitar ou sentar diretamente sobre o terreno úmido.","Preparar o lugar onde vai se deitar e trocar a roupa molhada logo que chegar ao estacionamento.","Satisfazer as necessidades fisiológicas em qualquer lugar."],
+              correta: "resp2"
+            },
+                      
+            {
+              pergunta: "Qual o objetivo da vala de escoamento em torno da barraca (dreno) no acampamento? (id:08015)",
+              respostas: [" Servir como depósito de lixo.","Proteger a barraca da chuva.","Servir como local para banho.","Escoar a água da chuva e evitar que a barraca fique alagada."],
+              correta: "resp3"
+            },
+ 
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

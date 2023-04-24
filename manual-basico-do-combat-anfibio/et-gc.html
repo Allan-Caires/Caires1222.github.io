@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ET / GC</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">ET / GC</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">ET / GC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="carac-de-uma-area-de-op.html">Carac. de Uma Area de Operação</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="et-gc.html">ET / GC</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="comunicacoes.html">Comunicações</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="op-sob-visibilidade-reduzida.html">OP. sob Visibilidade Reduzida</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-anfibias.html">Operações Anfíbias</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="operacoes-terrestres.html">Operações Terrestres</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="organizacao.html">Organização</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="patrulhas.html">Patrulhas</a></li>
+                    <li class="nav-item px-lg-1"><a class="nav-link text-uppercase" href="tecnicas-individuais-de-combat.html">Tecnicas Individuais de Combate</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+           
+            {
+              pergunta: "Qual a finalidade do Grupo de Combate (GC)? (id:07001)",
+              respostas: ["Atacar navios inimigos","Proteger território conquistado","Localizar e destruir o inimigo pelo fogo e movimento","Realizar ações de inteligência"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Quantas Esquadras de Tiro (ET) compõem o Grupo de Combate (GC)? (id:07002)",
+              respostas: ["Uma","Duas","Três","Quatro"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Quantos combatentes compõem o Grupo de Combate (GC)? (id:07003)",
+              respostas: ["10 combatentes","12 combatentes","13 combatentes","15 combatentes"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a principal responsabilidade do Comandante de ET? (id:07004)",
+              respostas: ["Fazer cumprir as ordens do Comandante de Pelotão de Fuzileiros Navais","Empregar eficientemente a arma automática da ET","Controlar o tiro e disciplina de fogo de sua ET","Localizar e destruir o inimigo pelo fogo e movimento"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é a tarefa do Municiador? (id:07005)",
+              respostas: ["Fazer cumprir as ordens do Comandante de Pelotão de Fuzileiros Navais","Empregar eficientemente a arma automática da ET","Controlar o tiro e disciplina de fogo de sua ET","Auxiliar o Atirador no emprego da arma automática da ET"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual o armamento orgânico disponível para o Atirador no GC? (id:07006)",
+              respostas: ["Fuzil de Assalto 5,56mm e baioneta;","Fuzil de Assalto 5,56mm com Lança-Granadas 40mm M203 e baioneta;","Fuzil metralhador ou arma automática (MINIMI) equivalente e faca de combate;","Fuzil de Assalto 5,56mm, baioneta e armamento AC AT-4."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual o apoio de fogo disponível para facilitar o movimento de um ou dos outros dois GC no PelFuzNav? (id:07007)",
+              respostas: ["Morteiros 60mm (Mrt60mm), metralhadoras (MAG) e armas AC;"," Mísseis AntiCarro BILL(MACBILL);","Fuzil de Assalto 5,56mm e baioneta;","Não há apoio de fogo disponível no PelFuzNav."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "O que é capaz de empregar a Seção de Morteiro 60mm (SecMrt60mm) do Pelotão de Petrechos (PelPtr) da CiaFuzNav? (id:07008)",
+              respostas: ["Morteiros 81mm (Mrt81mm);","Mísseis AntiCarro BILL(MACBILL);","Metralhadoras pesadas calibre .50;","Morteiros e metralhadoras para proporcionar fogos de apoio aproximado em auxílio aos elementos de manobra dessa subunidade."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual o armamento disponível para a proteção aproximada contra os blindados inimigos na Seção de armas AC do Pelotão de Petrechos (PelPtr) da CiaFuzNav? (id:07009)",
+              respostas: ["Fuzil de Assalto 5,56mm e baioneta;","Metralhadoras (MAG);","Mísseis AntiCarro BILL(MACBILL);","Armas AC."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "O que influencia a decisão do Comandante na escolha de uma formação em particular durante as formações de combate? (id:07010)",
+              respostas: ["A tarefa recebida, o terreno, a situação, as condições meteorológicas, a velocidade de progressão desejada e o grau de flexibilidade pretendido;","A disponibilidade de armamento orgânico;","A experiência do Comandante;","O número de combatentes na fração."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual a função do comandante de uma fração de tropa (CmtET ou CmtGC)? (id:07011)",
+              respostas: ["Determinar a formação de combate para todas as frações subordinadas."," Manter o controle sobre o movimento de todas as frações subordinadas.","Garantir a execução do tiro em qualquer direção","Realizar o deslocamento rápido e controlado."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Quando é recomendado utilizar a formação em coluna? (id:07012)",
+              respostas: ["Quando não existem dados exatos sobre a situação do inimigo.","Quando a posição e o efetivo do inimigo são conhecidos.","Quando o inimigo se encontra à frente, e sua correta localização e efetivo são conhecidos.","Quando a velocidade e controle do movimento são os fatores preponderantes."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Quais as características da formação em triângulo? (id:07013)",
+              respostas: ["Permite o deslocamento rápido e controlado, favorece o fogo e o movimento para os flancos e dificulta a execução dos tiros para frente.","Permite um bom controle, provê segurança em todas as direções, proporciona bastante flexibilidade e facilita a execução do tiro em qualquer direção.","Proporciona o máximo poder de fogo para a frente e dificulta o controle.","Provê excelente poder de fogo para frente e para o flanco do escalonamento e reduz a velocidade de deslocamento."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Quando é recomendado utilizar a formação em (V)? (id:07014)",
+              respostas: ["Quando não existem dados exatos sobre a situação do inimigo.","Quando a posição e o efetivo do inimigo são conhecidos.","Quando o inimigo se encontra à frente, e sua correta localização e efetivo são conhecidos","Quando é necessário cruzar extensas áreas descobertas."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a função da ET nas formações do GC? (id:07015)",
+              respostas: ["Determinar a formação de combate para todas as frações subordinadas.","Realizar o deslocamento rápido e controlado."," Garantir a execução do tiro em qualquer direção.","Ser o elemento de manobra nas formações do GC."],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Qual a função dos sinais? (id:07016)",
+              respostas: ["Transmitir informações apenas em locais silenciosos","Fornecer comandos para frações subordinadas apenas em batalhas noturnas","Transmitir informações e fornecer comandos em situações onde a comunicação a viva voz é difícil ou impossível","Nenhuma das opções acima"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "O que os comandantes de frações subordinadas fazem em relação aos sinais? (id:07017)",
+              respostas: ["Não se preocupam com a transmissão correta dos sinais","Repetem os sinais apenas uma vez para suas frações","Repetem os sinais sempre que necessário para garantir a presteza e a execução correta das ordens","Nenhuma das opções acima"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual o perigo do uso do apito como instrumento de sinalização? (id:07018)",
+              respostas: ["Interpretações equivocadas dos sinais","Barulho do campo de batalha que reduz a eficiência dos sinais","Confusão com sinais de frações adjacentes","Todas as opções acima"],
+              correta: "resp3"
+            },
+                       
+            {
+              pergunta: "Como devem ser os sinais especiais? (id:07019)",
+              respostas: ["Desconhecidos e não ensaiados antes do seu uso","Conhecidos e ensaiados antes do seu uso","Conhecidos apenas pelo CmtGC","Nenhuma das opções acima"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Como deve ser o uso dos artefatos pirotécnicos e de fumaça para sinalização? (id:07020)",
+              respostas: ["Pode ser usado de forma independente por qualquer GC","Precisa ser coordenado entre os GC e com o CmtPelFuzNav para evitar o uso de sinais já empregados com significado diferente","Pode ser usado em qualquer momento durante a batalha","Nenhuma das opções acima"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é o objetivo da fase da Preparação no combate ofensivo? (id:07021)",
+              respostas: ["Cruzar a LP","Estabelecer contato com o inimigo","Realizar movimento para a ZReu"," Todos os anteriores."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Quando é adotada a Coluna de Marcha durante o movimento para a ZReu? (id:07022)",
+              respostas: ["Quando a ameaça inimiga passa para contato pouco provável.","Quando a probabilidade de contato com o inimigo é remota.","Quando o contato com o inimigo é estabelecido.","Quando há a necessidade da rapidez."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é a Coluna Tática adotada durante o movimento para a ZReu? (id:07023)",
+              respostas: ["Uma formação que permite o pronto desdobramento nas formações de combate.","Uma formação utilizada quando a estrada ou trilha é cercada por vegetação densa.","Uma formação que não é influenciada pela posição do inimigo."," Uma formação utilizada quando há necessidade de uma velocidade máxima."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual é a tarefa da Ponta na Coluna durante o movimento para a ZReu? (id:07024)",
+              respostas: ["Reconhecer quaisquer posições favoráveis à montagem de emboscadas","Supervisionar a disciplina de marcha no âmbito de sua fração.","Impedir que o inimigo surpreenda a tropa que vem à retaguarda.","Ajudar na montagem de emboscadas para o inimigo"],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "Qual é a formação utilizada pela Ponta durante o movimento para a ZReu quando está avançando em triângulo? (id:07025)",
+              respostas: ["Formação em coluna aberta."," Formação em triângulo.","Formação em coluna fechada."," Formação em linha."],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "O que é uma Flancoguarda? (id:07026)",
+              respostas: ["Uma patrulha de segurança de retaguarda.","Uma patrulha de segurança de vanguarda."," Uma patrulha de segurança de flanco","Uma patrulha de segurança de topo."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a formação recomendada para uma Flancoguarda em terreno aberto? (id:07027)",
+              respostas: ["Formação em círculo","Formação em linha.","Formação em triângulo.","Formação em coluna"],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Qual é a função da Ponta de Retaguarda? (id:07028)",
+              respostas: ["Cobrir a retaguarda da coluna."," Cobrir a vanguarda da coluna.","Cobrir o topo da coluna.","Cobrir o flanco da coluna."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que a Ponta de Retaguarda deve fazer se o inimigo ameaça deslocar-se mais depressa que ela? (id:07029)",
+              respostas: ["Esperar reforço de outras tropas.","Deslocar-se mais depressa que o inimigo.","Recuar sem contudo mascarar os fogos da força de cobertura.","Esperar que o inimigo se aproxime para atacá-lo."],
+              correta: "resp2"
+            },
+                       
+            {
+              pergunta: "Quando a Coluna Tática se encerra normalmente? (id:07030)",
+              respostas: ["Quando a tropa ocupa uma ZReu para se preparar para o ataque.","Quando a tropa atinge a ponta da retaguarda.","Quando a tropa atinge a ponta da vanguarda"," Quando a tropa atinge o ponto crítico do terreno."],
+              correta: "resp0"
+            },
+                       
+            {
+              pergunta: "O que é a ZReu? (id:07031)",
+              respostas: ["Uma área de concentração de tropas inimigas.","Uma área onde uma tropa se concentra para se preparar para uma ação tática subseqüente.","Um tipo de arma de fogo.","Um equipamento especial utilizado na preparação para um ataque"],
+              correta: "resp1"
+            },
+                       
+            {
+              pergunta: "Qual é o objetivo da ZReu? (id:07032)",
+              respostas: ["Prover cobertura e abrigo para o inimigo."," Ser suficientemente espaçosa para permitir a dispersão da tropa inimiga.","Prover cobertura e abrigo para a tropa e segurança contra ataques aéreos e terrestres inimigos.","Fornecer recursos extras para o inimigo."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Quais são os preparativos finais do GC para o ataque? (id:07033)",
+              respostas: ["Formulação de planos, mas não incluem reconhecimentos e disseminação das ordens.","Recolhimento e concentração dos equipamentos não necessários ao ataque.","Verificação da prontidão das armas e do pessoal.","Todas as opções anteriores estão corretas."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "O que são Normas de Comando? (id:07034)",
+              respostas: ["São as regras que determinam como a tropa deve agir em combate.","São os passos de um método usual de auxílio ao CmtGC na preparação para um ataque.","São as regras que determinam quem é o líder da tropa.","São os equipamentos necessários para a preparação do ataque"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a sequência de planejamento utilizada pelo CmtGC? (id:07035)",
+              respostas: ["Planejamento circular.","Planejamento reverso.","Planejamento aleatório.","Planejamento linear."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é LP na fase da execução? (id:07036)",
+              respostas: [" É um elemento de assalto que se desloca em direção ao inimigo","É uma medida de coordenação destinada a coordenar o início do movimento do escalão de assalto.","É uma manobra realizada quando a posição inimiga é isolada ou apresenta qualquer dos flancos exposto"," É o processo por meio do qual elementos de uma unidade estabelecem uma base de fogos para engajar o inimigo."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é manobra na fase da execução? (id:07037)",
+              respostas: ["É um elemento de assalto que se desloca em direção ao inimigo.","É uma medida de coordenação destinada a coordenar o início do movimento do escalão de assalto.","É o processo por meio do qual elementos de uma unidade estabelecem uma base de fogos para engajar o inimigo","É um processo de deslocamento dos elementos de uma unidade para uma posição vantajosa de onde é possível lançar-se sobre o inimigo."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "O que é fogo e movimento na fase da execução (id:07038)?",
+              respostas: ["É um elemento de assalto que se desloca em direção ao inimigo.","É uma medida de coordenação destinada a coordenar o início do movimento do escalão de assalto"," É o processo por meio do qual elementos de uma unidade estabelecem uma base de fogos para engajar o inimigo.","É a técnica empregada quando os elementos de assalto de uma unidade encontram oposição inimiga e não conseguem mais progredir sob a cobertura da base de fogos da unidade."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Como o GC é normalmente empregado na execução do ataque? (id:07039)",
+              respostas: ["Como elemento em base de fogos.","Como elemento de assalto."," Como unidade básica de tiro.","Como parte do PelFuzNav."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Qual é a tarefa do elemento de assalto na fase da execução? (id:07040)",
+              respostas: ["Estabelecer uma base de fogos para engajar o inimigo.","Avançar em direção ao inimigo sob a cobertura dos fogos de um elemento em base de fogos.","Cobrir o avanço do elemento que se desloca em direção ao inimigo.","Coordenar e controlar seus subordinados para que todos transponham a LP no momento determinado pelo CmtPelFuzNav."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Durante o ataque, quem controla o tiro das frações do GC? (id:07041)",
+              respostas: ["O CmtGC","O CmtET","O CmtPcp","O CmtScd"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que o CmtGC deve levar em consideração durante o controle de sua fração sob fogo inimigo? (id:07042)",
+              respostas: ["O fato de que o campo de batalha é um lugar muito barulhento e confuso.","A cor do uniforme de seus subordinados.","A ordem alfabética de seus subordinados.","O estado emocional dos subordinados."],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "O que é a ET base? (id:07043)",
+              respostas: [" A unidade do GC que executa o ataque principal.","A unidade do GC que executa o ataque secundário.","A unidade do GC que serve apenas como um guia geral.","A unidade do GC que executa o ataque frontal."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é a função do GC no ataque frontal? (id:07044)",
+              respostas: ["Exercer pressão contra a parcela da frente do dispositivo inimigo que lhe cabe e o expulsar do objetivo.","Dividir os fogos defensivos do inimigo.","Deslocar-se em direção ao flanco do inimigo até atingir uma posição de onde possa desencadear o assalto.","Manobrar por terreno por ele próprio escolhido."],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "Em qual caso o GC terá que abordar a posição inimiga frontalmente? (id:07045)",
+              respostas: ["Quando não há possibilidade de manobrar por qualquer dos flancos da posição inimiga.","Quando a posição inimiga estiver localizada em um terreno elevado.","Quando a posição inimiga tiver poucos defensores.","Quando o GC não tiver obtido superioridade de fogos"],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "Qual é a principal finalidade do avanço por meio do fogo e movimento? (id:07046)",
+              respostas: ["Destruir o inimigo"," Conquistar o território inimigo"," Colocar parte ou todo o elemento de assalto em posição para assaltar a posição inimiga"," Eliminar os fogos inimigos"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é a medida de coordenação inicial do assalto? (id:07047)",
+              respostas: [" Lança-granadas M203","Cofre de assalto"," Armas de tiro direto e indireto"," Posição de assalto (PAss)"],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "O que deve ser feito pelos integrantes do GC quando alcançam a PAss? (id:07048)",
+              respostas: [" Consumir toda a munição durante o assalto","Concluir rapidamente os preparativos finais do assalto","Recarregar as granadas de mão","Desarmar as baionetas"],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a quantidade de tempo que deve ser gasta na PAss? (id:07049)",
+              respostas: ["O tempo que for necessário para ajustar os fogos de proteção final","O tempo que for necessário para consumir toda a munição","A mínima indispensável","O máximo possível"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "O que é considerado coberta e abrigo para a força atacante pode ser considerado o quê para o defensor? (id:07050)",
+              respostas: ["Ângulo morto"," Posição vantajosa","Terreno propício"," Fator de proteção"],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "O que é o tiro de assalto? (id:07051)",
+              respostas: ["É o tiro disparado contra tropas amigas durante a execução do assalto."," É o tiro que o GC mantém em sua posição defensiva.","É o tiro disparado pelas tropas assaltantes para manter o inimigo no interior dos abrigos.","É o tiro executado contra alvos específicos no início do combate."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Quando é possível ao CmtGC reter o controle de sua fração durante o assalto? (id:07052)",
+              respostas: ["Quando a oposição inimiga é forte","Quando o inimigo é iludido pelo GC.","Quando o GC precisa atacar e destruir várias linhas de trincheiras sucessivas.","Quando a oposição inimiga é fraca."],
+              correta: "resp3"
+            },
+                                   
+            {
+              pergunta: "Em que situação o CmtGC precisa descentralizar o controle durante a execução do assalto? (id:07053)",
+              respostas: [" Quando a oposição inimiga é forte.","Quando o GC precisa atacar e destruir várias linhas de trincheiras sucessivas.","Quando o GC se depara com uma fraca oposição inimiga.","Quando o GC precisa fazer a limpeza do objetivo."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Qual é a principal preocupação do CmtGC após o inimigo ter sido expulso do objetivo? (id:07054)",
+              respostas: ["Manter o controle da fração.","Retirar as tropas da área.","Reunir os feridos.","Fazer a limpeza do objetivo."],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "Qual é o perigo potencial do GC ser iludido em caso de fraca oposição inimiga? (id:07055)",
+              respostas: ["O inimigo resistir até que o GC inicie o assalto.","O inimigo atirar contra o GC durante o assalto.","O GC ficar exposto a granadas de mão.","O GC não conseguir atacar e destruir as posições inimigas."],
+              correta: "resp0"
+            },
+                                   
+            {
+              pergunta: "O que é consolidação? (id:07056)",
+              respostas: [" Um ataque imediato após a conquista do objetivo."," A organização de uma defesa imediata após a conquista do objetivo.","A retirada das forças após a conquista do objetivo.","O estabelecimento de uma base militar após a conquista do objetivo."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "Durante a consolidação, qual a segunda prioridade na preparação da defesa imediata? (id:07057)",
+              respostas: [" A redistribuição da munição nas ET.","A evacuação das baixas","O estabelecimento de setores de tiro."," A captura de inimigos."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é reorganização? (id:07058)",
+              respostas: ["O início da continuação do ataque após a conquista do objetivo","A retirada das forças após a consolidação."," O processo de redistribuição de munição e pessoal após a consolidação.","A organização de uma defesa imediata após a conquista do objetivo"],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual a tarefa do CmtGC durante a reorganização? (id:07059)",
+              respostas: [" Estabelecer a defesa imediata","Redistribuir a munição, carregadores e granadas."," Passar ao controle do CmtPelFuzNav os prisioneiros inimigos."," Atingir o objetivo do ataque."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "O que é continuação? (id:07060)",
+              respostas: ["A retirada das forças após a conquista do objetivo."," A organização de uma defesa imediata após a conquista do objetivo.","A continuação do ataque visando a destruição da capacidade inimiga de retrair ordenadamente ou organizar uma nova defesa"," O processo de redistribuição de munição e pessoal após a consolidação."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Qual é a principal tarefa da infantaria na defensiva? (id:07061)",
+              respostas: ["Atacar o inimigo em seu território.","Capturar o território inimigo.","Repelir o assalto inimigo e destruí-lo pelo contra-ataque.","Realizar reconhecimento e coleta de informações."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "O que significa setor de tiro? (id:07062)",
+              respostas: [" A área onde a infantaria realiza a defesa.","A área em que o inimigo se aproxima da posição defensiva."," A área a ser coberta pelo fogo de uma arma ou unidade de tiro.","A área onde ocorre o combate corpo-a-corpo."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "Por que é importante delimitar setores de tiro? (id:07063)",
+              respostas: ["Para indicar a posição do inimigo.","Para garantir a cobertura completa da frente defensiva.","Para evitar o uso excessivo de munição.","Para manter os soldados em forma."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é uma posição de tiro? (id:07064)",
+              respostas: [" Uma posição de espera no campo de batalha.","Uma posição para armazenar armas e munições."," Uma posição no terreno da qual são executados os fogos das armas.","Uma posição para comunicação entre as unidades militares."],
+              correta: "resp2"
+            },
+                                   
+            {
+              pergunta: "O que é uma posição principal de tiro? (id:07065)",
+              respostas: ["Uma posição secundária para as armas de emprego coletivo."," A melhor posição disponível para cobrir completamente um setor de tiro","Uma posição secundária para os combatentes individualmente.","Uma posição para a execução de fogos de artifício."],
+              correta: "resp1"
+            },
+                                   
+            {
+              pergunta: "O que é uma posição de tiro alternativa? (id:07066)",
+              respostas: ["Uma posição para as frações integrantes do PelFuzNav.","Uma posição secundária para as armas de emprego coletivo.","Uma posição para o lançamento de granadas.","Uma posição secundária para os combatentes individualmente."],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Para que serve uma posição de tiro suplementar? (id:07067)",
+              respostas: ["Para ocultar os movimentos do defensor.","Para cobrir o mesmo setor de tiro da posição principal."," Para se precaver contra um ataque de direção diferente daquela principal.","Para realizar ataques surpresa ao inimigo."],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que é um núcleo de defesa? (id:07068)",
+              respostas: ["Um local de armazenamento de munições.","Uma posição para comunicação entre as unidades militares.","Uma posição de espera no campo de batalha","A posição na qual o principal esforço de defesa é concentrado."],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: "Qual é o Limite proeminente de uma série de núcleos defensivos nos quais as unidades de combate terrestre são desdobradas defensivamente? (id:07069)",
+              respostas: ["Área de Segurança (ASeg)","Área de Reserva (ARes)","PD","Limite Avançado da Área de Defesa Avançada (LAADA)"],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: "Qual é a área que se estende desde o LAADA até a retaguarda dos núcleos defensivos na ARes? (id:07070)",
+              respostas: ["PD","ASeg","Área de Reserva (ARes)","Direção Principal de Tiro (DPT)"],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "Qual é a tarefa do GC quando este é parte do PelFuzNav reserva? (id:07071)",
+              respostas: ["Defender no LAADA","O GC como elemento de segurança","O GC como parte da reserva","Nenhuma das opções"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que é a Direção Principal de Tiro (DPT)? (id:07072)",
+              respostas: ["Uma área específica dentro do setor de tiro onde é travado o combate defensivo decisivo"," A área de uma PD que se estende desde o LAADA até a retaguarda dos núcleos defensivos na ARes","Um limite proeminente de uma série de núcleos defensivos nos quais as unidades de combate terrestre são desdobradas defensivamente","Uma direção específica, dentro do setor de tiro, determinada para as armas de tiro de trajetória tensa"],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: "Qual é a unidade básica de tiro do PelFuzNav? (id:07073)",
+              respostas: [" PelFuzNav","GC","ET","DPT"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "Qual é a tarefa principal do CmtET durante a execução da defesa? (id:07074)",
+              respostas: ["Atirar com o fuzil","Controlar e dirigir os fogos de sua ET","Selecionar a exata posição das armas no terreno","Preparar abrigos individuais ou duplos"],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Qual é a distância entre os abrigos individuais ou duplos, dentro da posição da ET? (id:07075)",
+              respostas: ["5 a 10 metros","10 a 15 metros","15 a 20 metros","Não é especificado"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "Qual é a posição do CmtET em geral? (id:07076)",
+              respostas: ["Na posição de tiro individual","Próximo ou junto ao Atirador","No centro do dispositivo da fração"," Em qualquer lugar do terreno"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que o CmtET deve considerar ao designar os setores de tiro para emprego do Lança-Granadas 40mm M203? (id:07077)",
+              respostas: ["A localização aproximada no terreno para a posição de tiro a ser ocupada por cada ET","A necessidade de prover apoio à frações adjacentes"," A preparação dos abrigos individuais ou duplos"," A especificação de um setor de tiro e uma DPT para a arma automática de cada ET"],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Qual é a finalidade da sobreposição dos setores de tiro das ET? (id:07078)",
+              respostas: ["Garantir que cada ET bata somente o setor de tiro do GC correspondente","Diminuir o apoio mútuo entre as ET."," Garantir que cada GC bata somente o setor de tiro correspondente.","Diminuir a possibilidade de proteção aproximada das armas de emprego coletivo."],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que é apresentado pelos CmtET ao CmtGC no emboço do plano de fogos? (id:07079)",
+              respostas: ["Os setores de tiro individuais e as respectivas posições principais de tiro."," A posição de tiro do CmtET e a DPT da arma automática.","A posição de tiro do CmtGC e a DPT da arma automática.","A localização geral da posição de tiro de cada GC."],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "O que pode impedir que um dos integrantes da ET cubra o setor de tiro da ET por inteiro? (id:07080)",
+              respostas: [" Irregularidades do terreno.","A posição selecionada para o CmtGC.","A posição selecionada para o CmtET.","A posição selecionada para o Municiador."],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "Como o CmtPelFuzNav organiza seu núcleo de defesa? (id:07081)",
+              respostas: ["Pela especificação de um setor de tiro e de uma posição principal para o estabelecimento desse núcleo","Pela especificação de um setor de tiro e de várias posições principais para o estabelecimento desse núcleo.","Pela especificação de vários setores de tiro e de várias posições principais para o estabelecimento desse núcleo.","Pela especificação de vários setores de tiro e de uma posição principal para o estabelecimento desse núcleo."],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "Onde é usualmente designada a posição do CmtGC? (id:07082)",
+              respostas: ["À frente das ET, no centro do dispositivo defensivo da GC.","À retaguarda das ET, no centro do dispositivo defensivo da GC.","No flanco direito do dispositivo defensivo da GC.","No flanco esquerdo do dispositivo defensivo da GC."],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Quando o CmtGC recebe a ordem de defesa do CmtPelFuzNav, ele segue quais passos para preparar sua ordem de defesa? (id:07083)",
+              respostas: ["Cinco parágrafos","Três parágrafos","Seis parágrafos","Quatro parágrafos"],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "O que a ordem de defesa do GC inclui? (id:07084)",
+              respostas: ["Informações sobre o inimigo, localização das frações adjacentes e DPT para cada arma automática.","Organização do terreno, prioridade de trabalho e localização do CmtGC.","Sinais pré-estabelecidos e informações sobre a missão do GC.","Distribuição dos AT-4 e informações sobre o ApSvCmb."],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "O que o CmtGC verifica antes de iniciar os detalhes para preparação das posições de tiro? (id:07085)",
+              respostas: [" A localização do CmtPelFuzNav."," O setor de tiro de cada ET e a capacidade de cada uma delas manter este setor sob observação.","A localização das armas de apoio instaladas no interior da posição do GC.","A distribuição dos AT-4 pelos integrantes do GC que ocuparão posições de tiro."],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "O que a ordem de defesa do GC inclui? (id:07086)",
+              respostas: [" Informações sobre o inimigo, localização das frações adjacentes e DPT para cada arma automática."," Organização do terreno, prioridade de trabalho e localização do CmtGC."," Sinais pré-estabelecidos e informações sobre a missão do GC.","Distribuição dos AT-4 e informações sobre o ApSvCmb."],
+              correta: "resp0"
+            },
+                                               
+            {
+              pergunta: "O que o CmtGC verifica antes de iniciar os detalhes para preparação das posições de tiro? (id:07087)",
+              respostas: ["A localização do CmtPelFuzNav.","O setor de tiro de cada ET e a capacidade de cada uma delas manter este setor sob observação","A localização das armas de apoio instaladas no interior da posição do GC."," A distribuição dos AT-4 pelos integrantes do GC que ocuparão posições de tiro"],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Quais são as responsabilidades do CmtGC durante a preparação da posição? (id:07088)",
+              respostas: ["Inspecionar as posições de tiro das guarnições das armas de emprego coletivo, prover segurança pela designação de sentinelas e PO.","Estabelecer um código de sinais para o controle de tiro, inspecionar as posições de tiro para assegurar-se que a camuflagem e a cobertura dos abrigos são satisfatórias."," Designar as posições de tiro para os Atiradores, selecionar as posições de tiro para as armas automáticas e designar para cada Atirador uma DPT batendo uma provável VA do inimigo.","Todas as alternativas estão corretas."],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: "Qual é o limite avançado estabelecido para designar a distância na qual as ET podem abrir fogo? (id:07089)",
+              respostas: ["O alcance máximo das armas portáteis.","A distância correspondente ao alcance útil das armas portáteis.","A distância estipulada pelo CmtPelFuzNav."," O alcance máximo das armas automáticas (MINIMI)."],
+              correta: "resp1"
+            },
+                                               
+            {
+              pergunta: "Qual é a principal tarefa da infantaria na defensiva? (id:07090)",
+              respostas: [" Atacar o inimigo","Retirar-se da posição defensiva"," Barrar o inimigo pelo fogo","Manter-se inerte e esperar o inimigo chegar"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que o GC deve fazer para destruir o inimigo durante a defensiva? (id:07091)",
+              respostas: ["Permitir a aproximação do inimigo da posição de tiro do GC","Repelir o assalto do inimigo com armas de longo alcance"," Manter-se inerte e esperar o inimigo chegar","Destruir o inimigo pelo fogo assim que ele atingir o alcance útil das armas"],
+              correta: "resp3"
+            },
+                                               
+            {
+              pergunta: "Quais são as três partes em que o GC divide a defensiva? (id:07092)",
+              respostas: [" Destruir o inimigo pelo fogo, capturá-lo vivo e interrogá-lo, retirar-se da posição defensiva"," Atacar o inimigo, defender a retaguarda, capturar a posição defensiva inimiga"," Destruir o inimigo pelo fogo, repelir o assalto do inimigo, participar do contra-ataque se necessário"," Manter-se inerte e esperar o inimigo chegar, evitar o contato com o inimigo, abandonar a posição defensiva"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "O que é um setor de tiro? (id:07093)",
+              respostas: ["Uma área que deve ser evacuada durante o combate","Uma área que o inimigo deve atacar primeiro","Uma área que precisa ser coberta pelo fogo de uma arma ou unidade de tiro","Uma área que não é importante para a defensiva"],
+              correta: "resp2"
+            },
+                                               
+            {
+              pergunta: "Como é estabelecido o limite avançado do setor de tiro? (id:07094)",
+              respostas: ["A partir da posição da arma ou unidade de tiro","Escolhendo um acidente notável do terreno"," Definindo uma linha imaginária no meio do setor de tiro","Delimitando o limite avançado em um ponto aleatório"],
+              correta: "resp1"
+            },
+
+          ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>

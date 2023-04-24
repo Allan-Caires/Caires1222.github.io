@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Estatuto dos Militares</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/chapeu-militar.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="../https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="../https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+       <style>
+        
+
+#quiz {
+  margin-top: 5%;
+}
+
+button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f4e4c4;
+}
+
+.resposta {
+  margin: auto auto;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.resposta:hover {
+  background: #f7d081;
+}
+
+.resposta.selecionada {
+  background: #c9c9f6;
+}
+
+#confirm {
+  margin: auto auto;
+  background: #11b411;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#confirm:hover {
+  background: green;
+}
+
+.errada {
+  background: red;
+  color: white;
+}
+
+.correta {
+  background: green;
+  color: white;
+  animation: piscaCerto 0.5s infinite;
+}
+
+@keyframes piscaCerto {
+  0%,
+  49% {
+    background: green;
+  }
+  50%,
+  100% {
+    background: seagreen;
+  }
+}
+
+#status {
+  padding: 10%;
+}
+
+#novoJogo {
+  background: black;
+  color: white;
+  margin: auto auto;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+       </style>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Aprenda jogando</span>
+                <span class="site-heading-upper">Estatuto dos Militares</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="#">Estatuto dos Militares</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto">
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="cerimonial.html">Cerimonial</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="estatuto-dos-militares.html">Estatuto dos Militares</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="ogsa.html">OGSA</a></li>
+                      <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="rdm.html">RDM</a></li>
+                  </ul>
+              </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                          <div id="quiz" data-status="ok">
+                          <div id="perg">
+                            <h4 id="pergunta"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, consectetur eius debitis, velit iusto tempore explicabo ut, et aperiam dignissimos ipsum repellat. Cupiditate odio optio, minus ratione ipsam labore temporibus!</p></h2>
+                          </div>                     
+
+                          <div id="resp">
+                            <div class="mt-5" id="respostas">
+
+                                <button id="resp0" class="resposta">Aqui resposta 1</button>
+                                <button id="resp1" class="resposta">Aqui resposta 1</button>
+                                <button id="resp2" class="resposta">Aqui resposta 1</button>
+                                <button id="resp3" class="resposta">Aqui resposta 1</button>
+                                
+                              </div>
+                              </div>
+                              </div>
+                              <br><br>
+                              <button id="confirm">Confirmar</button>
+                              </div>
+                              <div style="text-align: center;" id="status" class="oculto">
+                              <h2 id="mensagem">Game Over!</h2>
+                              <button id="novoJogo">Jogar Novamente</button>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Contato: <address>projeto.fn.218@gmail.com</address></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <!-- Core theme JS-->
+        <script>/* VARIAVEIS DE CONTROLE DO NOSSO JOGO */
+          let perguntasFeitas = [];
+          
+          //PERGUNTAS DO JOGO
+          const perguntas = [
+          
+          {
+            pergunta:"Qual é a finalidade das Forças Armadas segundo o Estatuto dos Militares? (id:02001)",
+            respostas: ["Executar a política de segurança pública","Defender a Pátria e garantir os poderes constitucionais, a lei e a ordem", "Prestar serviços comunitários","Regulamentar a situação dos servidores públicos"],
+            correta: "resp1"
+          },
+
+          
+          {
+            pergunta:"Qual é a situação dos militares na ativa segundo o Estatuto dos Militares? (id:02002)",
+            respostas: ["Recebem remuneração da União e são dispensados da prestação de serviço ativo","Estão temporariamente incorporados às Forças Armadas para prestação de serviço militar obrigatório ou voluntário","São da reserva remunerada, percebem remuneração da União, mas ainda estão sujeitos à prestação de serviço ativo","Estão aposentados e dispensados definitivamente da prestação de serviço ativo"],
+            correta: "resp1"
+          },
+
+          
+          {
+            pergunta:"O que são os militares de carreira segundo o Estatuto dos Militares? (id:02003)",
+            respostas: ["Aqueles da ativa que prestam serviço militar obrigatório ou voluntário por um prazo determinado","Aqueles da ativa que prestam serviço militar por um período temporário","Aqueles da ativa que, no desempenho voluntário e permanente do serviço militar, têm vitaliciedade, assegurada ou presumida, ou estabilidade adquirida","Aqueles da reserva remunerada que estão sujeitos à prestação de serviço ativo"],
+            correta: "resp2"
+          },
+
+          
+          {
+            pergunta:"Qual é o objetivo do Estatuto dos Militares? (id:02004)",
+            respostas: ["Regulamentar a situação dos policiais militares","Regulamentar a situação dos membros das Forças Armadas","Regulamentar a situação dos bombeiros militares","Regulamentar a situação dos policiais federais"],
+            correta: "resp1"
+          },
+
+          
+          {
+            pergunta:"Quais são as instituições que compõem as Forças Armadas? (id:02005)",
+            respostas: ["Exército, Polícias Militares e Corpo de Bombeiros","Marinha, Polícias Militares e Corpo de Bombeiros","Marinha, Exército e Aeronáutica","Polícias Militares, Exército e Corpo de Bombeiros"],
+            correta: "resp2"
+          },
+
+          
+          {
+            pergunta:"Qual é a situação de um militar temporário? (id:02006)",
+            respostas: ["Estabilidade adquirida","Reservista remunerada","Reformado","Reservista não remunerada"],
+            correta: "resp3"
+          },
+
+          
+          {
+            pergunta:"Qual é a denominação dos membros das Forças Armadas? (id:02007)",
+            respostas: ["Servidores da Pátria","Policiais militares","Corpo de bombeiros","Policiais federais"],
+            correta: "resp0"
+          },
+
+          
+          {
+            pergunta:"Qual é a situação dos militares da reserva remunerada? (id:02008)",
+            respostas: ["Dispensados definitivamente da prestação de serviço na ativa","Em condições de convocação ou mobilização para a ativa","Recebem remuneração da União e estão sujeitos à prestação de serviço na ativa","Estão executando tarefa por tempo certo"],
+            correta: "resp2"
+          },
+          
+          
+          {
+            pergunta:"O que é a hierarquia militar? (id:02009)",
+            respostas: ["É a autoridade dentro da estrutura das Forças Armadas","É a ordenação da autoridade em níveis diferentes dentro da estrutura das Forças Armadas"," É o espírito de camaradagem dentro da estrutura das Forças Armadas","É a disciplina nas Forças Armadas"],
+            correta: "resp1"
+          },
+
+          
+          {
+            pergunta:"O que é disciplina? (id:02010)",
+            respostas: ["É a ordenação da autoridade em níveis diferentes dentro da estrutura das Forças Armadas","É a rigorosa observância e acatamento integral das leis e regulamentos que regulamentam as Forças Armadas","É o espírito de camaradagem dentro da estrutura das Forças Armadas","É a autoridade dentro da estrutura das Forças Armadas"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o objetivo dos círculos hierárquicos? (id:02011)",
+            respostas: ["Desenvolver o espírito de camaradagem em ambiente de estima e confiança","Fixar a escala hierárquica nas Forças Armadas","Conferir o grau hierárquico aos oficiais","Observar rigorosamente as leis e regulamentos nas Forças Armadas"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"O que são postos? (id:02012)",
+            respostas: ["São âmbitos de convivência entre os militares da mesma categoria","São graus hierárquicos dos oficiais conferidos pelo Presidente da República","São leis e regulamentos que regulamentam as Forças Armadas","São os círculos hierárquicos nas Forças Armadas"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é necessário para manter a disciplina e o respeito à hierarquia nas Forças Armadas, segundo o texto? (id:02013)",
+            respostas: ["Cumprimento rigoroso das leis e regulamentos","Desenvolver o espírito de camaradagem em ambiente de estima e confiança","Conferir o grau hierárquico aos oficiais","Ser mantido em todas as circunstâncias da vida entre militares"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é um dos preceitos da ética militar? (id:02014)",
+            respostas: ["Exercer as funções com autoridade e probidade","Utilizar suas energias em benefício do serviço","Abster-se de tratar de matéria sigilosa de qualquer natureza","Todas as alternativas estão corretas"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Quais são as condutas proibidas para os integrantes das Forças Armadas na inatividade? (id:02015)",
+            respostas: ["Utilizar as designações hierárquicas","Fazer uso do posto ou graduação para obter facilidades pessoais","Discutir ou provocar discussões pela imprensa a respeito de assuntos políticos ou militares","Todas as alternativas estão corretas"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é uma das manifestações essenciais do valor militar? (id:02016)",
+            respostas: ["O espírito de corpo, orgulho do militar pela organização onde serve","O amor à profissão das armas e o entusiasmo com que é exercida","O civismo e o culto das tradições históricas","O aprimoramento técnico-profissional"],
+            correta: "resp0"
+          },
+          
+          {
+            pergunta:" É um dos preceitos da ética militar que um militar deve seguir? (id:02017)",
+            respostas: ["Ser discreto em suas atitudes, maneiras e em sua linguagem escrita e falada","Tratar de matérias sigilosas fora do âmbito apropriado","Ser justo e imparcial no julgamento dos atos e na apreciação do mérito dos subordinados","Fazer uso do posto ou da graduação para obter facilidades pessoais"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"É uma das obrigações de um militar perante a sociedade? (id:02018)",
+            respostas: ["Acatar as autoridades civis","Discutir ou provocar discussões pela imprensa a respeito de assuntos políticos ou militares","Cumprir seus deveres de cidadão","Fazer uso do posto ou da graduação para encaminhar negócios particulares ou de terceiros"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"O que é proibido para um militar, segundo o Art. 28, quando já estiver na inatividade? (id:02019)",
+            respostas: ["Usar as designações hierárquicas para discutir ou provocar discussões pela imprensa","Conduzir-se de maneira ilibada na vida pública e na particular","Usar o posto ou a graduação para obter facilidades pessoais","Exercer cargo ou função de natureza civil, mesmo que seja na administração pública"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Em que momento os cidadãos que ingressarem nas Forças Armadas prestam compromisso? (id:02020)",
+            respostas: ["Antes de ingressar na Força Armada","Durante a formação do militar","Depois de adquirir grau de instrução compatível","Ao final da formação"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Como é prestado o compromisso do Guarda-Marinha ou Aspirante-a-Oficial? (id:02021)",
+            respostas: ["Sob a forma de juramento à Bandeira","Sob a forma de juramento à Constituição","Sob a forma de juramento à Pátria","Sob a forma de juramento aos estabelecimentos de formação"],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Qual é a definição de comando? (id:02022)",
+            respostas: ["É uma prerrogativa pessoal do militar","É a soma de autoridade, deveres e responsabilidades que o militar é investido legalmente","É a atividade de conduzir homens ou dirigir uma organização militar","É uma prerrogativa personalíssima do militar"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"O que é a subordinação (id:02023)",
+            respostas: ["Afeta a dignidade pessoal do militar","É decorrente da estrutura hierarquizada das Forças Armadas","É a obrigação do militar de seguir as ordens do comando","É uma forma de humilhação do militar"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o objetivo da preparação do oficial ao longo da carreira? (id:02024)",
+            respostas: ["Para o exercício de funções administrativas"," Para o exercício de funções de comando, chefia e direção"," Para o exercício de funções de instrução","Para o exercício de funções de auxílio aos suboficiais"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o direito do militar em atividade que é praça de carreira com 10 ou mais anos de tempo de efetivo serviço? (id:02025)",
+            respostas: [" Alimentação","Provento","Estabilidade","Funeral"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é a assistência fornecida ao militar e seus dependentes? (id:02026)",
+            respostas: ["Alimentação","Fardamento","Assistência médico-hospitalar","Moradia"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual é o critério para o cálculo do provento dos militares transferidos para a inatividade remunerada? (id:02027)",
+            respostas: ["Por contar mais de 35 anos de serviço","Por atingir a idade-limite de permanência em atividade no posto ou na graduação","Por estar enquadrado em uma das hipóteses previstas nos incisos VIII ou IX do art. 98 da Lei","Por ter sido incluído em quota compulsória unicamente"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:" como é classificada a violação das obrigações ou deveres militares? (id:02028)",
+            respostas: ["Como crime, contravenção ou transgressão disciplinar."," Apenas como crime.","Apenas como transgressão disciplinar.","Apenas como contravenção."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual a gravidade da violação dos preceitos da ética militar cometida por um militar de alto grau hierárquico? (id:02029)",
+            respostas: ["Não é considerada grave.","É considerada menos grave do que a cometida por um militar de baixo grau hierárquico.","É considerada tão mais grave quanto mais elevado for o grau hierárquico de quem a cometer."," É considerada tão grave quanto a cometida por um militar de baixo grau hierárquico."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que acarreta para o militar a inobservância dos deveres especificados nas leis e regulamentos ou a falta de exação no cumprimento dos mesmos? (id:02030)",
+            respostas: [" Apenas responsabilidade funcional.","Apenas responsabilidade penal.","Apenas responsabilidade pecuniária.","Responsabilidade funcional, pecuniária, disciplinar ou penal, consoante a legislação específica."],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"Quem é competente para determinar o imediato afastamento do cargo ou o impedimento do exercício da função de um militar que se tornar incompatível com o cargo ou demonstrar incapacidade no exercício de funções militares a ele inerentes? (id:02031)",
+            respostas: ["Apenas o Presidente da República.","Apenas os titulares das respectivas pastas militares e o Chefe do Estado-Maior das Forças Armadas.","Apenas os comandantes, os chefes e os diretores.","Todos os mencionados nas alternativas a, b e c."],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que é proibido para os militares? (id:02032)",
+            respostas: ["Quaisquer manifestações coletivas, tanto sobre atos de superiores quanto as de caráter reivindicatório ou político.","Apenas manifestações coletivas sobre atos de superiores.","Apenas manifestações coletivas de caráter reivindicatório ou político.","Nenhuma das alternativas anteriores."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Quais são os proventos garantidos aos militares, quando atingem a idade-limite de permanência em atividade no posto ou na graduação? (id:02033)",
+            respostas: ["Provento calculado com base em tantas quotas de soldo do posto ou da graduação quantos forem os anos de serviço, até o limite de 35 anos","Provento calculado com base no soldo integral do posto ou da graduação que possuía por ocasião da transferência para a inatividade remunerada.","Provento calculado com base em uma quota compulsória unicamente em razão do disposto na alínea “c” do inciso III do caput do art. 101 desta Lei.","Provento calculado com base em várias quotas de soldo do posto ou da graduação quantos forem os anos de serviço, até o limite de 35 anos, quando tiver sido abrangido pela quota compulsória."],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Quais são as vantagens garantidas aos militares com mais de 35 anos de serviço? (id:02034)",
+            respostas: ["A estabilidade, o uso das designações hierárquicas, a percepção de remuneração, a assistência médico-hospitalar para si e seus dependentes, o funeral para si e seus dependentes, a alimentação e o fardamento.","A promoção, a assistência médico-hospitalar para si e seus dependentes, a transferência a pedido para a reserva remunerada, as férias, os afastamentos temporários do serviço e as licenças, a demissão e o licenciamento voluntários e a constituição de pensão militar.","A garantia da patente em toda a sua plenitude, a proteção social, a ocupação de cargo correspondente ao posto ou à graduação, a assistência médico-hospitalar para si e seus dependentes, o funeral para si e seus dependentes, a alimentação e o fardamento.","A percepção de remuneração, a assistência médico-hospitalar para si e seus dependentes, o funeral para si e seus dependentes, a alimentação e o fardamento."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"O que são os (proventos)? (id:02035)",
+            respostas: ["Gratificações pagas aos militares na ativa.","Adicionais pagos aos militares na inatividade.","Quotas de soldo e gratificações incorporáveis pagas aos militares na inatividade.","Indenizações pagas aos militares na ativa."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Qual o limite máximo de anos de serviço computáveis para a inatividade dos militares ? (id:02036)",
+            respostas: ["25 anos.","30 anos.","35 anos.","40 anos."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Como os proventos de inatividade dos militares são revistos? (id:02037)",
+            respostas: ["Sempre que houver uma mudança no valor do poder aquisitivo da moeda.","A cada 5 anos, independentemente de mudanças no valor da moeda.","A cada 10 anos, independentemente de mudanças no valor da moeda.","A cada 2 anos, independentemente de mudanças no valor da moeda."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual é o tempo de duração das férias a que os militares têm direito? (id:02038)",
+            respostas: ["10 dias"," 15 dias","30 dias"," 60 dias"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Os militares têm direito a afastamento remunerado por motivo de luto? (id:02039)",
+            respostas: ["Não","Sim","Somente se for por falecimento de um parente de primeiro grau","Somente se for por falecimento de um parente de segundo grau"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o período máximo de afastamento total do serviço para instalação? (id:02040)",
+            respostas: ["5 dias","8 dias","10 dias","15 dias"],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"Os períodos de afastamento por núpcias e trânsito contam como tempo de serviço para todos os efeitos legais? (id:02041)",
+            respostas: ["Sim"," Não","Apenas o período de afastamento por núpcias conta como tempo de serviço","Apenas o período de afastamento por trânsito conta como tempo de serviço"],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Qual é o período máximo de afastamento total do serviço para LTSPF? (id:02042)",
+            respostas: ["1 ano","2 anos","3 anos"," 5 anos"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Qual é o objetivo da pensão militar? (id:02043)",
+            respostas: ["Aposentadoria do militar.","Amparo aos beneficiários do militar falecido ou extraviado.","Pagamento de salário aos militares.","Fornecimento de seguro de vida aos militares"],
+            correta: "resp1"
+          },
+
+          {
+            pergunta:"Como é calculada a contribuição dos militares para a pensão militar? (id:02044)",
+            respostas: ["De acordo com o posto ou graduação do militar.","De acordo com o tempo de serviço do militar.","De acordo com a quantidade de dependentes do militar.","De acordo com a idade do militar."],
+            correta: "resp0"
+          },
+
+          {
+            pergunta:"Quem são os contribuintes obrigatórios da pensão militar? (id:02045)",
+            respostas: [" Apenas os militares da ativa.","Apenas os pensionistas dos militares.","Apenas o Tesouro Nacional.","Os militares das Forças Armadas, seus pensionistas e o Tesouro Nacional."],
+            correta: "resp3"
+          },
+
+          {
+            pergunta:"O que são as prerrogativas dos militares? (id:02046)",
+            respostas: [" São os títulos que os militares recebem em reconhecimento a seus feitos.","São os cargos que os militares ocupam nas Forças Armadas."," São as honras, dignidades e distinções devidas aos graus hierárquicos e cargos."," São as honras, dignidades e distinções devidas aos graus hierárquicos e cargos."],
+            correta: "resp2"
+          },
+
+          {
+            pergunta:"O que simbolizam os uniformes das Forças Armadas? (id:02047)",
+            respostas: ["A força e o poder militar.","A autoridade militar, com as prerrogativas que lhe são inerentes","A modernidade e a tecnologia utilizadas nas Forças Armadas.","A independência e a autonomia dos militares."],
+            correta: "resp1"
+          },
+          
+        ];
+          
+          var qtdPerguntas = perguntas.length - 1;
+          
+          gerarPergunta(qtdPerguntas);
+          
+          function gerarPergunta(maxPerguntas) {
+            //GERAR UM NUMERO ALEATORIO
+            let aleatorio = (Math.random() * maxPerguntas).toFixed();
+            //CONVERTER PARA NUMERO
+            aleatorio = Number(aleatorio);
+            //MOSTRAR NO CONSOLE QUAL FOI A PERGUNTA SORTEADA
+            console.log("A pergunta sorteado foi a: " + aleatorio);
+          
+            //VERIFICAR SE A PERGUNTA SORTEADA JÁ FOI FEITA
+            if (!perguntasFeitas.includes(aleatorio)) {
+              //COLOCAR COMO PERGUNTA FEITA
+              perguntasFeitas.push(aleatorio);
+          
+              //PREENCHER O HTML COM OS DADOS DA QUESTAO SORTEADA
+              var p_selecionada = perguntas[aleatorio].pergunta;
+              console.log(p_selecionada);
+          
+              //ALIMENTAR A PERGUNTA VINDA DO SORTEIO
+              $("#pergunta").html(p_selecionada);
+              $("#pergunta").attr("data-indice", aleatorio);
+          
+              //COLOCAR AS RESPOSTAS
+              for (var i = 0; i < 4; i++) {
+                $("#resp" + i).html(perguntas[aleatorio].respostas[i]);
+              }
+          
+              //EMBARALHAR AS RESPOSTAS
+              var pai = $("#respostas");
+              var botoes = pai.children();
+          
+              for (var i = 1; i < botoes.length; i++) {
+                pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)));
+              }
+            } else {
+              //SE A PERGUNTA JÁ FOI FEITA
+              console.log("A pergunta já foi feita. Sorteando novamente...");
+              if (perguntasFeitas.length < qtdPerguntas + 1) {
+                return gerarPergunta(maxPerguntas);
+              } else {
+                console.log("Abacabaram as perguntas!");
+          
+                $("#quiz").addClass("oculto");
+                $("#mensagem").html("Parabéns você venceu. Acertou todas as perguntas!");
+                $("#status").removeClass("oculto");
+              }
+            }
+          }
+          
+          $(".resposta").click(function () {
+            if ($("#quiz").attr("data-status") !== "travado") {
+              //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+              resetaBotoes();
+          
+              //ADICIONAR A CLASSE SELECIONADA
+              $(this).addClass("selecionada");
+            }
+          });
+          
+          $("#confirm").click(function () {
+            //PEGAR O INDICE DA PERGUNTA
+            var indice = $("#pergunta").attr("data-indice");
+          
+            //QUAL É A RESPOSTA CERTA
+            var respCerta = perguntas[indice].correta;
+          
+            //QUAL FOI A RESPOSTA QUE O USUARIO SELECIONOU
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                var respostaEscolhida = $(this).attr("id");
+          
+                if (respCerta == respostaEscolhida) {
+                  console.log("Aceeertou Miseraveeee!");
+                  proximaPergunta();
+                } else {
+                  console.log("Errrrroooooooou!");
+                  $("#quiz").attr("data-status", "travado");
+                  $("#confirm").addClass("oculto");
+                  $("#" + respCerta).addClass("correta");
+                  $("#" + respostaEscolhida).removeClass("selecionada");
+                  $("#" + respostaEscolhida).addClass("errada");
+          
+                  //4 segundos para dar game over
+                  setTimeout(function () {
+                    gameOver();
+                  }, 5000);
+                }
+              }
+            });
+          });
+          
+          function newGame() {
+            $("#confirm").removeClass("oculto");
+            $("#quiz").attr("data-status", "ok");
+            perguntasFeitas = [];
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+            $("#quiz").removeClass("oculto");
+            $("#status").addClass("oculto");
+          }
+          
+          function proximaPergunta() {
+            resetaBotoes();
+            gerarPergunta(qtdPerguntas);
+          }
+          
+          function resetaBotoes() {
+            //PERCORRER TODAS AS RESPOSTAS E DESMARCAR A CLASSE SELECIONADA
+            $(".resposta").each(function () {
+              if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada");
+              }
+              if ($(this).hasClass("correta")) {
+                $(this).removeClass("correta");
+              }
+              if ($(this).hasClass("errada")) {
+                $(this).removeClass("errada");
+              }
+            });
+          }
+          
+          function gameOver() {
+            $("#quiz").addClass("oculto");
+            $("#mensagem").html("Game Over!");
+            $("#status").removeClass("oculto");
+          }
+          
+          $("#novoJogo").click(function () {
+            newGame();
+          });
+        </script>
+    </body>
+</html>
